@@ -41,18 +41,18 @@ $chart_data = substr($chart_data, 0, -2);
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
-        <script defer src="js/main.js"></script> 
+        <script defer src="js/main.js"></script>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -72,11 +72,11 @@ $chart_data = substr($chart_data, 0, -2);
             <h1>Admin Page</h1>
         </div>
 
-        <div class="container-fluid text-center">    
+        <div class="container-fluid text-center">
             <div class="row content">
                 <div class="col-sm-2 sidenav">
                 </div>
-                <div class="col-sm-8 text-left"> 
+                <div class="col-sm-8 text-left">
                     <br/> <a href="customerprofile.php" title="manage">Customer Profile</a>
                     <br/> <a href="booking.php" title="manage">Booking</a>
                     <br/> <a href="bookingsummary.php" title="manage">Booking Summary</a>
@@ -87,7 +87,7 @@ $chart_data = substr($chart_data, 0, -2);
         </div>
 
         <div class="container" style="width:900px;">
-            <h3 class="centeralign">Revenue</h3>   
+            <h3>Revenue</h3>
             <br /><br />
             <div id="chart"></div>
         </div>
@@ -115,3 +115,4 @@ $chart_data = substr($chart_data, 0, -2);
         <!--end of Footer-->
     </body>
 </html>
+
