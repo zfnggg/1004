@@ -117,8 +117,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required>
                             </td>
                         </tr>
-                        <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">
                     </table>
+                    <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
             </div>
