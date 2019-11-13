@@ -78,38 +78,41 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <table>
                                 <tr>
                                     <td>
-                                        <label> Customer Name: 
-                                            <input name="cName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" type="text" value="<?php echo $data['customerName'] ?>">
-                                            <input name="cid" readonly type="hidden" value="<?php echo $data['customerID'] ?>">
+                                        <label for="cName"> Customer Name: 
+                                            <input id="cName" name="cName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" type="text" value="<?php echo $data['customerName'] ?>">
+<!--                                            <input name="cid" readonly type="hidden" value="<?php echo $data['customerID'] ?>">-->
                                         </label>
                                     </td>
                                 </tr>
                                 <tr>              
                                     <td>
-                                        <label>Password:<input type="password"  name="pword" value="<?php echo $data['password'] ?>"></label>
+                                        <label for="password">Password:<input type="password" id="password" name="pword" value="<?php echo $data['password'] ?>"></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label>Email :<input type="text" name="email" pattern="^\S+@\S+$" value="<?php echo $data['email'] ?>"></label>
+                                        <label for="email">Email :<input type="text" id="email" name="email" pattern="^\S+@\S+$" value="<?php echo $data['email'] ?>"></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label>Phone No: <input type="text" name="phone" pattern="[6,8,9][0-9]{7}" value="<?php echo $data['phoneNo'] ?>"></label>
+                                        <label for="phone">Phone No: <input type="text" id="phone" name="phone" pattern="[6,8,9][0-9]{7}" value="<?php echo $data['phoneNo'] ?>"></label>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label> Role: <br/>
-                                            <input type="radio" name="role" value="C" required> Customer<br>
-                                            <input type="radio" name="role" value="A" required> Admin<br>
-                                        </label>
+                                        <label for="roleC"> Role: <br/>
+                                            <input type="radio" id="roleC" name="role" value="C" required> Customer<br>
+                                             </label>
+                                        <label for="roleA">
+                                            <input type="radio" id="roleA" name="role" value="A" required> Admin<br>
+                                            </label>
+                                       
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label> Profile Pic:
+                                        <label for="profilePicture"> Profile Pic:
                                             <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " width="100" alt="">
                                             <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required> 
                                         </label>
