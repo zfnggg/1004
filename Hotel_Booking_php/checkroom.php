@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -46,7 +46,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group text-center">
                                             <label for="checkin">Check-In Date
-                                            <input id="checkin" name="checkin" type="date"  class="form-control" required/>
+                                            <input name="checkin" type="date"  id="checkin" class="form-control" required/>
                                         </label>
                                         </div>
                                     </div>
@@ -54,7 +54,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group text-center">
                                             <label for="checkout">Checkout Date
-                                            <input id="checkout" name="checkout" type="date" class="form-control" required/>
+                                            <input name="checkout" type="date" id="checkout" class="form-control" required/>
                                         </label>
                                         </div>
                                     </div>
@@ -89,3 +89,4 @@
         <!--end of Footer-->
     </body>
 </html>
+
