@@ -34,7 +34,7 @@ and open the template in the editor.
         <!--end of Navigation bar-->
 
         <div>
-            <div class="jumbotron text-center bg-light">               
+            <div class="jumbotron text-center bg-light">
                 <?php
                 session_start();
                 $_SESSION = array();
@@ -57,3 +57,4 @@ and open the template in the editor.
         <!--end of Footer-->
     </body>
 </html>
+
