@@ -68,12 +68,12 @@ and open the template in the editor.
                 ?>
             </h3>
         </div>
-        <!---- rooms--->
+        <!-- rooms -->
         <div class="container-fluid">
             <div class="row content">
                 <div class="col-sm-8">
                     <h2><?php echo $data['roomType'] ?></h2>
-                    <img src="../HotelBooking_php/public_html/img/<?php echo $data['roomImg'] ?> " style="width:100%">
+                    <img src="../HotelBooking_php/public_html/img/<?php echo $data['roomImg'] ?> " style="width:100%" alt="Image of selected room">
                     <br><br>
                 </div>
 
@@ -93,8 +93,8 @@ and open the template in the editor.
                             <p>Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></p>
                             <p>No of days: <input type="text" id="numdays" name="num_days" readonly required></p>
                             <p>No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]{1}$" required></p>
-                            <p>Total Charges:$ <input type="text"  id="total" name="total_sum" readonly/></p>
-                            <input type="hidden"  id="status" name="status" value="going" readonly/>
+                            <p>Total Charges:$ <input type="text"  id="total" name="total_sum" readonly></p>
+                            <input type="hidden"  id="status" name="status" value="going">
 
                             <h3>Personal Information:</h3>
                             <p>Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></p>
@@ -109,12 +109,12 @@ and open the template in the editor.
                                 <i class="fa fa-cc-discover" style="color:orange;"></i>
                             </div>
                             <p>Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^[0-9]{16}$" placeholder="4444-2222-3333-1111" required></p>
-                            <p>Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" placeholder="Sep" required></p>
-                            <p>CVV: <input type="numer" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></p>
+                            <p>Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></p>
+                            <p>CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></p>
                             <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
                         </form>
 
-                        <script type="text/javascript">
+                        <script>
 
                             //--------------------------credit card-------------------------------------
 
@@ -206,7 +206,7 @@ and open the template in the editor.
                 </div>
             </div>
         </div>
-        <!---- end of  rooms--->
+        <!-- end of  rooms-->
         <hr>
         <!--amenities container-->
         <div class="container-fluid">
