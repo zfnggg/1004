@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+body {
+    font-family: 'Montserrat', sans-seif;
+}
+#titleHead {
+    font-family: 'Courier';
+}
+#icon {
+    max-height:100px;
+    width:auto;
+    float:left;
+}
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+#shrinkImageThumbnail {
+    max-height:150px;
+    width:auto;
+    float:left;
+    padding:2px;
+}
+#shrinkImageBig {
+    max-height:300px;
+    width:auto;
+    
+}
+#shrinkImageAbout {
+    max-height:200px;
+    width:auto;
+}
+
+
+#A1{
+    margin:2px;
+    position: relative;
+}
+
+#pop1{
+    padding: 2px;
+    background: #e1e1e1;
+    position: absolute;
+    box-shadow:0 0 15px #A9A9A9;
+    visibility: hidden;
+    bottom: -50px;
+    right: -50px;
+    float:left;
+    z-index: 1;
+}
+
+#A2{
+    margin:2px;
+    position: relative;
+}
+
+#pop2{
+    padding: 2px;
+    background: #e1e1e1;
+    position: absolute;
+    box-shadow:0 0 15px #A9A9A9;
+    visibility: hidden;
+    bottom: -50px;
+    right: -300px;
+    float:left;
+    z-index: 1;
+}
+#A3{
+    margin:2px;
+    position: relative;
+}
+
+#pop3{
+    padding: 2px;
+    background: #e1e1e1;
+    position: absolute;
+    box-shadow:0 0 15px #A9A9A9;
+    visibility: hidden;
+    bottom: -200px;
+    right: -50px;
+    float:left;
+    z-index: 1;
+}
+
+#A4{
+    margin:2px;
+    position: relative;
+}
+
+#pop4{
+    padding: 2px;
+    background: #e1e1e1;
+    position: absolute;
+    box-shadow:0 0 15px #A9A9A9;
+    visibility: hidden;
+    bottom: -200px;
+    right: -300px;
+    float:left;
+    z-index: 1;
+}
+.iconHotel {
+    font-size:13px;
+}
+.iconSocialMedia {
+    font-size: 30px;
+    padding: 5px;
+}
+.line 
+{
+    border-bottom: 2px solid #cccccc;
+    padding-bottom: 5px;
+    margin-bottom:20px;
+    /*margin: 10px 10px 10px 10px;*/
+}
+#text2
+{
+    color:grey;
+    font-style:italic;
+}
+.checked {
+  color: orange;
+}
+
+a.imgLink{
+    color: #454d55; 
+    text-decoration: none;
+}
+.nav-pills:active {
+    color:red;
+}
+.shrinkImageFam {
+    padding-top: 0px;
+    width:100%;
+    max-height: auto;
+}
+
+.jumbotron {
+    font-family: 'Courier',sans-serif;
+    margin-bottom: 0px;
+}
+
+
+
+/*
+.jumbotron {
+    background-image: url("../img/roombanner.jpg");
+    background-size: cover;
+    height: 333px;
+    background-position: center center;
+    font-family: 'Courier',sans-serif;
+}
+*/
+
+.textPadTop {
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+.iconGrow {
+    padding-top:30px;
+    font-size:30px;
+}
+
+<!-- Jia En -->
+
+table,
+th,
+td {
+    border: 2px solid white;
+    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 13pt;
+    color: midnightblue;
+    background-color: lightblue;
+    
+}
