@@ -14,18 +14,18 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
-        <script defer src="js/main.js"></script> 
+        <script defer src="js/main.js"></script>
     </head>
 
     <body>
@@ -44,7 +44,7 @@ and open the template in the editor.
         </div>
 
         <div>
-            <img src="img/family.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
+            <img src="img/family.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="family1">
         </div>
 
         <div class="bg-light">
@@ -60,14 +60,14 @@ and open the template in the editor.
                     <!-- NEXT COLUMN -->
                     <div class="col-sm-2"></div>
                     <div class="col-sm-4 text-center">
-                        <img src="img/restaurant1.jpg" class="shrinkImageAbout" alt="">
+                        <img src="img/restaurant1.jpg" class="shrinkImageAbout" alt="rest1">
                         <div><i class="fas fa-cocktail iconGrow"></i></div>
                         <div class="textPadTop">
                             Relax and enjoy tasty delicacies at our Michelin Star restaurant. Bring your loved ones to enjoy our plethora of mouth-watering entrées, main courses, and topping it off with our home-made desserts
                         </div>
                     </div>
                     <div class="col-sm-4 text-center">
-                        <img src="img/towel.jpg" class="shrinkImageAbout" alt=""> 
+                        <img src="img/towel.jpg" class="shrinkImageAbout" alt="towel">
                         <div><i class="fas fa-swimmer iconGrow"></i></div>
                         <div class="textPadTop">
                             Comfort at your doorstep. Our facilities include a Thai-style massage parlor, an indoor badminton court, an outdoor swimming pool and so much more! You'll never have a moment of boredom here!</div>
@@ -88,4 +88,5 @@ and open the template in the editor.
         <!--end of Footer-->
     </body>
 </html>
+
 
