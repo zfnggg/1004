@@ -17,6 +17,7 @@ if (!isset($_['submit'])) {
     $total = $_POST['total_sum'];
     $num_days = $_POST['num_days'];
     $status = $_POST['status'];
+    $pax = $_POST['pax'];
 
 
     define("DBHOST", "161.117.122.252");
@@ -26,11 +27,11 @@ if (!isset($_['submit'])) {
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
-    $sql = $conn->prepare("insert into booking (customerID,roomID,checkin,checkout,total,numdays,status) values (?,?,?,?,?,?,?)");
-    $sql->bind_param("iissiis", $customerID, $roomID, $checkin, $checkout, $total, $num_days, $status);
+    $sql = $conn->prepare("insert into booking (customerID,roomID,checkin,checkout,total,numdays,status,pax) values (?,?,?,?,?,?,?,?)");
+    $sql->bind_param("iissiisi", $customerID, $roomID, $checkin, $checkout, $total, $num_days, $status, $pax);
     $sql->execute();
     $result = $sql->get_result();
-    $sql->close();    
+    $sql->close();
     mysqli_close($conn);
     //header("Location:bookroom.php?id=$roomID");
 }
@@ -72,6 +73,15 @@ if (empty($_POST['total_sum'])) {
     $success = true;
 }
 
+//check for empty pax 
+if (empty($_POST['pax'])) {
+    $errorMsg .= "Pax is required.<br>";
+    $success = false;
+} else {
+    $pax = sanitize_input($_POST["pax"]);
+    $success = true;
+}
+
 //check for empty num_days 
 if (empty($_POST['num_days'])) {
     $errorMsg .= "num_days is required.<br>";
@@ -91,6 +101,7 @@ if ($success) {
     echo "<h2 >Checkout : $checkout</h2>";
     echo "<h2 >Total : $total</h2>";
     echo "<h2 >Num of days : $num_days</h2>";
+    echo "<h2 >Num of pax : $pax</h2>";
     echo("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
 } else {
     echo "<h1>Oops!</h1>";
