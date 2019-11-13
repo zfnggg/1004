@@ -40,7 +40,7 @@ if (!isset($_GET['action'])) {
                 die();
             } else {
                 $sql_insert = $conn->prepare("insert into customer (customerName,username,password,email,phoneNo,role,profilePicture)
-							values(?,?,?,?,?,?,?)");
+                            values(?,?,?,?,?,?,?)");
                 //values('$cname', '$uname', '$pword', '$email', '$phoneno', '$role', '" . $target_Folder . $file_name . "')");
                 move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);
                 $sql_insert->bind_param("ssssiss", $cname, $uname, $pword, $email, $phoneno, $role, $pic);
@@ -109,7 +109,7 @@ if (empty($_POST['phoneNo'])) {
     $success = true;
 }
 
-//role 
+//role
 if (empty($_POST['role'])) {
     $errorMsg .= "role  is required.<br>";
     $success = false;
@@ -118,7 +118,7 @@ if (empty($_POST['role'])) {
     $success = true;
 }
 
-//check for empty password 
+//check for empty password
 if (empty($_POST['password'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
@@ -127,7 +127,7 @@ if (empty($_POST['password'])) {
     $success = true;
 }
 
-//check for empty confirm password 
+//check for empty confirm password
 if (empty($_POST['confirmPassword'])) {
     $errorMsg .= "Confirm password is required.<br>";
     $success = false;
@@ -173,3 +173,4 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
