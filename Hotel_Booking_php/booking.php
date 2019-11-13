@@ -80,6 +80,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <th>Check in</th>
                             <th>Check out</th>
                             <th>Total Charges</th>
+                            <th>Pax</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
 
                         <?php
@@ -109,6 +112,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 </td>
                                 <td>
                                     $<?php echo $data['total'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $data['pax'] ?>
                                 </td>
                                 <td>
                                     <form method="post" action="deletebooking.php">
