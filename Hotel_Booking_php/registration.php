@@ -1,4 +1,5 @@
 <?php
+    include "./navbaruser.php";
     session_start();
     $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
 ?>
@@ -28,15 +29,6 @@ and open the template in the editor.
     </head>
 
     <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
 
         <form action="process_registration.php" method="post">
             <div class="container-registration text-center">
@@ -137,17 +129,8 @@ and open the template in the editor.
                 }
             }
         </script>
-
-
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
     </body>
+    <?php
+    include "./footer.php";
+    ?>
 </html>
