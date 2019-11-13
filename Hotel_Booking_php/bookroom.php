@@ -92,9 +92,10 @@ and open the template in the editor.
                             <p>Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></p>
                             <p>Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></p>
                             <p>No of days: <input type="text" id="numdays" name="num_days" readonly required></p>
+                            <p>No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]{1}$" required></p>
                             <p>Total Charges:$ <input type="text"  id="total" name="total_sum" readonly/></p>
                             <input type="hidden"  id="status" name="status" value="going" readonly/>
-                            
+
                             <h3>Personal Information:</h3>
                             <p>Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></p>                       
                             <input type="hidden" name="customerID" value="<?php echo $customer['customerID']; ?>">
