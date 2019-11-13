@@ -22,16 +22,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -47,14 +47,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
         <div class="jumbotron text-center">
             <h1>Edit Profile</h1>
-            <a href="customerprofile.php" title="manage">Customer</a> | 
-            <a href="booking.php" title="manage">Booking</a> | 
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
-        <div class="container-fluid text-center">    
-            <div class="row content">              
-                <div class="col-sm-8 text-left"> 
+        <div class="container-fluid text-center">
+            <div class="row content">
+                <div class="col-sm-8 text-left">
 
                     <?php
                     define("DBHOST", "161.117.122.252");
@@ -78,13 +78,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <table>
                                 <tr>
                                     <td>
-                                        <label for="cName"> Customer Name: 
+                                        <label for="cName"> Customer Name:
                                             <input id="cName" name="cName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" type="text" value="<?php echo $data['customerName'] ?>">
 <!--                                            <input name="cid" readonly type="hidden" value="<?php echo $data['customerID'] ?>">-->
                                         </label>
                                     </td>
                                 </tr>
-                                <tr>              
+                                <tr>
                                     <td>
                                         <label for="password">Password:<input type="password" id="password" name="pword" value="<?php echo $data['password'] ?>"></label>
                                     </td>
@@ -114,7 +114,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <label for="profilePicture"> Profile Pic:
                                             <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " width="100" alt="">
-                                            <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required> 
+                                            <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required>
                                         </label>
                                     </td>
                                 </tr>
@@ -214,3 +214,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <!--end of Footer-->
     </body>
 </html>
+
