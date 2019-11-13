@@ -95,27 +95,27 @@ and open the template in the editor.
                                 <!-- can put class="lead" if want bigger -->
                                 <div class="justify-content-center">
                                     <a id="A1">
-                                        <img src="img/bedroom1.jpg" class="shrinkImageThumbnail" alt=""/>
+                                        <img src="img/bedroom1.jpg" class="shrinkImageThumbnail" alt="bedroom1"/>
                                         <span id="pop1" class="popup">
-                                            <img src="img/bedroom1.jpg" class="shrinkImageBig"/>
+                                            <img src="img/bedroom1.jpg" class="shrinkImageBig" alt="bedroom1"/>
                                         </span>
                                     </a>
                                     <a id="A2">
-                                        <img src="img/bedroom2.jpg" class="shrinkImageThumbnail" alt=""/>
+                                        <img src="img/bedroom2.jpg" class="shrinkImageThumbnail" alt="bedroom2"/>
                                         <span id="pop2" class="popup">
-                                            <img src="img/bedroom2.jpg" class="shrinkImageBig"/>
+                                            <img src="img/bedroom2.jpg" class="shrinkImageBig" alt="bedroom2"/>
                                         </span>
                                     </a>
                                     <a id="A3">
-                                        <img src="img/bedroom3.jpg" class="shrinkImageThumbnail" alt="" />
+                                        <img src="img/bedroom3.jpg" class="shrinkImageThumbnail" alt="bedroom3" />
                                         <span id="pop3" class="popup">
-                                            <img src="img/bedroom3.jpg" class="shrinkImageBig"/>
+                                            <img src="img/bedroom3.jpg" class="shrinkImageBig" alt="bedroom3"/>
                                         </span>
                                     </a>
                                     <a id="A4">
-                                        <img src="img/bedroom4.jpg" class="shrinkImageThumbnail" alt="" />
+                                        <img src="img/bedroom4.jpg" class="shrinkImageThumbnail" alt="bedroom4" />
                                         <span id="pop4" class="popup">
-                                            <img src="img/bedroom4.jpg" class="shrinkImageBig"/>
+                                            <img src="img/bedroom4.jpg" class="shrinkImageBig" alt="bedroom4"/>
                                         </span>
                                     </a>
                                 </div>
