@@ -5,6 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+include "./navbaruser.php";
+
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
     header('location:login.php');
@@ -34,21 +36,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
-
-
     </head>
 
-    <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
-
+    <main>
         <div class="jumbotron text-center">
             <h1>Search Username </h1>
             <a href="customerprofile.php" title="manage">Customer</a> | 
@@ -61,7 +51,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <div class="col-sm-8 text-left"> 
                     <form name="search" method="post" action="searchusername.php">
                         <label for="name">Search Booking by Username:
-                            <input type="text" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required /> 
+                            <input type="text" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" id="name" name="search" size="40" required /> 
                         </label>
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 
@@ -123,18 +113,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 </div>
             </div>
         </div>
+    </main>
 
-
-
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
-    </body>
+    <?php
+    include "./footer.php";
+    ?>
 </html>
