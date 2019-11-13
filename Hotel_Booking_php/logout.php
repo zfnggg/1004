@@ -34,7 +34,7 @@ and open the template in the editor.
         <!--end of Navigation bar-->
 
         <div>
-            <div class="jumbotron text-center bg-light">
+            <div class="jumbotron text-center bg-light">               
                 <?php
                 session_start();
                 $_SESSION = array();
@@ -46,8 +46,7 @@ and open the template in the editor.
             </div>
 
             <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
-        </div>
-<!--Footer-->
+        </div>            <!--Footer-->
         <div id="footer-placeholder">
             <script>
                 $(function () {
