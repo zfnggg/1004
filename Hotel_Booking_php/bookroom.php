@@ -14,16 +14,16 @@ and open the template in the editor.
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -71,8 +71,8 @@ and open the template in the editor.
         <!---- rooms--->
         <div class="container-fluid">
             <div class="row content">
-                <div class="col-sm-8">  
-                    <h2><?php echo $data['roomType'] ?></h2>                 
+                <div class="col-sm-8">
+                    <h2><?php echo $data['roomType'] ?></h2>
                     <img src="../HotelBooking_php/public_html/img/<?php echo $data['roomImg'] ?> " style="width:100%">
                     <br><br>
                 </div>
@@ -88,7 +88,7 @@ and open the template in the editor.
                         ?>
 
                         <form method="POST" name="bookroom" action="process_booking.php" >
-                            <h3>Total Payment:</h3>                          
+                            <h3>Total Payment:</h3>
                             <p>Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></p>
                             <p>Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></p>
                             <p>No of days: <input type="text" id="numdays" name="num_days" readonly required></p>
@@ -97,7 +97,7 @@ and open the template in the editor.
                             <input type="hidden"  id="status" name="status" value="going" readonly/>
 
                             <h3>Personal Information:</h3>
-                            <p>Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></p>                       
+                            <p>Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></p>
                             <input type="hidden" name="customerID" value="<?php echo $customer['customerID']; ?>">
                             <input  type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
                             <h3>Payment Details:</h3>
@@ -123,7 +123,7 @@ and open the template in the editor.
                             var today = new Date().toISOString().split('T')[0];
                             document.getElementsByName("check_in")[0].setAttribute('min', today);
 
-                            //prevent user from selecting date 
+                            //prevent user from selecting date
                             var checkIn = document.getElementById('checkin');
                             var checkOut = document.getElementById('checkout');
                             checkIn.addEventListener('change', updatedate);
@@ -203,15 +203,15 @@ and open the template in the editor.
                             }
                         </script>
                     </div>
-                </div> 
-            </div> 
+                </div>
+            </div>
         </div>
         <!---- end of  rooms--->
         <hr>
         <!--amenities container-->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-12"> 
+                <div class="col-sm-12">
                     <h1><small>Amenities</small></h1>
                     <span class="glyphicon glyphicon-bed"></span>2 bed
                     <span class="glyphicon glyphicon-user"></span>2 Guests
@@ -222,31 +222,31 @@ and open the template in the editor.
         <!--end of amenities container-->
         <hr>
         <!--around the hotel container-->
-        <div class="container-fluid">                 
+        <div class="container-fluid">
             <h1><small>Around the hotel</small></h1>
-            <div class="row">                          
+            <div class="row">
                 <div class="col-sm-3">
                     <img src="img/events.jpeg" class="img-responsive" style="width:100%; " alt="Image">
                     <p>Events</p>
                 </div>
-                <div class="col-sm-3"> 
+                <div class="col-sm-3">
                     <img src="img/dining.jpg" class="img-responsive" style="width:100%" alt="Image">
-                    <p>Dining</p>    
+                    <p>Dining</p>
                 </div>
-                <div class="col-sm-3"> 
+                <div class="col-sm-3">
                     <img src="img/rest.jpeg" class="img-responsive" style="width:100%" alt="Image">
-                    <p>Restaurants</p>    
+                    <p>Restaurants</p>
                 </div>
-                <div class="col-sm-3"> 
+                <div class="col-sm-3">
                     <img src="img/bar.jpg" class="img-responsive" style="width:100%" alt="Image">
-                    <p>Bar</p>    
-                </div>                                                
-            </div> 
+                    <p>Bar</p>
+                </div>
+            </div>
         </div>
         <!--end of around the hotel container-->
         <hr>
         <!--comments container-->
-        <div class="container-fluid">  
+        <div class="container-fluid">
             <h1><small>What others say:</small></h1>
             <br>
             <p><span class="badge">2</span> Comments:</p><br>
@@ -293,3 +293,4 @@ and open the template in the editor.
         <!--end of Footer-->
     </body>
 </html>
+
