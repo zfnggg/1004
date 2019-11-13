@@ -22,17 +22,17 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link  type="text/css" href="css/main.css" rel = "stylesheet" /> 
+        <link  type="text/css" href="css/main.css" rel = "stylesheet" />
 
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -50,8 +50,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
         <div class="jumbotron text-center">
             <h1>Search Customer</h1>
-            <a href="customerprofile.php" title="manage">Customer</a> | 
-            <a href="booking.php" title="manage">Booking</a> | 
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
@@ -125,3 +125,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <!--end of Footer-->
     </body>
 </html>
+
