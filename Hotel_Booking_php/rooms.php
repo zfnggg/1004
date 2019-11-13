@@ -18,16 +18,16 @@ include "./navbaruser.php";
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -50,7 +50,7 @@ include "./navbaruser.php";
                     ?>  <a href="./adminonly.php" title="manage">Manage</a>
                     <?php
                 }
-                ?>                   
+                ?>
             </form>
             <p>Click <a href="./checkroom.php">Here</a> To Check Room Availability</p>
         </div>
@@ -82,7 +82,7 @@ include "./navbaruser.php";
                         <form action="bookroom.php?id=<?php echo $data['roomID'] ?>" method="post" target="_blank">
                         <!--<input name="id" type="text" value="<?php echo $data['roomID'] ?>">-->
                             <input class="btn btn-primary" type="submit" name="submit" value="Show Prices">
-                        </form>                     
+                        </form>
 
                     </div>
                     <?php
@@ -97,3 +97,4 @@ include "./navbaruser.php";
     include "./footer.php";
     ?>
 </html>
+

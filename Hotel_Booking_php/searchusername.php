@@ -50,8 +50,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             <div class="row content">
                 <div class="col-sm-8 text-left"> 
                     <form name="search" method="post" action="searchusername.php">
+<<<<<<< HEAD
                         <label for="name">Search Booking by Username:
                             <input type="text" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" id="name" name="search" size="40" required /> 
+=======
+                        <label for="search">Search Booking by Username:
+                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required /> 
+>>>>>>> b04e5d248108c2cf890d52ac3ac90ec8ae89e1dc
                         </label>
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 

@@ -43,7 +43,7 @@ session_start();
                 <?php if (isset($_SESSION['MM_Username'])) { ?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
-                        <ul class="dropdown-menu">                        
+                        <ul class="dropdown-menu">
                             <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
                             <a class="dropdown-item" href="./reservation.php">My Reservation</a>
                             <a class="dropdown-item" href="./logout.php">Log out</a>
@@ -60,3 +60,4 @@ session_start();
         </div>
     </div>
 </nav>
+

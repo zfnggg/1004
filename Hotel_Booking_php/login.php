@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
-?>
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -38,15 +33,17 @@ and open the template in the editor.
         </div>
         <!--end of Navigation bar-->
 
-        <form action="./checklogin.php?action=add" method="post">
+        <form action="./checklogin.php" method="post">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" id="borderstyle">
-                        <label><h3>Login</h3>
-                        <input type="text" placeholder="Username" name="username" required>
-                        <input type="password" placeholder="Password" name="password" required>
-                        <input type="hidden" name="_token" value="<?php echo $_SESSION['_token']; ?>">
-                        <button id="btn1" name="submit" type="submit" >Login</button></label>
+                        <h3>Login</h3>
+                        <label for="username">
+                            <input type="text" placeholder="Username" id="username" name="username" required>
+                        </label>
+                        <label for="password">
+                            <input type="password" placeholder="Password" id="password" name="password" required></label>
+                        <button id="btn1" name="submit" type="submit" >Login</button>
                         <p> <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
                     </div>
                     <div class="col-md-6">
@@ -65,8 +62,8 @@ and open the template in the editor.
                     <h1>Forget Password</h1>
                     <p>Please fill in this form to get a new password.</p>
                     <hr>
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
+                    <label for="email"><b>Email</b>
+                    <input type="text" placeholder="Enter Email" id="email" name="email" required></label>
                     <p>We send you a email to restart your password. </p>
                     <div class="clearfix">
                         <button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="cancelbtn">Cancel</button>
@@ -99,3 +96,4 @@ and open the template in the editor.
         </script>
     </body>
 </html>
+

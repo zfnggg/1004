@@ -22,16 +22,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -49,8 +49,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
         <div class="jumbotron text-center">
             <h1>Booking Summary</h1>
-            <a href="customerprofile.php" title="manage">Customer</a> | 
-            <a href="booking.php" title="manage">Booking</a> | 
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
@@ -59,7 +59,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <div class="col-sm-4">
                     <form method="post" action="bookingsummary.php">
                         <label for="searchdate">View Summary of Booking  by Date:
-                            <input type="date" id="searchdate" name="searchdate"> 
+                            <input type="date" id="searchdate" name="searchdate">
                         </label>
                         <label for="myWeek">View Summary of Booking  by Week:
                             <input type="date" name="searchweek" id="myWeek" value="2019-W01">
@@ -68,7 +68,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <input type="date" id="searchmonth" name="searchmonth">
                         </label>
                         <label for="total">
-                            <input type="radio" id="total" name="total">Total No of bookings per day, per week, per month 
+                            <input type="radio" id="total" name="total">Total No of bookings per day, per week, per month
                              </label>
                             <button type="submit" name="submit" class="button"> <span>Submit </span></button>
                        
@@ -226,10 +226,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 $s = explode("-W0", $week);
                                 $m = explode("2019-0", $month);
                                 $flag = 0;
-                                $sql = $conn->prepare("SELECT count(case when date(checkin) like ? then 1 end) as d, 
-   						count(case when week(checkin) like week(?) then 1 end) as m ,
-						count(case when  month(checkin) like month(?) then 1 end) as w 
-							  FROM booking ");
+                                $sql = $conn->prepare("SELECT count(case when date(checkin) like ? then 1 end) as d,
+                           count(case when week(checkin) like week(?) then 1 end) as m ,
+                        count(case when  month(checkin) like month(?) then 1 end) as w
+                              FROM booking ");
                                 $sql->bind_param("sss", $date, $week, $month);
                                 $sql->execute();
                                 $result = $sql->get_result();
@@ -274,3 +274,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <!--end of Footer-->
     </body>
 </html>
+

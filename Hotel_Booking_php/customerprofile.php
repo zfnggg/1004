@@ -22,16 +22,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" type="text/css" rel = "stylesheet" /> 
+        <link href="css/main.css" type="text/css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -49,13 +49,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
         <div class="jumbotron text-center">
             <h1>Customer Profile</h1>
-            <a href="booking.php" title="manage">Booking</a> | 
+            <a href="booking.php" title="manage">Booking</a> |
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
-        <div class="container-fluid text-center">    
+        <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-8 text-left"> 
+                <div class="col-sm-8 text-left">
                     <a href="addcustomer.php?action=add" title="">Add Customer</a>
                     <br/>
                     <a href="searchcustomer.php?action=add" title="">Search Customer</a>
@@ -109,7 +109,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <td>
                                     <?php echo $data['role'] ?>
                                 </td>
-                                <td>   
+                                <td>
                                     <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " alt="image" width="100">
                                 </td>
                                 <td>
@@ -143,3 +143,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <!--end of Footer-->
     </body>
 </html>
+

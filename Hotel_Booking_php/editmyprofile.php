@@ -44,9 +44,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <h1>My Profile</h1>
     </div>
 
-    <div class="container-fluid text-center">    
-        <div class="row content">                
-            <div class="col-sm-8 text-center"> 
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-8 text-center">
 
                 <?php
                 session_start();
@@ -114,10 +114,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <p>Profile Picture:</p>
                             </td>
                             <td>
-                                <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required> 
+                                <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required>
                             </td>
                         </tr>
-                        <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">                    
+                        <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">
                     </table>
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
@@ -138,3 +138,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!--end of Footer-->
 </body>
 </html>
+

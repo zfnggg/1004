@@ -4,7 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -34,28 +33,22 @@ and open the template in the editor.
         </div>
         <!--end of Navigation bar-->
 
-        <div>
+        <section>
             <div class="jumbotron text-center bg-light">
-                <?php
-                session_start();
-                $_SESSION = array();
-                session_unset();
-                session_destroy();
-                echo "You've successfully logged out! "
-                ?>
-                <p>Click here to <a href="./index.php">return to the main page</a></p>
+                <h2>Your account has been successfully registered</h2>
+                <p>Click here to <a href="./login.php">sign in</a></p>
             </div>
 
-            <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
-        </div>            <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+            <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam">
+
+            <!--Footer-->
+            <div id="footer-placeholder">
+                <script>
+                    $(function () {
+                        $("#footer-placeholder").load("footer.php");
+                    });
+                </script>
+            </div>
+            <!--end of Footer-->
     </body>
 </html>
-

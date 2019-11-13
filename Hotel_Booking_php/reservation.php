@@ -60,8 +60,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     define("DBPASS", "5xLMQfLGsc");
 
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                    $sql = "select b.bookingID, c.username, r.roomType, b.checkin,b.checkout, b.numdays, b.total from booking as b "
-                            . "inner join rooms as r on b.roomID=r.roomID inner join customer as c on r.customerID=c.customerID where username = '$u'  ";
+                    $sql = "select b.bookingID, c.customerName, r.roomType, b.checkin,b.checkout, b.numdays, b.total, b.pax from rooms as r "
+                            . "inner join booking as b on r.roomID=b.roomID inner join customer as c on b.customerID=c.customerID where username = '$u'  ";
                     $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ?>
 
@@ -74,6 +74,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <th>Check Out Date</th>
                             <th>Number of days</th>
                             <th>Total Charges ($)</th>
+                            <th>Pax</th>
                         </tr>
 
                         <?php
@@ -84,7 +85,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <?php echo $data['bookingID'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $data['username'] ?>
+                                    <?php echo $data['customerName'] ?>
                                 </td>
                                 <td>
                                     <?php echo $data['roomType'] ?>
@@ -100,6 +101,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 </td>
                                 <td>
                                     <?php echo $data['total'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $data['pax'] ?>
                                 </td>
                             </tr>
                             <?php
