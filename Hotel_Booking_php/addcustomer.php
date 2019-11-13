@@ -22,18 +22,18 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
-        <script defer src="js/main.js"></script> 
+        <script defer src="js/main.js"></script>
     </head>
 
     <body>
@@ -49,8 +49,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
         <div class="jumbotron text-center">
             <h1>Add Customer</h1>
-            <a href="customerprofile.php" title="manage">Customer</a> | 
-            <a href="booking.php" title="manage">Booking</a> | 
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
@@ -70,32 +70,32 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         <table>
                             <tr>
                                 <td>
-                                    <label>Name <input type="text" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
+                                    <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label> Username: <input type="text" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
+                                    <label for="username" >Username: <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Password  <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
+                                    <label for="password" > Password  <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label> Confirm Password:<input type="password" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
+                                    <label for="confirmPassword"> Confirm Password:<input type="password" id="confirmPassword" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>  Email <input type="email" name="email" pattern="^\S+@\S+$" required> </label>
+                                    <label for="email" > Email <input type="email" id="email" name="email" pattern="^\S+@\S+$" required> </label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label> Phone No: <input type="text" name="phoneNo" pattern="[6,8,9][0-9]{7}" title="Please enter phone number as 8-digit numbers only" required> </label>
+                                    <label for="phoneNo"> Phone No: <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" title="Please enter phone number as 8-digit numbers only" required> </label>
                                 </td>
                             </tr>
                             <tr>
@@ -108,7 +108,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             </tr>
                             <tr>
                                 <td>
-                                    <label> Profile Pic:<input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required> </label>
+                                    <label for="profilePicture"> Profile Pic:<input type="file"  name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required> </label>
                                 </td>
                             </tr>
                         </table>

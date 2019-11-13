@@ -58,7 +58,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                 $sql = $conn->prepare("SELECT * FROM customer WHERE username = ? ");
-                $sql->bind_param("i", $u);
+                $sql->bind_param("s", $u);
                 $sql->execute();
                 $result = $sql->get_result();
 //                $search_result = mysqli_query($conn, $sql);

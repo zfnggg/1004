@@ -15,20 +15,14 @@
         define("DBPASS", "5xLMQfLGsc");
 
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-         if (isset($_POST["submit"])) {
+        if (isset($_POST["submit"])) {
             $u = $_POST['username'];
             $p = $_POST['password'];
-            $u = mysqli_real_escape_string($conn,$u);
-            $p = mysqli_real_escape_string($conn,$p);
+            $u = mysqli_real_escape_string($conn, $u);
+            $p = mysqli_real_escape_string($conn, $p);
             $p = md5($p);
 
-            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-                if (!isset($_POST['_token']) || ($_POST['_token'] != $_SESSION['_token'])){
-                    die('Invalid Token or Request Method');
-                }
-            }
-               
-            $sql = $conn->prepare("SELECT * FROM customer WHERE username = ? and password=? ");
+            $sql = $conn->prepare("SELECT * FROM customer WHERE username = ? and password= ? ");
             $sql->bind_param("ss", $u, $p);
             $sql->execute();
             $search_result = $sql->get_result();
@@ -48,7 +42,7 @@
                 $_SESSION['MM_role'] = $r;
                 header("Location:reservation.php");
             } else {
-                echo "<h1>Username not found or password doesn't match...<h1>";               
+                echo "<h1>Username not found or password doesn't match...<h1>";
                 echo("<button onclick=\"location.href='login.php'\">Login</button>");
             }
 
