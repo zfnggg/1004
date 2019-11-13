@@ -58,20 +58,21 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             <div class="row">
                 <div class="col-sm-4">
                     <form method="post" action="bookingsummary.php">
-                        <label>View Summary of Booking  by Date:
-                            <input type="date" name="searchdate"> 
+                        <label for="searchdate">View Summary of Booking  by Date:
+                            <input type="date" id="searchdate" name="searchdate"> 
                         </label>
-                        <label>View Summary of Booking  by Week:
+                        <label for="myWeek">View Summary of Booking  by Week:
                             <input type="date" name="searchweek" id="myWeek" value="2019-W01">
                         </label>
-                        <label>View Summary of Booking  by Month:
-                            <input type="date" name="searchmonth">
+                        <label for="searchmonth">View Summary of Booking  by Month:
+                            <input type="date" id="searchmonth" name="searchmonth">
                         </label>
-                        <label>
-                            <input type="radio" name="total">Total No of bookings per day, per week, per month 
+                        <label for="total">
+                            <input type="radio" id="total" name="total">Total No of bookings per day, per week, per month 
+                             </label>
                             <button type="submit" name="submit" class="button"> <span>Submit </span></button>
-                        </label>
-                        <!-------------------- --------------------------DATE---------------------------------------------------------------------------->
+                       
+                        
                         <?php
                         define("DBHOST", "161.117.122.252");
                         define("DBNAME", "p1_4");
@@ -119,7 +120,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         mysqli_close($conn);
                         ?>
 
-                        <!----------------------------------------------------WEEK----------------------------------------------->
                         <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
@@ -163,7 +163,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         }
                         mysqli_close($conn);
                         ?>
-                        <!---------------------------MONTH------------------------------------------------------------------->
+                        
                         <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
@@ -204,7 +204,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         }
                         mysqli_close($conn);
                         ?>
-                        <!--------------------------total booking per day-------------------------------------------------->
+
                         <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
