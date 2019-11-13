@@ -87,7 +87,7 @@ $chart_data = substr($chart_data, 0, -2);
         </div>
 
         <div class="container" style="width:900px;">
-            <h3>Revenue</h3>
+            <h3 class="centeralign">Revenue</h3>   
             <br /><br />
             <div id="chart"></div>
         </div>
