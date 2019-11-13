@@ -104,6 +104,7 @@ $chart_data = substr($chart_data, 0, -2);
             });
         </script>
         
+
         <!--Footer-->
         <div id="footer-placeholder">
             <script>

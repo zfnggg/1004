@@ -32,9 +32,9 @@ and open the template in the editor.
             </script>
         </div>
         <!--end of Navigation bar-->
-        
-        <section>
-            <div class="jumbotron text-center bg-light">               
+
+        <div>
+            <div class="jumbotron text-center bg-light">
                 <?php
                 session_start();
                 $_SESSION = array();
@@ -44,17 +44,16 @@ and open the template in the editor.
                 ?>
                 <p>Click here to <a href="./index.php">return to the main page</a></p>
             </div>
-            
+
             <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
-            
-            <!--Footer-->
-            <div id="footer-placeholder">
-                <script>
-                    $(function () {
-                        $("#footer-placeholder").load("footer.php");
-                    });
-                </script>
-            </div>
-            <!--end of Footer-->
+        </div>            <!--Footer-->
+        <div id="footer-placeholder">
+            <script>
+                $(function () {
+                    $("#footer-placeholder").load("footer.php");
+                });
+            </script>
+        </div>
+        <!--end of Footer-->
     </body>
 </html>
