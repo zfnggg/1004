@@ -4,6 +4,10 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include "./navbaruser.php";
+?>
+
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -28,17 +32,7 @@ and open the template in the editor.
         <script defer src="js/main.js"></script>
     </head>
 
-    <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
-
+    <main>
         <?php
         session_start();
         $r = "";
@@ -58,7 +52,7 @@ and open the template in the editor.
                 }
                 ?>                   
             </form>
-            <p>Click <a href="./checkroom.php">here </a>to check room availability</p>
+            <p>Click <a href="./checkroom.php">Here</a> To Check Room Availability</p>
         </div>
 
         <!--rooms-->
@@ -86,7 +80,7 @@ and open the template in the editor.
                         <span class="glyphicon glyphicon-bed"></span>
 
                         <form action="bookroom.php?id=<?php echo $data['roomID'] ?>" method="post" target="_blank">
-    <!--                            <input name="id" type="text" value="<?php echo $data['roomID'] ?>">-->
+                        <!--<input name="id" type="text" value="<?php echo $data['roomID'] ?>">-->
                             <input class="btn btn-primary" type="submit" name="submit" value="Show Prices">
                         </form>                     
 
@@ -97,16 +91,9 @@ and open the template in the editor.
                 ?>
             </div>
         </div>
-        <!--end of rooms-->
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
-    </body>
+    </main>
+    
+    <?php
+    include "./footer.php";
+    ?>
 </html>
