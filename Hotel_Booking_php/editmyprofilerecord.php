@@ -77,7 +77,7 @@ if (empty($_POST['customerName'])) {
     $success = true;
 }
 
-//username 
+//username
 if (empty($_POST['username'])) {
     $errorMsg .= "username  is required.<br>";
     $success = false;
@@ -96,7 +96,7 @@ if (empty($_POST['phoneNo'])) {
 }
 
 
-//check for empty password 
+//check for empty password
 if (empty($_POST['password'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
@@ -132,3 +132,4 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
