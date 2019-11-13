@@ -1,8 +1,3 @@
-<?php
-    session_start();
-    $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
-?>
-
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -85,6 +80,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <th>Phone No</th>
                             <th>Role</th>
                             <th>Profile Picture</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
 
                         <?php
@@ -118,7 +115,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <td>
                                     <form method="post" action="deletecustomer.php">
                                         <input name="cid" type="hidden" value="<?php echo $data['customerID'] ?>">
-                                        <input type="hidden" name="_token" value="<?php echo $_SESSION['_token']; ?>">
                                         <input type="submit" value="delete"> </form>
                                 </td>
                                 <td>
