@@ -53,7 +53,7 @@ and open the template in the editor.
         <div class="container-fluid">
             <div class="row">
                 <figure class="col-md-6 col-sm-12">
-                    <img src="./img/breakfast.jpg" class="float-left bf-margin" alt="">
+                    <img src="./img/breakfast.jpg" class="float-left bf-margin" alt="A breakfast dish from Po">
                 </figure>
                 <header class="col-md-6 col-sm-12">
                     <div class="description text-center bf-desc-margin">
@@ -65,7 +65,7 @@ and open the template in the editor.
                             concept presenting an array of local classics and elevated Singaporean
                             staples. Po seeks to bridge the gap between our nation’s vibrant culinary
                             heritage and our rich collective memories of home cooked specialties.</p>
-                        <a href='https://www.po.com.sg' target="_blank" type="button" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.po.com.sg/menu' target="_blank" type="button" class="btn btn-outline-dark">View Menu</a></span>
+                        <a href='https://www.po.com.sg' target="_blank" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.po.com.sg/menu' target="_blank" class="btn btn-outline-dark">View Menu</a></span>
                     </div>
                 </header>
             </div>
@@ -74,7 +74,7 @@ and open the template in the editor.
         <div class="container-fluid">
             <div class="row">
                 <figure class="col-md-6 col-sm-12 order-md-2">
-                    <img src="./img/lunch.jpg" class="lunch-margin" alt="">
+                    <img src="./img/lunch.jpg" class="lunch-margin" alt="A burger from 25 Degrees">
                 </figure>
                 <header class="col-md-6 col-sm-12 order-md-1">
                     <div class="description text-center lunch-desc-margin">
@@ -85,7 +85,7 @@ and open the template in the editor.
                             raw and well done hamburger, 25 Degrees introduces a sophisticated new twist on the
                             traditional American burger bar concept –complete with funky music and cool “bordello
                             meets burger bar” décor.</p>
-                        <a href='https://www.randblab.com/25degrees-sg' target="_blank" type="button" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.randblab.com/assets/menu/25%20DEGREES%20SINGAPORE/25Degrees-19-aug.pdf' target="_blank" type="button" class="btn btn-outline-dark">View Menu</a></span>
+                        <a href='https://www.randblab.com/25degrees-sg' target="_blank" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.randblab.com/assets/menu/25%20DEGREES%20SINGAPORE/25Degrees-19-aug.pdf' target="_blank" class="btn btn-outline-dark">View Menu</a></span>
                     </div>
 
                 </header>
@@ -95,7 +95,7 @@ and open the template in the editor.
         <div class="container-fluid">
             <div class="row">
                 <figure class="col-md-6 col-sm-12">
-                    <img src="./img/dinner.jpg" class="float-left bf-margin" alt="">
+                    <img src="./img/dinner.jpg" class="float-left bf-margin" alt="Inside of Ginett restaurant">
                 </figure>
                 <header class="col-md-6 col-sm-12">
                     <div class="description text-center bf-desc-margin">
@@ -106,7 +106,7 @@ and open the template in the editor.
                             offers imported cold cuts and cheese, premium wines and daily specials cooked
                             with quality ingredients. The venue features a cozy communal space, perfect
                             for mingling. Open for breakfast, lunch and dinner.</p>                        
-                        <a href='https://www.randblab.com/ginett-sg' target="_blank" type="button" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.randblab.com/assets/menu/GINETT/Ginett-SG-FULL-MENU-22AUG.pdf' target="_blank" type="button" class="btn btn-outline-dark">View Menu</a></span>
+                        <a href='https://www.randblab.com/ginett-sg' target="_blank" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.randblab.com/assets/menu/GINETT/Ginett-SG-FULL-MENU-22AUG.pdf' target="_blank" class="btn btn-outline-dark">View Menu</a></span>
                     </div>
                 </header>
             </div>
