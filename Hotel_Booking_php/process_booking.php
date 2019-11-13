@@ -46,7 +46,7 @@ $total = sanitize_input($_POST['total_sum']);
 $num_days = sanitize_input($_POST['num_days']);
 $success = true;
 
-//check_in 
+//check_in
 if (empty($_POST['check_in'])) {
     $errorMsg .= "check in  is required.<br>";
     $success = false;
@@ -55,7 +55,7 @@ if (empty($_POST['check_in'])) {
     $success = true;
 }
 
-//check_out 
+//check_out
 if (empty($_POST['check_out'])) {
     $errorMsg .= "username  is required.<br>";
     $success = false;
@@ -64,7 +64,7 @@ if (empty($_POST['check_out'])) {
     $success = true;
 }
 
-//check for empty total_sum 
+//check for empty total_sum
 if (empty($_POST['total_sum'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
@@ -73,7 +73,7 @@ if (empty($_POST['total_sum'])) {
     $success = true;
 }
 
-//check for empty pax 
+//check for empty pax
 if (empty($_POST['pax'])) {
     $errorMsg .= "Pax is required.<br>";
     $success = false;
@@ -82,7 +82,7 @@ if (empty($_POST['pax'])) {
     $success = true;
 }
 
-//check for empty num_days 
+//check for empty num_days
 if (empty($_POST['num_days'])) {
     $errorMsg .= "num_days is required.<br>";
     $success = false;
@@ -119,3 +119,4 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
