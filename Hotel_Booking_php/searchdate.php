@@ -58,8 +58,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             <div class="row content">
                 <div class="col-sm-8 text-left">       
                     <form name="search" method="post" action="searchdate.php">
-                        <label for="name">Search Booking by Date:
-                            <input type="date" name="searchdate" required>
+                        <label for="searchdate">Search Booking by Date:
+                            <input type="date" id="searchdate" name="searchdate" required>
                         </label>
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 
