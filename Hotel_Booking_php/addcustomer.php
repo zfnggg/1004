@@ -100,10 +100,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             </tr>
                             <tr>
                                 <td>
-                                    <label> Role:
-                                        <input type="radio" name="role" value="C" required> Customer<br>
+                                    <label> Role: </label>
+                                        <input type="radio" name="role" value="C" required> Customer
                                         <input type="radio" name="role" value="A" required> Admin<br>
-                                    </label>
+                                    
                                 </td>
                             </tr>
                             <tr>
