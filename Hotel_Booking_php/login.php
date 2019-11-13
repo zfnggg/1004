@@ -33,18 +33,25 @@ and open the template in the editor.
         </div>
         <!--end of Navigation bar-->
 
-        <form action="./checklogin.php" method="post">
+        <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()" novalidate>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6" id="borderstyle">
+                    <div class="col-md-6" >
                         <h3>Login</h3>
-                        <label for="username">
-                            <input type="text" placeholder="Username" id="username" name="username" required>
-                        </label>
-                        <label for="password">
-                            <input type="password" placeholder="Password" id="password" name="password" required></label>
+                        <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
+                        <input type="password" placeholder="Password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$">
                         <button id="btn1" name="submit" type="submit" >Login</button>
-                        <p> <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
+                        <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
+                        <noscript>
+                        Your Javascript is not on, kindly open your JavaScript.</br>
+                        If you are unable to turn on the Javascript, please kindly use the link below: </br>
+                           <a href="forgetpassword.php">Forget Password</a>
+                           <style>
+                            p.a {
+                              visibility: hidden;
+                            }
+                            </style>
+                      </noscript>
                     </div>
                     <div class="col-md-6">
                         <h3>Haven't Sign Up!</h3>
@@ -54,20 +61,19 @@ and open the template in the editor.
                 </div>
             </div>
         </form>
-
         <div id="id01" class="modal">
             <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content">
+            <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
                 <div class="container">
                     <h1>Forget Password</h1>
                     <p>Please fill in this form to get a new password.</p>
                     <hr>
-                    <label for="email"><b>Email</b>
-                    <input type="text" placeholder="Enter Email" id="email" name="email" required></label>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" id="email" required>
                     <p>We send you a email to restart your password. </p>
                     <div class="clearfix">
-                        <button type="button" onclick="document.getElementById('id01').style.display = 'none'" class="cancelbtn">Cancel</button>
-                        <button type="submit" class="sendemailbtn">Send Email</button>
+                        <button type="button" onclick="myFunction()" class="cancelbtn">Cancel</button>
+                        <button name="submit" type="submit"  class="sendemailbtn">Send Email</button>
                     </div>
                 </div>
             </form>
@@ -88,11 +94,22 @@ and open the template in the editor.
             var modal = document.getElementById('id01');
 
             // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
+            window.onclick = function (event) 
+            {
+                if (event.target === modal) {
                     modal.style.display = "none";
+                    document.getElementById('email').value="";
                 }
+            };
+           function myFunction() {
+            document.getElementById('id01').style.display = 'none';
+             document.getElementById('email').value="";
             }
+            function init() {
+            document.getElementById("email").value = "";
+            document.getElementById("username").value = "";
+            }
+            window.onload = init;
         </script>
     </body>
 </html>
