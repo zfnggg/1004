@@ -11,7 +11,7 @@
             <div class="col-md-4 mx-auto">
 
                 <!-- Content -->
-                <h5 class="mt-3 mb-4">D'Hotel</h5>
+                <h1 class="mt-3 mb-4">D'Hotel</h1>
                 <!-- font-weight-bold text-uppercase -->
                 <p><i class="fas fa-phone iconHotel"></i> +65 6241 0241</p>
                 <p><i class="fas fa-map-marker-alt iconHotel"></i>
@@ -28,7 +28,7 @@
             <div class="col-md-2 mx-auto">
 
                 <!-- Links -->
-                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                <h1 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h1>
 
                 <ul class="list-unstyled">
                     <li>
@@ -87,7 +87,7 @@
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="" target="_blank"   aria-label="Google" class="btn-floating btn-gplus mx-1">
+                    <a href="https://www.google.com/" target="_blank" aria-label="Google" class="btn-floating btn-gplus mx-1">
                         <i class="fab fa-google-plus-g"> </i>
                     </a>
                 </li>
