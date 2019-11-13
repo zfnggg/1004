@@ -162,5 +162,3 @@ and open the template in the editor.
         <!--end of Footer-->
     </body>
 </html>
-
-<!--hihi test-->
