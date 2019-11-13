@@ -92,7 +92,7 @@ if (empty($_POST['phone'])) {
     $success = true;
 }
 
-//role 
+//role
 if (empty($_POST['role'])) {
     $errorMsg .= "role  is required.<br>";
     $success = false;
@@ -101,7 +101,7 @@ if (empty($_POST['role'])) {
     $success = true;
 }
 
-//check for empty password 
+//check for empty password
 if (empty($_POST['pword'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
@@ -138,4 +138,5 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
 
