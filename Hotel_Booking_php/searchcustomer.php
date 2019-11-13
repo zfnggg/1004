@@ -5,6 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+include "./navbaruser.php";
+
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
     header('location:login.php');
@@ -23,7 +25,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
         <link  type="text/css" href="css/main.css" rel = "stylesheet" /> 
-
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
         <link href="css/events.css" rel = "stylesheet" /> 
@@ -37,16 +38,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script defer src="js/main.js"></script>
     </head>
 
-    <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
+    <main>
 
         <div class="jumbotron text-center">
             <h1>Search Customer</h1>
@@ -57,10 +49,11 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
         <div class="container-fluid">
             <div class="row">
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <form name="myForm" method="post" action="searchcustomer.php">
                         <label for="name">Search Customer Name :
-                            <input type="text" name="search" size="40" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required/>
+                            <input type="text" id="name" name="search" size="40" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required/>
                         </label>
                         <input type="submit" value="Search" class="btn btn-primary" onclick="myFunction()">
 
@@ -72,7 +65,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-
+                        <hr>
                         <table class="search_table">
                             <tr>
                                 <td>Customer ID</td>
@@ -112,16 +105,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </table>
                     </form>
                 </div>
+                <div class="col-sm-4"></div>
+
             </div>
         </div>
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
-    </body>
+    </main>
+
+    <?php
+    include "./footer.php";
+    ?>
 </html>
