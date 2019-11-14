@@ -80,7 +80,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <label for="cName"> Customer Name:
                                             <input id="cName" name="cName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" type="text" value="<?php echo $data['customerName'] ?>">
-                                          <input name="cid" readonly type="hidden" value="<?php echo $data['customerID'] ?>">
+                                          <input name="cid" type="hidden" value="<?php echo $data['customerID'] ?>">
                                         </label>
                                     </td>
                                 </tr>
