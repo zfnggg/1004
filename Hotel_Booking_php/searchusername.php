@@ -24,16 +24,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
+        <link href="css/main.css" rel = "stylesheet" />
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
+        <link href="css/events.css" rel = "stylesheet" />
         <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
+        <link href="css/faq.css" rel = "stylesheet" />
         <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
+        <link href="css/dining.css" rel = "stylesheet" />
         <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Own Javascript -->
         <script defer src="js/main.js"></script>
     </head>
@@ -41,22 +41,21 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <main>
         <div class="jumbotron text-center">
             <h1>Search Username </h1>
-            <a href="customerprofile.php" title="manage">Customer</a> | 
-            <a href="booking.php" title="manage">Booking</a> | 
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
-        <div class="container-fluid text-center">    
+        <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-8 text-left"> 
+                <div class="col-sm-8 text-left">
                     <form name="search" method="post" action="searchusername.php">
-<<<<<<< HEAD
-                        <label for="name">Search Booking by Username:
-                            <input type="text" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" id="name" name="search" size="40" required /> 
-=======
+
+                         
+
                         <label for="search">Search Booking by Username:
-                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required /> 
->>>>>>> b04e5d248108c2cf890d52ac3ac90ec8ae89e1dc
+                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
+
                         </label>
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 
@@ -124,3 +123,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     include "./footer.php";
     ?>
 </html>
+
