@@ -40,7 +40,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
     <main>
         <?php
-        session_start();
+//        session_start();
         $u = $_SESSION['MM_Username'];
         ?>
 
