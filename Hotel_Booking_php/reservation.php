@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-//include "./navbaruser.php";
+include "./navbaruser.php";
 
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
