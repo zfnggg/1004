@@ -38,8 +38,12 @@ and open the template in the editor.
                 <div class="row">
                     <div class="col-md-6" >
                         <h3>Login</h3>
+<label for="username"> Username:
                         <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
+</label>
+<label for="password"> Password:
                         <input type="password" placeholder="Password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$">
+</label>
                         <button id="btn1" name="submit" type="submit" >Login</button>
                         <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
                         <noscript>
