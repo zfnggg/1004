@@ -32,7 +32,7 @@ include "./navbaruser.php";
         <script defer src="js/main.js"></script>
     </head>
 
-    <main>
+    <body>
         <?php
         session_start();
         $r = "";
@@ -91,7 +91,7 @@ include "./navbaruser.php";
                 ?>
             </div>
         </div>
-    </main>
+    </body>
     
     <?php
     include "./footer.php";
