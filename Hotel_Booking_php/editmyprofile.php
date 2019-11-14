@@ -70,51 +70,47 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     <table>
                         <tr>
                             <td>
-                                <p>Customer Name: </p>
-                            </td>
-                            <td>
-                                <input type="text" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
+                                <label for="customerName">Customer Name:
+                            
+                                <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
+</label>
                                 <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Username :</p>
-                            </td>
-                            <td>
-                                <input type="text" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['username']; ?>">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Password:</p>
-                            </td>
-                            <td>
-                                <input type="password" name="password"  value="<?php echo $userrecord['password']; ?>">
+                                <label for="username">Username :</label>
+                            
+                                <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['username']; ?>">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Email:</p>
-                            </td>
-                            <td>
-                                <input type="text" name="email" pattern="^\S+@\S+$" value="<?php echo $userrecord['email']; ?>">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p>Phone No:</p>
-                            </td>
-                            <td>
-                                <input type="text" name="phoneNo" pattern="[6,8,9][0-9]{7}" value="<?php echo $userrecord['phoneNo']; ?>">
+                                <label for="password">Password:
+                            
+                                <input type="password" name="password" id="password" value="<?php echo $userrecord['password']; ?>"></label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <p>Profile Picture:</p>
+                                <label for="email">Email:</p>
+                            
+                                <input type="text" id="email" name="email" pattern="^\S+@\S+$" value="<?php echo $userrecord['email']; ?>">
+</label>
                             </td>
+                        </tr>
+                        <tr>
+                            <td><label for="phoneNo">
+                                Phone No:
+                            
+                                <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" value="<?php echo $userrecord['phoneNo']; ?>"></label>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
-                                <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required>
+                                <label for="profilePicture">Profile Picture:
+                           
+                                <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required></label>
                             </td>
                         </tr>
                     </table>
@@ -138,4 +134,5 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!--end of Footer-->
 </body>
 </html>
+
 
