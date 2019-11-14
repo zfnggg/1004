@@ -34,7 +34,7 @@ include "./navbaruser.php";
 
     <body>
         <?php
-        session_start();
+//        session_start();
         $r = "";
         if (isset($_SESSION['MM_Username'])) {
             $u = $_SESSION['MM_Username'];
