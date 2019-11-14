@@ -46,3 +46,52 @@ function hidePopup4() {
 function showPopup4() {
     document.getElementById("pop4").style.visibility = "visible";
 }
+
+function validateLoginForm(){
+    var regExUsername = /^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$/;
+    var regExPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$/;
+    
+    var usernameinput = document.forms["formlogin"]["username"].value;
+    var passwordinput = document.forms["formlogin"]["password"].value;
+    
+    if (usernameinput === "") {
+        alert('Please insert username');
+        return false;
+    }
+    else {
+        if (!regExUsername.test(usernameinput)){
+            alert('Username is invalid. Please re-enter');
+            return false;
+        }
+    }
+    
+    if (passwordinput === "") {
+        alert('Please insert Password');
+        return false;
+    }
+    else {
+        if (!regExPw.test(passwordinput)){
+            alert('Password is invalid. Please re-enter. Requires 1 digit, 1 lower case, 1 upper case, min 8 characters');
+            return false;
+        }
+    }
+    
+}
+
+function validateForgetPasswordForm()
+{
+    var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var emailinput = document.forms["formforgetpass"]["email"].value;
+    
+    if (emailinput === "") {
+        alert('Please insert your email address');
+        return false;
+    }
+    else {
+        if (!regEmail.test(emailinput)){
+            alert('Email is invalid. Please re-enter');
+            return false;
+        }
+    }
+}
+
