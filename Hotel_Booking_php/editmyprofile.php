@@ -57,7 +57,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 define("DBPASS", "5xLMQfLGsc");
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                $sql = $conn->prepare("SELECT * FROM customer WHERE username = ? ");
+                $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
                 $sql->bind_param("s", $u);
                 $sql->execute();
                 $result = $sql->get_result();
@@ -74,7 +74,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             
                                 <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
 </label>
-                                <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">
+                                <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
                             </td>
                         </tr>
                         <tr>
@@ -114,7 +114,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             </td>
                         </tr>
                     </table>
-                    <input type="hidden" name="customerID" value="<?php echo $userrecord['customerID']; ?>">
+                    <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
             </div>
