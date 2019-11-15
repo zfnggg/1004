@@ -64,7 +64,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $option = $_GET['id'];
-                    $sql = $conn->prepare("select  *  from customer where customerID = ? ");
+                    $sql = $conn->prepare("select  *  from users where userID = ? ");
                     $sql->bind_param("i", $option);
                     $sql->execute();
                     $result = $sql->get_result();
