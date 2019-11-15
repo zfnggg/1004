@@ -13,13 +13,13 @@ if (isset($_POST["submit"]) == "Upload") {
     $cname = $_POST['customerName'];
 //$uname = $_POST['MM_Username'];
     $uname = $_POST['username'];
-    $pword = $_POST['password'];
+//    $pword = $_POST['password'];
     $email = $_POST['email'];
     $phoneno = $_POST['phoneNo'];
 //$profilepic = $_POST['profilePicture'];
 //$u = mysqli_real_escape_string($conn, $u);
-    $pword = mysqli_real_escape_string($conn, $pword);
-    $pword = md5($pword);
+//    $pword = mysqli_real_escape_string($conn, $pword);
+//    $pword = md5($pword);
 
     $target_Folder = "images/";
     $target_Path = $target_Folder . basename($_FILES['profilePicture']['name']);
@@ -28,8 +28,8 @@ if (isset($_POST["submit"]) == "Upload") {
     $profilepic = "$target_Folder$file_name";
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-    $sql = $conn->prepare("update users set customerName=?,username=?,password=?,email=?,phoneNo=?,profilePicture=? where userID=?");
-    $sql->bind_param("ssssisi", $cname, $uname, $pword, $email, $phoneno, $profilepic, $userID);
+    $sql = $conn->prepare("update users set customerName=?,username=?,email=?,phoneNo=?,profilePicture=? where userID=?");
+    $sql->bind_param("ssssisi", $cname, $uname, $email, $phoneno, $profilepic, $userID);
     $sql->execute();
     $result = $sql->get_result();
     $sql->close();
