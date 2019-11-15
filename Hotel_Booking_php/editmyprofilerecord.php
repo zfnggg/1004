@@ -115,7 +115,7 @@ if ($success) {
     echo "<h2 >email  :   $email</h2>";
     echo "<h2 >phone no : $phoneno</h2>";
 
-    echo("<button onclick=\"location.href='editmyprofile.php?id=$custid'\">Return to Customer record.</button>");
+    echo("<button onclick=\"location.href='editmyprofile.php?id=$userID'\">Return to Customer record.</button>");
 } else {
     echo "<h1>Oops!</h1>";
     echo "<h4>The following input errors were detected:</h4>";
