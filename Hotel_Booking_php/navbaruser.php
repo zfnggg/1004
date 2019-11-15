@@ -6,9 +6,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     exit;
 }
 ?>
-//<?php
-//session_start();
-//?>
+<?php
+session_start();
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand"><img src="img/icon.png" id="icon" alt=""></a>
