@@ -10,7 +10,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 <?php
 
 if (!isset($_['submit'])) {
-    $customerID = $_POST['customerID'];
+    $userID = $_POST['userID'];
     $roomID = $_POST['roomID'];
     $checkin = $_POST['check_in'];
     $checkout = $_POST['check_out'];
@@ -27,8 +27,8 @@ if (!isset($_['submit'])) {
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
-    $sql = $conn->prepare("insert into booking (customerID,roomID,checkin,checkout,total,numdays,status,pax) values (?,?,?,?,?,?,?,?)");
-    $sql->bind_param("iissiisi", $customerID, $roomID, $checkin, $checkout, $total, $num_days, $status, $pax);
+    $sql = $conn->prepare("insert into booking (userID,roomID,checkin,checkout,total,numdays,status,pax) values (?,?,?,?,?,?,?,?)");
+    $sql->bind_param("iissiisi", $userID, $roomID, $checkin, $checkout, $total, $num_days, $status, $pax);
     $sql->execute();
     $result = $sql->get_result();
     $sql->close();
@@ -95,7 +95,7 @@ if (empty($_POST['num_days'])) {
 //SUCCESS
 if ($success) {
     echo "<h1>Booking Successful</h1>";
-    echo "<h2>Customer ID : $customerID </h2>";
+    echo "<h2>Customer ID : $userID </h2>";
     echo "<h2>Room ID : $roomID </h2>";
     echo "<h2 >Checkin  :   $checkin</h2>";
     echo "<h2 >Checkout : $checkout</h2>";
