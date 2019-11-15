@@ -35,7 +35,7 @@ if (isset($_POST["submit"]) == "Upload") {
     $file_name = $_FILES['profilePicture']['name'];
     $profilepic = "$target_Folder$file_name";
 
-    $sql = $conn->prepare("update customer set customerName =?, password =?, email =?, phoneNo=?, role = ?, profilePicture=? where customerID=?");
+    $sql = $conn->prepare("update users set customerName =?, password =?, email =?, phoneNo=?, role = ?, profilePicture=? where userID=?");
     move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);
     $sql->bind_param("sssissi", $newName, $pword, $email, $phone, $role, $profilepic, $cidToUpdate);
     $sql->execute();
