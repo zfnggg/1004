@@ -29,7 +29,7 @@ if (isset($_POST["submit"]) == "Upload") {
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
     $sql = $conn->prepare("update users set customerName=?,username=?,email=?,phoneNo=?,profilePicture=? where userID=?");
-    $sql->bind_param("ssssisi", $cname, $uname, $email, $phoneno, $profilepic, $userID);
+    $sql->bind_param("sssisi", $cname, $uname, $email, $phoneno, $profilepic, $userID);
     $sql->execute();
     $result = $sql->get_result();
     $sql->close();
