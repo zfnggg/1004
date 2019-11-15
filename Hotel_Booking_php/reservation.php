@@ -61,7 +61,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $sql = "select b.bookingID, c.customerName, r.roomType, b.checkin,b.checkout, b.numdays, b.total, b.pax from rooms as r "
-                            . "inner join booking as b on r.roomID=b.roomID inner join customer as c on b.customerID=c.customerID where username = '$u'  ";
+                            . "inner join booking as b on r.roomID=b.roomID inner join users as c on b.userID=c.userID where username = '$u'  ";
                     $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ?>
 
