@@ -57,13 +57,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <form name="myForm" method="post" action="searchcustomer.php">
-<<<<<<< HEAD
-                        <label for="name">Search Customer Name :
-                            <input type="text" id="name" name="search" size="40" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required/>
-=======
+
                         <label for="search">Search Customer Name :
                             <input type="text" id="search" name="search" size="40" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required/>
->>>>>>> b04e5d248108c2cf890d52ac3ac90ec8ae89e1dc
+
                         </label>
                         <input type="submit" value="Search" class="btn btn-primary" onclick="myFunction()">
 
