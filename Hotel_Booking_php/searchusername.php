@@ -79,7 +79,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                                     $search = "%{$_POST['search']}%";
                                     $flag = 0;
-                                    $sql = $conn->prepare("select bookingID, username, roomType, status from booking as b inner join rooms as r on b.roomID=r.roomID inner join customer as c on b.customerID = c.customerID where username like ? ");
+                                    $sql = $conn->prepare("select bookingID, username, roomType, status from booking as b inner join rooms as r on b.roomID=r.roomID inner join users as c on b.userID = c.userID where username like ? ");
                                     $sql->bind_param("s", $search);
                                     $sql->execute();
                                     $result = $sql->get_result();
