@@ -66,7 +66,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     define("DBUSER", "p1_4");
                     define("DBPASS", "5xLMQfLGsc");
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                    $sql = "select * from customer";
+                    $sql = "select * from users";
                     $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ?>
 
