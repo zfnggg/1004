@@ -89,7 +89,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             ?>
                             <tr>
                                 <td>
-                                    <?php echo $data['customerID'] ?>
+                                    <?php echo $data['userID'] ?>
                                 </td>
                                 <td>
                                     <?php echo $data['customerName'] ?>
@@ -114,11 +114,11 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 </td>
                                 <td>
                                     <form method="post" action="deletecustomer.php">
-                                        <input name="cid" type="hidden" value="<?php echo $data['customerID'] ?>">
+                                        <input name="cid" type="hidden" value="<?php echo $data['userID'] ?>">
                                         <input type="submit" value="delete"> </form>
                                 </td>
                                 <td>
-                                    <a href="editcustomer.php?id=<?php echo $data['customerID'] ?>">Edit</a>
+                                    <a href="editcustomer.php?id=<?php echo $data['userID'] ?>">Edit</a>
                                 </td>
                             </tr>
                             <?php
