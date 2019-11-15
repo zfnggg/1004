@@ -121,7 +121,7 @@ if ($success) {
     echo "<h2 >email  :   $email</h2>";
     echo "<h2 >phone no : $phoneno</h2>";
     echo "<h2 >role : $role</h2>";
-    echo("<button onclick=\"location.href='customerprofile.php?id=$cidToUpdate'\">Return to Customer record.</button>");
+    echo("<button onclick=\"location.href='customerprofile.php'\">Return to Customer record.</button>");
 } else {
     echo "<h1>Oops!</h1>";
     echo "<h4>The following input errors were detected:</h4>";
@@ -138,5 +138,6 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
 
 
