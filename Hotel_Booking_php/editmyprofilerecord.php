@@ -9,7 +9,7 @@ define("DBPASS", "5xLMQfLGsc");
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
 if (isset($_POST["submit"]) == "Upload") {
-    $custid = $_POST["customerID"];
+    $userID = $_POST["userID"];
     $cname = $_POST['customerName'];
 //$uname = $_POST['MM_Username'];
     $uname = $_POST['username'];
@@ -28,8 +28,8 @@ if (isset($_POST["submit"]) == "Upload") {
     $profilepic = "$target_Folder$file_name";
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-    $sql = $conn->prepare("update customer set customerName=?,username=?,password=?,email=?,phoneNo=?,profilePicture=? where customerID=?");
-    $sql->bind_param("ssssisi", $cname, $uname, $pword, $email, $phoneno, $profilepic, $custid);
+    $sql = $conn->prepare("update customer set customerName=?,username=?,password=?,email=?,phoneNo=?,profilePicture=? where userID=?");
+    $sql->bind_param("ssssisi", $cname, $uname, $pword, $email, $phoneno, $profilepic, userID);
     $sql->execute();
     $result = $sql->get_result();
     $sql->close();
