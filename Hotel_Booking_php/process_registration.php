@@ -139,7 +139,7 @@ include "./navbaruser.php";
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
                 if (isset($uname)) {
-                    $sql = $conn->prepare("SELECT * FROM customer where username=? or email=? ");
+                    $sql = $conn->prepare("SELECT * FROM users where username=? or email=? ");
                     $sql->bind_param("ss", $uname, $email);
                     $sql->execute();
 
@@ -152,7 +152,7 @@ include "./navbaruser.php";
                         $success = false;
                     } else {
                         $EncryptPassword = md5($pword);
-                        $sql_insert = $conn->prepare("insert into customer (customerName,username,password,email,phoneNo,role,profilePicture)
+                        $sql_insert = $conn->prepare("insert into users (customerName,username,password,email,phoneNo,role,profilePicture)
 						values(?,?,?,?,?,?,?)");
 
                         $sql_insert->bind_param("ssssiss", $cname, $uname, $EncryptPassword, $email, $phoneno, $role, $profilepic);
