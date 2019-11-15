@@ -24,12 +24,12 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <!-- Main CSS Style Sheet-->
-<<<<<<< HEAD
+
         <link  type="text/css" href="css/main.css" rel = "stylesheet" /> 
-=======
+
         <link  type="text/css" href="css/main.css" rel = "stylesheet" />
 
->>>>>>> b04e5d248108c2cf890d52ac3ac90ec8ae89e1dc
+
         <!-- Zheng Feng CSS -->
         <!-- Events CSS Style Sheet-->
         <link href="css/events.css" rel = "stylesheet" />
