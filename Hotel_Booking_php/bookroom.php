@@ -81,7 +81,7 @@ and open the template in the editor.
                     <div id="booknow">
                         <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                        $customersql = "SELECT * FROM customer WHERE username = '$u' ";
+                        $customersql = "SELECT * FROM users WHERE username = '$u' ";
                         $mycustomer = mysqli_query($conn, $customersql);
                         $customer = mysqli_fetch_assoc($mycustomer);
                         mysqli_query($conn, $customersql) or die(mysqli_error($conn));
@@ -98,7 +98,7 @@ and open the template in the editor.
 
                             <h3>Personal Information:</h3>
                             <p>Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></p>
-                            <input type="hidden" name="customerID" value="<?php echo $customer['customerID']; ?>">
+                            <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
                             <input  type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
                             <h3>Payment Details:</h3>
                             <h4>Accepted Cards</h4>
