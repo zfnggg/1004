@@ -85,7 +85,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                                     $search = "%{$_POST['search']}%";
                                     $flag = 0;
-                                    $sql = $conn->prepare("select * from customer where customerName like ? ");
+                                    $sql = $conn->prepare("select * from users where customerName like ? ");
                                     $sql->bind_param("s", $search);
                                     $sql->execute();
                                     $result = $sql->get_result();
@@ -101,7 +101,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                         ?>
                                     <tr>
                                         <td>
-                                            <?php echo $data['customerID'] ?>
+                                            <?php echo $data['userID'] ?>
                                         </td>
                                         <td>
                                             <?php echo $data['customerName'] ?>
