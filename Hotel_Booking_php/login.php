@@ -43,14 +43,10 @@ and open the template in the editor.
                         <button id="btn1" name="submit" type="submit" >Login</button>
                         <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
                         <noscript>
-                        Your Javascript is not on, kindly open your JavaScript.</br>
-                        If you are unable to turn on the Javascript, please kindly use the link below: </br>
+                        Your Javascript is currently not working, kindly enable your JavaScript.<br>
+                        If you are unable to turn on the Javascript, please kindly use the link below: <br>
                            <a href="forgetpassword.php">Forget Password</a>
-                           <style>
-                            p.a {
-                              visibility: hidden;
-                            }
-                            </style>
+                           <link href="css/noscript.css" rel="stylesheet" />
                       </noscript>
                     </div>
                     <div class="col-md-6">
