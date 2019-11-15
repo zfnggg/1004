@@ -28,7 +28,7 @@ if (!isset($_GET['action'])) {
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
         if (isset($uname)) {
-            $sql = $conn->prepare("SELECT * FROM customer where username=?");
+            $sql = $conn->prepare("SELECT * FROM users where username=?");
             $sql->bind_param("s", $u);
             $sql->execute();
             $result = $sql->get_result();
@@ -39,7 +39,7 @@ if (!isset($_GET['action'])) {
                 echo "USERNAME EXISTS!!";
                 die();
             } else {
-                $sql_insert = $conn->prepare("insert into customer (customerName,username,password,email,phoneNo,role,profilePicture)
+                $sql_insert = $conn->prepare("insert into users (customerName,username,password,email,phoneNo,role,profilePicture)
                             values(?,?,?,?,?,?,?)");
                 //values('$cname', '$uname', '$pword', '$email', '$phoneno', '$role', '" . $target_Folder . $file_name . "')");
                 move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);
