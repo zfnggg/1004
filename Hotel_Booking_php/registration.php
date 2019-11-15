@@ -1,6 +1,6 @@
 <?php
     include "./navbaruser.php";
-    session_start();
+//    session_start();
     $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
 ?>
 
