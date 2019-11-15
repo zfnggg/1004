@@ -28,8 +28,8 @@ if (isset($_POST["submit"]) == "Upload") {
     $profilepic = "$target_Folder$file_name";
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-    $sql = $conn->prepare("update customer set customerName=?,username=?,password=?,email=?,phoneNo=?,profilePicture=? where userID=?");
-    $sql->bind_param("ssssisi", $cname, $uname, $pword, $email, $phoneno, $profilepic, userID);
+    $sql = $conn->prepare("update users set customerName=?,username=?,password=?,email=?,phoneNo=?,profilePicture=? where userID=?");
+    $sql->bind_param("ssssisi", $cname, $uname, $pword, $email, $phoneno, $profilepic, $userID);
     $sql->execute();
     $result = $sql->get_result();
     $sql->close();
@@ -121,7 +121,7 @@ if ($success) {
     echo "<h4>The following input errors were detected:</h4>";
     echo "<p>" . $errorMsg . "</p>";
     echo "<br>";
-    echo("<button onclick=\"location.href='editmyprofile.php?id=$custid'\">Return to Customer record.</button>");
+    echo("<button onclick=\"location.href='editmyprofile.php?id=$userID'\">Return to Customer record.</button>");
 }
 
 //Helper function that checks input for malicious or unwanted content.
@@ -132,4 +132,5 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
 
