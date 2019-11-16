@@ -41,9 +41,9 @@ and open the template in the editor.
                 <p>Username:
                     <input type="text" name="username"> </p>
                 <p>Password:
-                    <input type="password" name="password"> </p>
+                    <input type="password" autocomplete="new-password" name="password"> </p>
                 <p>Confirm Password:
-                    <input type="password" name="confirmPassword"> </p>
+                    <input type="password" autocomplete="new-password" name="confirmPassword"> </p>
                 <p>Email:
                     <input type="email" name="email"> </p>
                 <p>Phone No:

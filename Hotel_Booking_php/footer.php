@@ -15,7 +15,7 @@
                 <!-- font-weight-bold text-uppercase -->
                 <p><i class="fas fa-phone iconHotel"></i> +65 6241 0241</p>
                 <p><i class="fas fa-map-marker-alt iconHotel"></i>
-                    <a class="imgLink" href="https://www.google.com/maps/place/Singapore+398741/@1.3118449,103.8637944,14z/data=!3m1!4b1!4m5!3m4!1s0x31da18398e3c39ed:0x56e011efd5cc847f!8m2!3d1.311845!4d103.881304" target="_parent">
+                    <a class="imgLink" href="https://www.google.com/maps/place/Singapore+398741/@1.3118449,103.8637944,14z/data=!3m1!4b1!4m5!3m4!1s0x31da18398e3c39ed:0x56e011efd5cc847f!8m2!3d1.311845!4d103.881304" rel="noopener noreferrer" target="_parent">
                         23 Lorong 20 Geylang, Singapore 398741
                     </a></p>
                 <p><i class="fas fa-mail-bulk iconHotel"></i> service@dhotel.sg</p>
@@ -77,27 +77,27 @@
 
     <ul class="list-unstyled list-inline text-center">
                 <li class="list-inline-item">
-                    <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" class="g mx-1">
+                    <a href="https://www.facebook.com/" aria-label="Facebook" rel="noopener noreferrer" target="_blank" class="g mx-1">
                         <i class="fab fa-facebook-f" > </i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="https://twitter.com/?lang=en" aria-label="Twitter" target="_blank"  class="btn-floating btn-tw mx-1">
+                    <a href="https://twitter.com/?lang=en" aria-label="Twitter" rel="noopener noreferrer" target="_blank"  class="btn-floating btn-tw mx-1">
                         <i class="fab fa-twitter"> </i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="https://www.google.com/" target="_blank" aria-label="Google" class="btn-floating btn-gplus mx-1">
+                    <a href="https://www.google.com/" rel="noopener noreferrer" target="_blank" aria-label="Google" class="btn-floating btn-gplus mx-1">
                         <i class="fab fa-google-plus-g"> </i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank"  class="btn-floating btn-in mx-1">
+                    <a href="https://www.instagram.com/" aria-label="Instagram" rel="noopener noreferrer" target="_blank"  class="btn-floating btn-in mx-1">
                         <i class="fab fa-instagram"></i>
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="https://www.linkedin.com/login" aria-label="Linkedin" target="_blank"  class="btn-floating btn-li mx-1">
+                    <a href="https://www.linkedin.com/login" aria-label="Linkedin" rel="noopener noreferrer" target="_blank"  class="btn-floating btn-li mx-1">
                         <i class="fab fa-linkedin-in"> </i>
                     </a>
                 </li>
