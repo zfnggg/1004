@@ -22,6 +22,8 @@
             $p = mysqli_real_escape_string($conn, $p);
             $p = md5($p);
 
+            
+
             $sql = $conn->prepare("SELECT * FROM users WHERE username = ? and password= ? ");
             $sql->bind_param("ss", $u, $p);
             $sql->execute();

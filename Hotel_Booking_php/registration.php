@@ -25,6 +25,7 @@ and open the template in the editor.
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Font Awesome Icons -->
         <script defer src="js/main.js"></script>
+        <script type="text/javascript" src="js/purify.js"></script>
         <!-- Own Javascript -->
     </head>
 
@@ -73,6 +74,16 @@ and open the template in the editor.
                 var phoneNo = document.forms["addcustomer"]["phoneNo"];
                 
                 var profilepic = document.forms["addcustomer"]["profilePicture"];
+
+                //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
+                //Prevents XSS attacks
+                customerName = DOMPurify.sanitize(customerName);
+                username = DOMPurify.sanitize(username);
+                email = DOMPurify.sanitize(email);
+                password = DOMPurify.sanitize(password);
+                confirmpwd = DOMPurify.sanitize(confirmpwd);
+                phoneNo = DOMPurify.sanitize(phoneNo);
+
 
                 if (customerName.value === "")
                 {
