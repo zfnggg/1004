@@ -47,7 +47,7 @@ include "./navbaruser.php";
                 <?php
                 session_start();
                 $u = $_SESSION['MM_Username'];
-           require_once('../xampp/protected/config.php');
+          require_once('../protected/config.php');
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                 $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
