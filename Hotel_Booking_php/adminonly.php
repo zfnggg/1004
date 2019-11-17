@@ -5,6 +5,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+include "./navbaruser.php";
+
+?>
+<?php
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
     header('location:login.php');
@@ -58,14 +62,7 @@ $chart_data = substr($chart_data, 0, -2);
 </head>
 
 <body>
-    <div id="nav-placeholder">
-        <script>
-            $(function() {
-                $("#nav-placeholder").load("navbaruser.php");
-            });
-
-        </script>
-    </div>
+    
 
     <div class="jumbotron text-center">
         <h1>Admin Page</h1>
@@ -104,16 +101,11 @@ $chart_data = substr($chart_data, 0, -2);
 
     </script>
 
-    <!--Footer-->
-    <div id="footer-placeholder">
-        <script>
-            $(function() {
-                $("#footer-placeholder").load("footer.php");
-            });
+    <?php
+            include "./footer.php";
+            ?>
 
-        </script>
-    </div>
-    <!--end of Footer-->
+    </html>
 </body>
 
 </html>
