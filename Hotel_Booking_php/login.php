@@ -34,7 +34,6 @@ and open the template in the editor.
                         <h3>Login</h3>
                         <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
                         <input type="password" placeholder="Password" name="password" autocomplete="current-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$">
-                        <img src="captcha.php" /><input type="text" name="captcha" />
                         <button id="btn1" name="submit" type="submit" >Login</button>
                         <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
                         <noscript>
