@@ -56,8 +56,6 @@ function validateLoginForm(){
 
     //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
     //Prevents XSS attacks
-    usernameinput = DOMPurify.sanitize(usernameinput);
-    passwordinput = DOMPurify.sanitize(passwordinput);
     
     if (usernameinput === "") {
         alert('Please insert username');
@@ -88,7 +86,6 @@ function validateForgetPasswordForm()
     var regEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var emailinput = document.forms["formforgetpass"]["email"].value;
 
-    emailinput = DOMPurify.sanitize(emailinput);
     
     if (emailinput === "") {
         alert('Please insert your email address');
@@ -116,12 +113,6 @@ function validateRegister() {
 
     //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
     //Prevents XSS attacks
-    customerName = DOMPurify.sanitize(customerName);
-    username = DOMPurify.sanitize(username);
-    email = DOMPurify.sanitize(email);
-    password = DOMPurify.sanitize(password);
-    confirmpwd = DOMPurify.sanitize(confirmpwd);
-    phoneNo = DOMPurify.sanitize(phoneNo);
 
 
     if (customerName.value === "")
