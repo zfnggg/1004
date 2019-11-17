@@ -32,9 +32,9 @@ include "./navbaruser.php";
     <?php
         session_start();
         //Just for MAC, for windows need to change accordingly 
-        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+        require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         //For windows
-        require_once('C:\xampp\protected\config.php');
+        //require_once('C:\xampp\protected\config.php');
         $email = $errorMsg = "";
         $success = true;
         function sanitize_input($data)
@@ -67,14 +67,14 @@ include "./navbaruser.php";
          }
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         if (isset($_POST["submit"])) {
-            $c = $_POST["captcha"];
+            $c = $_POST['captcha'];
             $u = $_POST['username'];
             $p = $_POST['password'];
             $u = mysqli_real_escape_string($conn, $u);
             $p = mysqli_real_escape_string($conn, $p);
             $p = md5($p);
 
-            if ($c == $_SESSION["captcha_code"]) {
+            if ($c == $_SESSION['captcha_code']) {
                 $sql = $conn->prepare("SELECT * FROM users WHERE username = ? and password= ? ");
                 $sql->bind_param("ss", $u, $p);
                 $sql->execute();
