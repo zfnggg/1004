@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include "./navbaruser.php";
+
+?>
 <html lang="en">
 
 <head>
@@ -25,16 +29,7 @@
 </head>
 
 <body>
-    <!-- Start of Navigation Bar -->
-    <div id="nav-placeholder">
-        <script>
-            $(function() {
-                $("#nav-placeholder").load("navbaruser.php");
-            });
-
-        </script>
-    </div>
-    <!--end of Navigation bar-->
+   
 
     <div class="row">
         <div class="col-sm-1"></div>
@@ -100,16 +95,11 @@
         </div>
     </div>
 
-    <!--Footer-->
-    <div id="footer-placeholder">
-        <script>
-            $(function() {
-                $("#footer-placeholder").load("footer.php");
-            });
+    <?php
+            include "./footer.php";
+            ?>
 
-        </script>
-    </div>
-    <!--end of Footer-->
+    </html>
 
 </body>
 
