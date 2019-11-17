@@ -1,19 +1,18 @@
-<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!DOCTYPE html>
 <?php
-include "./navbaruser.php";
-
 if (!isset($_SERVER['HTTP_REFERER'])) {
-// redirect them to your desired location
+    // redirect them to your desired location
     header('location:login.php');
 
     exit;
 }
 ?>
+
 <html lang="en">
 
 <head>
@@ -40,6 +39,15 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
+
+    <header>
+        <nav>
+            <?php
+            include "./navbaruser.php";
+            ?>
+        </nav>
+    </header>
+
     <main>
         <div class="jumbotron text-center">
             <h1>Search Username </h1>
@@ -48,18 +56,23 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </div>
 
-        <div class="container-fluid text-center">
-            <div class="row content">
-                <div class="col-sm-8 text-left">
-                    <form name="search" method="post" action="searchusername.php">
-                        <label for="search">Search Booking by Username:
-                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
+        <section>
+            <div class="container-fluid text-center">
+                <div class="row content">
+                    <div class="col-sm-8 text-centre">
+                        <form name="search" method="post" action="searchusername.php">
+                            <label for="search">Search Booking by Username:
+                                <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
 
-                        </label>
-                        <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
+                            </label>
+                            <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
+                        </form>
 
+                        <hr>
                         <?php
-                require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                        require_once('../protected/config.php');
+
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
 
@@ -79,7 +92,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     $sql->bind_param("s", $search);
                                     $sql->execute();
                                     $result = $sql->get_result();
-//                                    $sql->close();
+                                    //                                    $sql->close();
 
                                     if (mysqli_num_rows($result) == 0) {
                                         echo "<h1>there are no results</h1>";
@@ -103,20 +116,23 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <?php echo $data['status'] ?>
                                 </td>
                             </tr>
-                            <?php
-                                }
-                            }
-                            mysqli_close($conn);
-                            ?>
+                    <?php
+                        }
+                    }
+                    mysqli_close($conn);
+                    ?>
                         </table>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
+
+    <footer>
+        <?php
+        include "./footer.php";
+        ?>
+    </footer>
 </body>
-<?php
-    include "./footer.php";
-    ?>
 
 </html>

@@ -19,7 +19,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 <?php
 
-require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+//require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+require_once('../protected/config.php');
+
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
 $query = "SELECT * FROM booking";
