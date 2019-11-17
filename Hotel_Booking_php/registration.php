@@ -63,7 +63,9 @@ and open the template in the editor.
         </form>
 
         <script>
-            function myFunction() {
+            
+    
+        function myFunction() {
 
                 var customerName = document.forms["addcustomer"]["customerName"];
                 var username = document.forms["addcustomer"]["username"];

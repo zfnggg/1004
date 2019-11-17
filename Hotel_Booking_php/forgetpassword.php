@@ -1,4 +1,17 @@
-<html>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<?php
+
+include "./navbaruser.php";
+
+?>
+
+<html lang="en">
     <head>
         <title>D'Hotel</title>
         <meta charset="UTF-8">
@@ -15,14 +28,8 @@
         <script defer src="js/main.js"></script>
         <!-- Own Javascript -->
     </head>
+    
     <body>
-<div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>      
          <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
                 <div class="container">
                     <h1>Forget Password</h1>
@@ -31,18 +38,16 @@
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" id="email" required>
                     <p>We send you a email to restart your password. </p>
+                    
                     <div class="clearfix">
                         <button name="submit" type="submit"  class="sendemailbtn1">Send Email</button>
                     </div>
                 </div>
             </form>
-   <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
     </body>
+    
+    <?php
+    include "./footer.php";
+    ?>
 </html>
     

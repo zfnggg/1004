@@ -4,6 +4,17 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
+<?php
+
+include "./navbaruser.php";
+
+if (!isset($_SERVER['HTTP_REFERER'])) {
+// redirect them to your desired location
+    header('location:login.php');
+    exit;
+}
+?>
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -29,16 +40,6 @@ and open the template in the editor.
     </head>
 
     <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
-
         <!--check if user is logged in when clicked on Show Price else go to login page-->
 
         <?php
@@ -281,16 +282,9 @@ and open the template in the editor.
             </div>
         </div>
         <!--end of comments container-->
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+    <?php
+    include "./footer.php";
+    ?>
     </body>
 </html>
 

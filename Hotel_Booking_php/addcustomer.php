@@ -5,6 +5,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+
+include "./navbaruser.php";
+
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
     header('location:login.php');
@@ -190,16 +193,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 </div>
             </div>
         </div>
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+    <?php
+    include "./footer.php";
+    ?>
     </body>
 </html>
 
