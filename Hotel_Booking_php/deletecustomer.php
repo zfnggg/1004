@@ -9,7 +9,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 <?php
 
 session_start();
-require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+
 
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 $cidToDelete = $_POST["cid"];
