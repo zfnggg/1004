@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+
+include "./navbaruser.php";
+?>
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -24,16 +28,6 @@
     </head>
 
     <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
-
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10">
@@ -100,16 +94,9 @@
                 <div class="col-sm-1"></div>
             </div>
         </div>
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+    <?php
+    include "./footer.php";
+    ?>
 
     </body>
 </html>
