@@ -5,7 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include "./navbaruser.php";
+include_once ("./navbaruser.php");
 
 ?>
 
@@ -78,7 +78,7 @@ include "./navbaruser.php";
             </form>
         </div>
         <?php
-        include "./footer.php";
+        include_once ("./footer.php");
         ?>
 
         <script>
