@@ -4,10 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-    include "./navbaruser.php";
-?>
-
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -27,6 +23,16 @@ and open the template in the editor.
     </head>
 
     <body>
+        <!-- Start of Navigation Bar -->
+        <div id="nav-placeholder">
+            <script>
+                $(function () {
+                    $("#nav-placeholder").load("navbaruser.php");
+                });
+            </script>
+        </div>
+        <!--end of Navigation bar-->
+
         <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()" novalidate>
             <div class="container">
                 <div class="row">
@@ -68,9 +74,16 @@ and open the template in the editor.
                 </div>
             </form>
         </div>
-    <?php
-    include "./footer.php";
-    ?>
+
+        <!--Footer-->
+        <div id="footer-placeholder">
+            <script>
+                $(function () {
+                    $("#footer-placeholder").load("footer.php");
+                });
+            </script>
+        </div>
+        <!--end of Footer-->
 
         <script>
             // Get the modal
