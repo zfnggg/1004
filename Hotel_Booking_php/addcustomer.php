@@ -55,7 +55,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             <div class="col-sm-4">
 
                 <?php
-                  require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                 require_once('../protected/config.php');
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     ?>
 
