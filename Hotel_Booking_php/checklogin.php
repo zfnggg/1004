@@ -30,11 +30,15 @@ include "./navbaruser.php";
 <body>
 
     <?php
-        session_start();
+        //session_start();
         //Just for MAC, for windows need to change accordingly 
         require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         //For windows
+<<<<<<< HEAD
         //require_once('C:\xampp\protected\config.php');
+=======
+        require_once('..\..\protected\config.php');
+>>>>>>> 65946a0bc38a59cfb3d2653ea3835bda953be71e
         $email = $errorMsg = "";
         $success = true;
         function sanitize_input($data)
