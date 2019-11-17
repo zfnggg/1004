@@ -123,16 +123,11 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 
 
-    <!--Footer-->
-    <div id="footer-placeholder">
-        <script>
-            $(function() {
-                $("#footer-placeholder").load("footer.php");
-            });
+    <?php
+            include "./footer.php";
+            ?>
 
-        </script>
-    </div>
-    <!--end of Footer-->
+    </html>
 </body>
 
 </html>
