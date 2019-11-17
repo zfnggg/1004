@@ -99,6 +99,7 @@ function validateForgetPasswordForm()
     }
 }
 
+
 function validateRegister() {
 
     var customerName = document.forms["addcustomer"]["customerName"];
