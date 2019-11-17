@@ -39,7 +39,7 @@ include "./navbaruser.php";
     <!--check if user is logged in when clicked on Show Price else go to login page-->
 
     <?php
-        session_start();
+        //session_start();
         $u = $_SESSION['MM_Username'];
          require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
