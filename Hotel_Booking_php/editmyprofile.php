@@ -66,62 +66,62 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 //                mysqli_query($conn, $sql) or die(mysqli_error($conn));
                 ?>
 
-                <form method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data">
+                <form name="formEditProfile" onsubmit="return validateEditProfile()" novalidate method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data">
                     <table>
                         <tr>
                             <td>
                                 <label for="customerName">Customer Name:
-                            
-                                <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
-</label>
+
+                                    <input type="text" id="customerName" name="customerName" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
+                                </label>
                                 <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <label for="username">Username :</label>
-                            
-                                <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['username']; ?>">
+
+                                <input type="text" id="username" name="username" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['username']; ?>">
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <label for="password">Password:
-                            
-                                <input type="password" name="password" id="password" value="<?php echo $userrecord['password']; ?>"></label>
+
+                                    <input type="password" name="password" id="password" value="<?php echo $userrecord['password']; ?>"></label>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <label for="email">Email:</p>
-                            
-                                <input type="text" id="email" name="email" pattern="^\S+@\S+$" value="<?php echo $userrecord['email']; ?>">
-</label>
+
+                                    <input type="text" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php echo $userrecord['email']; ?>">
+                                </label>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="phoneNo">
-                                Phone No:
-                            
-                                <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" value="<?php echo $userrecord['phoneNo']; ?>"></label>
+                                    Phone No:
+
+                                    <input type="text" id="phoneNo" name="phoneNo" required pattern="[6,8,9][0-9]{7}" value="<?php echo $userrecord['phoneNo']; ?>"></label>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <label for="profilePicture">Profile Picture:
-                           
-                                <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required></label>
+
+                                    <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required></label>
                             </td>
                         </tr>
                     </table>
                     <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
-                    <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
+                    <input type="submit" name="submit" value="Upload" class="btn btn-primary">
                 </form>
             </div>
         </div>
     </div>
 
-    
+
 
     <!--Footer-->
     <div id="footer-placeholder">
