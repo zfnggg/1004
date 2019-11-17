@@ -29,15 +29,6 @@ and open the template in the editor.
     </head>
 
     <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
 
         <div class="jumbotron text-center bg-light">
             <h2>DESTINATION: D'HOTEL</h2>
