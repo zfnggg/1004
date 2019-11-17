@@ -74,8 +74,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                             </label>
                             <input type="submit" value="Search" class="btn btn-primary" onclick="myFunction()">
-
-                            <?php
+                        <?php                         
                             //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
                             require_once('../protected/config.php');
 
