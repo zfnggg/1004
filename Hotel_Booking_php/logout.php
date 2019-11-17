@@ -24,15 +24,9 @@ and open the template in the editor.
     </head>
 
     <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
+        <?php
+        include "./navbaruser.php";
+        ?>
 
         <div>
             <div class="jumbotron text-center bg-light">
@@ -48,14 +42,11 @@ and open the template in the editor.
 
             <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
         </div>            <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+        <?php
+                include "./footer.php";
+                ?>
+
+        </html>
     </body>
 </html>
 
