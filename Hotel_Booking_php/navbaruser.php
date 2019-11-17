@@ -1,10 +1,10 @@
 <?php
-if (!isset($_SERVER['HTTP_REFERER'])) {
+//if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
-    header('location:login.php');
+   // header('location:login.php');
      
-    exit;
-}
+   // exit;
+//}
 ?>
 <?php
 session_start();
