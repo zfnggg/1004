@@ -30,17 +30,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <script defer src="js/main.js"></script>
     <!-- Own Javascript -->
 </head>
+<?php
+include "./navbaruser.php";
 
-<!-- Start of Navigation Bar -->
-<div id="nav-placeholder">
-    <script>
-        $(function() {
-            $("#nav-placeholder").load("navbaruser.php");
-        });
-
-    </script>
-</div>
-<!--end of Navigation bar-->
+?>
 
 <body>
     <div class="jumbotron text-center">
