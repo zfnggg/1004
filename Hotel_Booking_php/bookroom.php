@@ -83,15 +83,19 @@ include "./navbaruser.php";
 
                     <form method="POST" name="bookroom" action="process_booking.php">
                         <h3>Total Payment:</h3>
-                        <p>Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></p>
-                        <p>Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></p>
-                        <p>No of days: <input type="text" id="numdays" name="num_days" readonly required></p>
-                        <p>No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]{1}$" required></p>
-                        <p>Total Charges:$ <input type="text" id="total" name="total_sum" readonly></p>
+                        <label for ="checkin">Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></label>
+<br/>
+                        <label for ="checkout">Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></label>
+<br/>
+                        <label for ="numdays">No of days: <input type="text" id="numdays" name="num_days" readonly required></label>
+<br/>
+                        <label for ="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]{1}$" required></label>
+<br/>
+                        <label for ="total">Total Charges:$ <input type="text" id="total" name="total_sum" readonly></label>
                         <input type="hidden" id="status" name="status" value="going">
 
                         <h3>Personal Information:</h3>
-                        <p>Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></p>
+                         <label for ="customerName">Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></label>
                         <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
                         <input type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
                         <h3>Payment Details:</h3>
@@ -102,9 +106,10 @@ include "./navbaruser.php";
                             <i class="fa fa-cc-mastercard" style="color:red;"></i>
                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div>
-                        <p>Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^[0-9]{16}$" placeholder="4444-2222-3333-1111" required></p>
-                        <p>Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></p>
-                        <p>CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></p>
+                         <label for ="cardnumber">Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^[0-9]{16}$" placeholder="4444-2222-3333-1111" required></label>
+<br/>
+                            <label for ="expmonth">Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></label><br/>
+                        <label for ="cvv">CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></label>
                         <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
                     </form>
 
@@ -288,3 +293,4 @@ include "./navbaruser.php";
 </body>
 
 </html>
+
