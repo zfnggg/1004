@@ -25,13 +25,12 @@ and open the template in the editor.
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Font Awesome Icons -->
         <script defer src="js/main.js"></script>
-        <script type="text/javascript" src="src/purify.js"></script>
         <!-- Own Javascript -->
     </head>
 
     <body>
 
-        <form action="process_registration.php" method="post" onsubmit="return validateRegister()">
+        <form action="process_registration.php" method="post" name="addcustomer" onsubmit="return validateRegister()">
             <div class="container-registration text-center">
                 <h1>Registration</h1>
                 <p>Please fill in this form to create an account.</p>
