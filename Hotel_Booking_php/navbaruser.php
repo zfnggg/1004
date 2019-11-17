@@ -9,6 +9,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 <?php
 session_start();
 ?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand"><img src="img/icon.png" id="icon" alt=""></a>
@@ -41,23 +42,22 @@ session_start();
                 </li>
 
                 <?php if (isset($_SESSION['MM_Username'])) { ?>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
-                        <ul class="dropdown-menu">
-                            <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
-                            <a class="dropdown-item" href="./reservation.php">My Reservation</a>
-                            <a class="dropdown-item" href="./logout.php">Log out</a>
-                        </ul>
-                    </li>
-                    <?php
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
+                    <ul class="dropdown-menu">
+                        <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
+                        <a class="dropdown-item" href="./reservation.php">My Reservation</a>
+                        <a class="dropdown-item" href="./logout.php">Log out</a>
+                    </ul>
+                </li>
+                <?php
                 } else {
                     ?>
-                    <li class = "nav-item">
-                        <a class = "nav-link" href = "./login.php">Login</a>
-                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./login.php">Login</a>
+                </li>
                 <?php } ?>
             </ul>
         </div>
     </div>
 </nav>
-
