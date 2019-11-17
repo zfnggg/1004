@@ -1,7 +1,7 @@
-import * as TAGS from './tags';
-import * as ATTRS from './attrs';
-import { addToSet, clone } from './utils';
-import * as EXPRESSIONS from './regexp';
+import * as TAGS from './tags.js';
+import * as ATTRS from './attrs.js';
+import { addToSet, clone } from './utils.js';
+import * as EXPRESSIONS from './regexp.js';
 
 let { apply } = typeof Reflect !== 'undefined' && Reflect;
 const { slice: arraySlice } = Array.prototype;

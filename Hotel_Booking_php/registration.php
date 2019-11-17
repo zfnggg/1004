@@ -25,7 +25,7 @@ and open the template in the editor.
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Font Awesome Icons -->
         <script defer src="js/main.js"></script>
-        <script type="text/javascript" src="js/purify.js"></script>
+        <script src="js/purify.js"></script>
         <!-- Own Javascript -->
     </head>
 
