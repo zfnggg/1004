@@ -45,11 +45,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 <body>
 
     <header>
-        <nav>
-            <?php
-            include "./navbaruser.php";
-            ?>
-        </nav>
+        <?php
+        include "./navbaruser.php";
+        ?>
     </header>
 
     <main>
@@ -74,7 +72,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
                             </label>
                             <input type="submit" value="Search" class="btn btn-primary" onclick="myFunction()">
-                        <?php                         
+                            <?php
                             //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
                             require_once('../protected/config.php');
 
@@ -130,11 +128,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
     </main>
 
-    <footer>
-        <?php
-        include "./footer.php";
-        ?>
-    </footer>
+    <?php
+    include "./footer.php";
+    ?>
 
 </body>
+
 </html>

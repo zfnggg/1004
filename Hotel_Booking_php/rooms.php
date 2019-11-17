@@ -33,11 +33,9 @@ and open the template in the editor.
 <body>
 
     <header>
-        <nav>
-            <?php
-            include "./navbaruser.php";
-            ?>
-        </nav>
+        <?php
+        include "./navbaruser.php";
+        ?>
 
         <?php
         // = session_start();
@@ -101,11 +99,10 @@ and open the template in the editor.
         </div>
     </main>
 
-    <footer>
-        <?php
-        include "./footer.php";
-        ?>
-    </footer>
+    <?php
+    include "./footer.php";
+    ?>
 
 </body>
+
 </html>

@@ -5,15 +5,14 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include "./navbaruser.php";
-
 if (!isset($_SERVER['HTTP_REFERER'])) {
-// redirect them to your desired location
+    // redirect them to your desired location
     header('location:login.php');
 
     exit;
 }
 ?>
+
 <html lang="en">
 
 <head>
@@ -40,6 +39,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
+
+    <header>
+        <?php
+        include "./navbaruser.php";
+        ?>
+    </header>
+
     <main>
         <div class="jumbotron text-center">
             <h1>Search Booking Date</h1>
@@ -59,7 +65,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 
                         <?php
-                       require_once('../protected/config.php');
+                        require_once('../protected/config.php');
 
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
@@ -85,8 +91,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     if (mysqli_num_rows($result) == 0) {
                                         echo "<h1>there are no results</h1>";
                                     }
-//                                    $result = mysqli_query($conn, $sql);
-//                                    $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                    //                                    $result = mysqli_query($conn, $sql);
+                                    //                                    $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                                     while ($data = mysqli_fetch_assoc($result)) {
                                         ?>
                             <tr>
@@ -106,12 +112,12 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <?php echo $data['status'] ?>
                                 </td>
                             </tr>
-                            <?php
-                                }
-                            }
+                    <?php
+                        }
+                    }
 
-                            mysqli_close($conn);
-                            ?>
+                    mysqli_close($conn);
+                    ?>
                         </table>
                     </form>
                 </div>
@@ -120,10 +126,12 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             </div>
         </div>
     </main>
-</body>
 
-<?php
+    <?php
     include "./footer.php";
     ?>
+
+</body>
+
 
 </html>

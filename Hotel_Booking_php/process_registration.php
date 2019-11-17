@@ -27,11 +27,9 @@ and open the template in the editor.
 <body>
 
     <header>
-        <nav>
-            <?php
-            include "./navbaruser.php";
-            ?>
-        </nav>
+        <?php
+        include "./navbaruser.php";
+        ?>
     </header>
 
     <main>
@@ -220,11 +218,9 @@ and open the template in the editor.
         ?>
     </main>
 
-    <footer>
-        <?php
-        include "./footer.php";
-        ?>
-    </footer>
+    <?php
+    include "./footer.php";
+    ?>
 </body>
 
 

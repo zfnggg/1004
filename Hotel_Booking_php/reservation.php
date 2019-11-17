@@ -40,11 +40,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 <body>
     <header>
-        <nav>
-            <?php
-            include "./navbaruser.php";
-            ?>
-        </nav>
+        <?php
+        include "./navbaruser.php";
+        ?>
     </header>
 
     <main>
@@ -127,11 +125,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         </section>
     </main>
 
-    <footer>
-        <?php
-        include "./footer.php";
-        ?>
-    </footer>
+    <?php
+    include "./footer.php";
+    ?>
 
 </body>
 

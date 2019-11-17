@@ -27,13 +27,11 @@ and open the template in the editor.
 <body>
 
     <header>
-        <nav>
-            <?php
-            include "./navbaruser.php";
-            //    session_start();
-            $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
-            ?>
-        </nav>
+        <?php
+        include "./navbaruser.php";
+        //    session_start();
+        $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
+        ?>
     </header>
 
     <!-- Novalidate removes HTML-->
@@ -73,11 +71,9 @@ and open the template in the editor.
         </form>
     </main>
 
-    <footer>
-        <?php
-        include "./footer.php";
-        ?>
-    </footer>
+    <?php
+    include "./footer.php";
+    ?>
 
 </body>
 
