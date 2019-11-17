@@ -10,7 +10,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 session_start();
 
-
+require_once('../protected/config.php');
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 $cidToDelete = $_POST["cid"];
 $sql = $conn->prepare("delete from users where userID=?");
