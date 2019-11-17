@@ -28,7 +28,10 @@ include "./navbaruser.php";
     </head>
 
     <body>
+<<<<<<< HEAD
         
+=======
+>>>>>>> 65946a0bc38a59cfb3d2653ea3835bda953be71e
 
         <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()">
             <div class="container">
