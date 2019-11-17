@@ -36,7 +36,7 @@ include "./navbaruser.php";
         <div class="col-sm-10">
             <h2 class="text-center">Available Rooms</h2>
             <?php
-               require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+              require_once('../protected/config.php');
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                 ?>

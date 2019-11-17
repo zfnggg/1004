@@ -30,17 +30,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <script defer src="js/main.js"></script>
     <!-- Own Javascript -->
 </head>
+<?php
+include "./navbaruser.php";
 
-<!-- Start of Navigation Bar -->
-<div id="nav-placeholder">
-    <script>
-        $(function() {
-            $("#nav-placeholder").load("navbaruser.php");
-        });
-
-    </script>
-</div>
-<!--end of Navigation bar-->
+?>
 
 <body>
     <div class="jumbotron text-center">
@@ -52,9 +45,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             <div class="col-sm-8 text-center">
 
                 <?php
-                session_start();
+                //session_start();
                 $u = $_SESSION['MM_Username'];
-           require_once('../xampp/protected/config.php');
+          require_once('../protected/config.php');
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                 $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");

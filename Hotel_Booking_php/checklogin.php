@@ -19,6 +19,7 @@ include "./navbaruser.php";
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Font Awesome Icons -->
         <script defer src="js/main.js"></script>
+
         <!-- Own Javascript -->
     </head>
 
