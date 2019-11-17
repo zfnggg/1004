@@ -3,28 +3,29 @@ include "./navbaruser.php";
 ?>
 
 <html lang="en">
-    <head>
-        <title>D'Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
-        <link href="css/main.css" rel="stylesheet" />
-        <!-- Own CSS Style Sheet-->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <!-- Font Awesome Icons -->
-        <script defer src="js/main.js"></script>
-        <!-- Own Javascript -->
-    </head>
+
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Own CSS Style Sheet-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Font Awesome Icons -->
+    <script defer src="js/main.js"></script>
+    <!-- Own Javascript -->
+</head>
 
 
-    <body>
+<body>
 
-        <main>
-            <?php
+    <main>
+        <?php
 
             //Helper function that checks input for malicious or unwanted content.
             function sanitize_input($data) {
@@ -131,10 +132,7 @@ include "./navbaruser.php";
                 $profilepic = $_POST['profilePicture'];
                 $role = $_POST['role'];
 
-                define("DBHOST", "161.117.122.252");
-                define("DBNAME", "p1_4");
-                define("DBUSER", "p1_4");
-                define("DBPASS", "5xLMQfLGsc");
+                 require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
@@ -210,9 +208,9 @@ include "./navbaruser.php";
                 echo "<hr>";
             }
             ?>
-        </main>
-
-        <?php
+    </main>
+</body>
+<?php
         include "./footer.php";
         ?>
 

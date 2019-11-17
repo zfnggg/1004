@@ -22,14 +22,49 @@ include "./navbaruser.php";
         <!-- Own Javascript -->
     </head>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Check Login</title>
+</head>
 
-        <?php
-        define("DBHOST", "161.117.122.252");
-        define("DBNAME", "p1_4");
-        define("DBUSER", "p1_4");
-        define("DBPASS", "5xLMQfLGsc");
+<body>
 
+    <?php
+        session_start();
+        //Just for MAC, for windows need to change accordingly 
+        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+        //For windows
+        require_once('C:\xampp\protected\config.php');
+        $email = $errorMsg = "";
+        $success = true;
+        function sanitize_input($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        
+        if(empty($_POST["username"]))
+        {
+            $errorMsg .= "Username is required.<br>";
+            $success = false;
+        }
+        else
+        {
+            $username = sanitize_input($_POST["username"]);
+           
+        }
+        if(empty($_POST["password"]))
+        {
+            $errorMsg .= "Password is required.<br>";
+            $success = false;
+        }
+         else
+         {
+             $p = sanitize_input($_POST["password"]);
+             $p= md5($p);
+         }
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         if (isset($_POST["submit"])) {
             $c = $_POST["captcha"];
@@ -116,4 +151,3 @@ include "./navbaruser.php";
         ?>
 
 </html>
-

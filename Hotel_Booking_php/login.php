@@ -28,7 +28,17 @@ include "./navbaruser.php";
     </head>
 
     <body>
-        <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()" novalidate>
+        <!-- Start of Navigation Bar -->
+        <div id="nav-placeholder">
+            <script>
+                $(function () {
+                    $("#nav-placeholder").load("navbaruser.php");
+                });
+            </script>
+        </div>
+        <!--end of Navigation bar-->
+
+        <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" >

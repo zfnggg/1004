@@ -11,10 +11,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 session_start();
 
-define("DBHOST", "161.117.122.252");
-define("DBNAME", "p1_4");
-define("DBUSER", "p1_4");
-define("DBPASS", "5xLMQfLGsc");
+require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 if (isset($_POST["submit"]) == "Upload") {
@@ -24,9 +21,10 @@ if (isset($_POST["submit"]) == "Upload") {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $role = $_POST['role'];
-//$pic = $_POST['profilePicture'];
-    $pword = mysqli_real_escape_string($conn, $pword);
-    $pword = md5($pword);
+    $EncryptPassword = md5($pword);
+    //$pic = $_POST['profilePicture'];
+    //$pword = mysqli_real_escape_string($conn, $pword);
+   
 
 
     $target_Folder = "images/";
@@ -34,18 +32,16 @@ if (isset($_POST["submit"]) == "Upload") {
     $savepath = $target_Path . basename($_FILES['profilePicture']['name']);
     $file_name = $_FILES['profilePicture']['name'];
     $profilepic = "$target_Folder$file_name";
-
+    
     $sql = $conn->prepare("update users set customerName =?, password =?, email =?, phoneNo=?, role = ?, profilePicture=? where userID=?");
     move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);
-    $sql->bind_param("sssissi", $newName, $pword, $email, $phone, $role, $profilepic, $cidToUpdate);
+    $sql->bind_param("sssissi", $newName, $EncryptPassword, $email, $phone, $role, $profilepic, $cidToUpdate);
     $sql->execute();
     $result = $sql->get_result();
+    
     $sql->close();
     //$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
-
     mysqli_close($conn);
-
     //header("Location:customerprofile.php?id=$cidToUpdate");
 }
 ?>
@@ -57,7 +53,6 @@ $pword = sanitize_input($_POST["pword"]);
 $newName = sanitize_input($_POST['cName']);
 $phone = sanitize_input($_POST['phone']);
 $role = sanitize_input($_POST['role']);
-
 $success = true;
 
 
@@ -117,7 +112,6 @@ if ($success) {
     echo "<h1>Added Successfully</h1>";
     echo "<h2>Customer Records</h2>";
     echo "<h2>Customer Name : $newName </h2>";
-
     echo "<h2 >email  :   $email</h2>";
     echo "<h2 >phone no : $phoneno</h2>";
     echo "<h2 >role : $role</h2>";
@@ -138,6 +132,3 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
-
-
-

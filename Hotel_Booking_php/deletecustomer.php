@@ -9,10 +9,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 <?php
 
 session_start();
-define("DBHOST", "161.117.122.252");
-define("DBNAME", "p1_4");
-define("DBUSER", "p1_4");
-define("DBPASS", "5xLMQfLGsc");
+require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 $cidToDelete = $_POST["cid"];

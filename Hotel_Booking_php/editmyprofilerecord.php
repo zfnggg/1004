@@ -1,11 +1,7 @@
 <?php
 
 session_start();
-define("DBHOST", "161.117.122.252");
-define("DBNAME", "p1_4");
-define("DBUSER", "p1_4");
-define("DBPASS", "5xLMQfLGsc");
-
+require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
 if (isset($_POST["submit"]) == "Upload") {
@@ -13,14 +9,14 @@ if (isset($_POST["submit"]) == "Upload") {
     $cname = $_POST['customerName'];
 //$uname = $_POST['MM_Username'];
     $uname = $_POST['username'];
-//    $pword = $_POST['password'];
+    $pword = $_POST['password'];
     $email = $_POST['email'];
     $phoneno = $_POST['phoneNo'];
 //$profilepic = $_POST['profilePicture'];
 //$u = mysqli_real_escape_string($conn, $u);
-//    $pword = mysqli_real_escape_string($conn, $pword);
-//    $pword = md5($pword);
-
+//$pword = mysqli_real_escape_string($conn, $pword);
+    $pword = md5($pword);
+    
     $target_Folder = "images/";
     $target_Path = $target_Folder . basename($_FILES['profilePicture']['name']);
     $savepath = $target_Path . basename($_FILES['profilePicture']['name']);
@@ -28,15 +24,12 @@ if (isset($_POST["submit"]) == "Upload") {
     $profilepic = "$target_Folder$file_name";
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-    $sql = $conn->prepare("update users set customerName=?,username=?,email=?,phoneNo=?,profilePicture=? where userID=?");
-    $sql->bind_param("sssisi", $cname, $uname, $email, $phoneno, $profilepic, $userID);
+    $sql = $conn->prepare("update users set customerName=?,username=?, password=?,email=?,phoneNo=?,profilePicture=? where userID=?");
+    $sql->bind_param("ssssisi", $cname, $uname, $pword,$email, $phoneno, $profilepic, $userID);
     $sql->execute();
     $result = $sql->get_result();
     $sql->close();
-
     //header("Location:editmyprofile.php?id=$custid");
-
-
     mysqli_close($conn);
 }
 ?>
@@ -45,15 +38,11 @@ if (isset($_POST["submit"]) == "Upload") {
 <?php
 
 $email = $errorMsg = "";
-
 $password = sanitize_input($_POST["password"]);
 $cname = sanitize_input($_POST['customerName']);
 $uname = sanitize_input($_POST['username']);
 $phoneno = sanitize_input($_POST['phoneNo']);
-
-
 $success = true;
-
 
 //EMAIL
 if (empty($_POST['email'])) {
@@ -132,5 +121,3 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
-
-

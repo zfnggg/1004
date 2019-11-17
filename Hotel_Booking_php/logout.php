@@ -4,9 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-    include "./navbaruser.php";
-?>
 
 <html lang="en">
     <head>
@@ -27,6 +24,16 @@ and open the template in the editor.
     </head>
 
     <body>
+        <!-- Start of Navigation Bar -->
+        <div id="nav-placeholder">
+            <script>
+                $(function () {
+                    $("#nav-placeholder").load("navbaruser.php");
+                });
+            </script>
+        </div>
+        <!--end of Navigation bar-->
+
         <div>
             <div class="jumbotron text-center bg-light">
                 <?php
@@ -40,10 +47,15 @@ and open the template in the editor.
             </div>
 
             <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
-        </div> 
+        </div>            <!--Footer-->
+        <div id="footer-placeholder">
+            <script>
+                $(function () {
+                    $("#footer-placeholder").load("footer.php");
+                });
+            </script>
+        </div>
+        <!--end of Footer-->
     </body>
-        <?php
-    include "./footer.php";
-    ?>
 </html>
 
