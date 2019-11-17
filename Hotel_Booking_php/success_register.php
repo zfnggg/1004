@@ -48,17 +48,11 @@ include "./navbaruser.php";
 
         <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam">
 
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function() {
-                    $("#footer-placeholder").load("footer.php");
-                });
+        <?php
+                include "./footer.php";
+                ?>
 
-            </script>
-        </div>
-    </div>
-    <!--end of Footer-->
+        </html>
 </body>
 
 </html>
