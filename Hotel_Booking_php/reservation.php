@@ -56,7 +56,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <div class="col-sm-8 text-center">
 
                     <?php
-                require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                require_once('../protected/config.php');
 
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $sql = "select b.bookingID, c.customerName, r.roomType, b.checkin,b.checkout, b.numdays, b.total, b.pax from rooms as r "
