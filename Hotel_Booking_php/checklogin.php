@@ -32,13 +32,9 @@ include "./navbaruser.php";
     <?php
         //session_start();
         //Just for MAC, for windows need to change accordingly 
-        require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         //For windows
-<<<<<<< HEAD
-        //require_once('C:\xampp\protected\config.php');
-=======
-        require_once('..\..\protected\config.php');
->>>>>>> 65946a0bc38a59cfb3d2653ea3835bda953be71e
+        require_once('../protected/config.php');
         $email = $errorMsg = "";
         $success = true;
         function sanitize_input($data)
@@ -117,8 +113,6 @@ include "./navbaruser.php";
                     echo "</div>";
                     echo "</div>";
                     echo "<hr>";
-                    
-                    echo("<button onclick=\"location.href='login.php'\">Login</button>");
                 }
 
                 $sql->close();
