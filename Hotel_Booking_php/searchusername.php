@@ -59,7 +59,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 
                         <?php
-                require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                require_once('../protected/config.php');
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
 
