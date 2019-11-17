@@ -28,15 +28,7 @@ include "./navbaruser.php";
     </head>
 
     <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
+        
 
         <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()">
             <div class="container">
@@ -50,9 +42,8 @@ include "./navbaruser.php";
                             <label for="captcha">Please Enter the Captcha Text</label>
                             <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
                             <br>
-                            <input type="text" id="captcha" name="captcha" pattern="[A-Z]{6}">
+                            <input type="text" id="captcha" name="captcha">
                         </div>
-
 
                         <button id="btn1" name="submit" type="submit" >Login</button>
                         <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
