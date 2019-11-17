@@ -1,3 +1,5 @@
+
+
 var pic1 = document.getElementById("A1");
 pic1.addEventListener("mouseover", showPopup1);
 pic1.addEventListener("mouseout", hidePopup1);
@@ -221,7 +223,6 @@ function validateLoginForm() {
 
     //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
     //Prevents XSS attacks
-
     if (usernameinput === "") {
         alert('Please insert username');
         return false;
@@ -274,6 +275,13 @@ function validateRegister() {
 
     //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
     //Prevents XSS attacks
+        customerName = DOMPurify.sanitize(customerName);
+        username = DOMPurify.sanitize(username);
+        email = DOMPurify.sanitize(email);
+        password = DOMPurify.sanitize(password);
+        confirmpwd = DOMPurify.sanitize(confirmpwd);
+        phoneNo = DOMPurify.sanitize(phoneNo);
+    
 
 
     if (customerName.value === "")

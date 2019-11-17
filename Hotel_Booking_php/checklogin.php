@@ -10,7 +10,40 @@
 
     <?php
         session_start();
-        require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+        //Just for MAC, for windows need to change accordingly 
+        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+        //For windows
+        require_once('C:\xampp\protected\config.php');
+        $email = $errorMsg = "";
+        $success = true;
+        function sanitize_input($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        
+        if(empty($_POST["username"]))
+        {
+            $errorMsg .= "Username is required.<br>";
+            $success = false;
+        }
+        else
+        {
+            $username = sanitize_input($_POST["username"]);
+           
+        }
+        if(empty($_POST["password"]))
+        {
+            $errorMsg .= "Password is required.<br>";
+            $success = false;
+        }
+         else
+         {
+             $p = sanitize_input($_POST["password"]);
+             $p= md5($p);
+         }
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         if (isset($_POST["submit"])) {
             $u = $_POST['username'];
