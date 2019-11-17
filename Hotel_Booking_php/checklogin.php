@@ -35,6 +35,7 @@ include "./navbaruser.php";
         //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         //For windows
         require_once('../protected/config.php');
+        
         $email = $errorMsg = "";
         $success = true;
         function sanitize_input($data)
