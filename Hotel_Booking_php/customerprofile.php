@@ -58,7 +58,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <a href="searchcustomer.php?action=add" title="">Search Customer</a>
 
                 <?php
-                   require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                   require_once('../protected/config.php');
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $sql = "select * from users";
                     $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));

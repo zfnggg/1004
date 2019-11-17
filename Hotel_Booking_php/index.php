@@ -4,9 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-    include "./navbaruser.php";
-?>
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -28,6 +25,12 @@ and open the template in the editor.
     <body>
 
         <header>
+            <nav>
+                <?php
+                include "./navbaruser.php";
+                ?>
+            </nav>
+
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -156,9 +159,13 @@ and open the template in the editor.
                 </div>
             </div>
         </section>
+
+        <footer>
+            <?php
+            include "./footer.php";
+            ?>
+        </footer>
     </body>
-        <?php
-    include "./footer.php";
-    ?>
+
 </html>
 

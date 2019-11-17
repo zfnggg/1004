@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+require_once('../protected/config.php');
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
 if (isset($_POST["submit"]) == "Upload") {

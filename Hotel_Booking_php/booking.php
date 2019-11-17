@@ -58,7 +58,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <a href="searchusername.php?action=add" title="">Search Booking by Username</a>
 
                 <?php
-                     require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                     require_once('../protected/config.php');
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $sql = "select * from rooms as r inner join booking as b on r.roomID = b.roomID inner join users as c on b.userID = c.userID";
                     $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));

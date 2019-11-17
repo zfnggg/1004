@@ -20,7 +20,7 @@ if (!isset($_['submit'])) {
     $pax = $_POST['pax'];
 
 
-require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+require_once('../protected/config.php');
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
