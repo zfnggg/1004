@@ -80,7 +80,7 @@
                 $userfound = mysqli_fetch_assoc($search_result);
 
                 if ($userfound >= 1) {
-                    $sql = $conn->prepare("SELECT * FROM users WHERE username = '$u' ");
+                    $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
                     $sql->bind_param("s", $u);
                     $sql->execute();
                     $search_result = $sql->get_result();
