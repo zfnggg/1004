@@ -1,19 +1,16 @@
 <!doctype html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8">
-        <title>Check Login</title>
-    </head>
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Check Login</title>
+</head>
 
-        <?php
+<body>
+
+    <?php
         session_start();
-        define("DBHOST", "161.117.122.252");
-        define("DBNAME", "p1_4");
-        define("DBUSER", "p1_4");
-        define("DBPASS", "5xLMQfLGsc");
-
+        require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         if (isset($_POST["submit"])) {
             $u = $_POST['username'];
@@ -21,9 +18,7 @@
             $u = mysqli_real_escape_string($conn, $u);
             $p = mysqli_real_escape_string($conn, $p);
             $p = md5($p);
-
-            
-
+        
             $sql = $conn->prepare("SELECT * FROM users WHERE username = ? and password= ? ");
             $sql->bind_param("ss", $u, $p);
             $sql->execute();
@@ -52,7 +47,6 @@
             mysqli_close($conn);
         }
         ?>
-    </body>
+</body>
 
 </html>
-
