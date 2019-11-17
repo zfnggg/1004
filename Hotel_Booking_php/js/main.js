@@ -138,14 +138,13 @@ function validateEditProfile() {
     var regExPhone = /^[6,8,9][0-9]{7}$/;
     
     
-    var nameinput = document.forms["formEditProfile"]["customerName"].value;
-    var usernameinput = document.forms["formEditProfile"]["username"].value;
-    var emailinput = document.forms["formEditProfile"]["email"].value;
-    var passwordinput = document.forms["formEditProfile"]["password"].value;
-    var confirmpasswordinput = document.forms["formEditProfile"]["confirmPassword"].value;
-    var phoneinput = document.forms["formEditProfile"]["phoneNo"].value;
-    //var pictureinput = document.getElementById("profilePic");
-    var pictureinput = document.forms["formEditProfile"]["profilePicture"].value;
+    var nameinput = document.forms["formeditprofile"]["customerName"].value;
+    var usernameinput = document.forms["formeditprofile"]["username"].value;
+    var emailinput = document.forms["formeditprofile"]["email"].value;
+    var passwordinput = document.forms["formeditprofile"]["password"].value;
+    var confirmpasswordinput = document.forms["formeditprofile"]["confirmPassword"].value;
+    var phoneinput = document.forms["formeditprofile"]["phoneNo"].value;
+    var pictureinput = document.forms["formeditprofile"]["profilePicture"].value;
     
     if (nameinput == "") {
         alert('Please insert name.');

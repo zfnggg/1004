@@ -66,7 +66,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 //                mysqli_query($conn, $sql) or die(mysqli_error($conn));
                 ?>
 
-                <form name="formEditProfile" onsubmit="return validateEditProfile()" novalidate method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data">
+                <form name="formeditprofile" onsubmit="return validateEditProfile()" novalidate method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data">
                     <table>
                         <tr>
                             <td>

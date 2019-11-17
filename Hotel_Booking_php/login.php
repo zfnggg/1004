@@ -33,7 +33,7 @@ and open the template in the editor.
         </div>
         <!--end of Navigation bar-->
 
-        <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()" novalidate>
+        <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" >
