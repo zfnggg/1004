@@ -13,33 +13,36 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 }
 ?>
 <html lang="en">
-    <head>
-        <title>D'Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
-        <link href="css/main.css" rel="stylesheet" />
-        <!-- Own CSS Style Sheet-->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <!-- Font Awesome Icons -->
-        <script defer src="js/main.js"></script>
-        <!-- Own Javascript -->
-    </head>
 
-    <!-- Start of Navigation Bar -->
-    <div id="nav-placeholder">
-        <script>
-            $(function () {
-                $("#nav-placeholder").load("navbaruser.php");
-            });
-        </script>
-    </div>
-    <!--end of Navigation bar-->
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Own CSS Style Sheet-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Font Awesome Icons -->
+    <script defer src="js/main.js"></script>
+    <!-- Own Javascript -->
+</head>
 
+<!-- Start of Navigation Bar -->
+<div id="nav-placeholder">
+    <script>
+        $(function() {
+            $("#nav-placeholder").load("navbaruser.php");
+        });
+
+    </script>
+</div>
+<!--end of Navigation bar-->
+
+<body>
     <div class="jumbotron text-center">
         <h1>My Profile</h1>
     </div>
@@ -51,10 +54,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 <?php
                 session_start();
                 $u = $_SESSION['MM_Username'];
-                define("DBHOST", "161.117.122.252");
-                define("DBNAME", "p1_4");
-                define("DBUSER", "p1_4");
-                define("DBPASS", "5xLMQfLGsc");
+           require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                 $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
@@ -110,7 +110,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <td>
                                 <label for="profilePicture">Profile Picture:
 
-                                    <input type="file" name="profilePicture" id="profilePicture"  accept=".png,.gif,.jpg,.webp" required></label>
+                                    <input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required></label>
                             </td>
                         </tr>
                     </table>
@@ -126,13 +126,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <!--Footer-->
     <div id="footer-placeholder">
         <script>
-            $(function () {
+            $(function() {
                 $("#footer-placeholder").load("footer.php");
             });
+
         </script>
     </div>
     <!--end of Footer-->
 </body>
+
 </html>
-
-

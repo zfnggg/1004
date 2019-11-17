@@ -2,7 +2,7 @@
     include "./navbaruser.php";
 //    session_start();
     $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
-?>
+?>s
 
 <!DOCTYPE html>
 <!--
@@ -68,4 +68,5 @@ and open the template in the editor.
     <?php
     include "./footer.php";
     ?>
+
 </html>

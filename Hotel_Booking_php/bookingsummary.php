@@ -13,84 +13,83 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 }
 ?>
 <html lang="en">
-    <head>
-        <title>D'Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" />
-        <!-- Zheng Feng CSS -->
-        <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" />
-        <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" />
-        <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" />
-        <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <!-- Own Javascript -->
-        <script defer src="js/main.js"></script>
-    </head>
 
-    <body>
-        <!-- Start of Navigation Bar -->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main CSS Style Sheet-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Zheng Feng CSS -->
+    <!-- Events CSS Style Sheet-->
+    <link href="css/events.css" rel="stylesheet" />
+    <!-- FAQ CSS Style Sheet-->
+    <link href="css/faq.css" rel="stylesheet" />
+    <!-- Dining CSS Style Sheet-->
+    <link href="css/dining.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Own Javascript -->
+    <script defer src="js/main.js"></script>
+</head>
 
-        <div class="jumbotron text-center">
-            <h1>Booking Summary</h1>
-            <a href="customerprofile.php" title="manage">Customer</a> |
-            <a href="booking.php" title="manage">Booking</a> |
-            <a href="bookingsummary.php" title="manage">Booking Summary </a>
-        </div>
+<body>
+    <!-- Start of Navigation Bar -->
+    <div id="nav-placeholder">
+        <script>
+            $(function() {
+                $("#nav-placeholder").load("navbaruser.php");
+            });
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-4">
-                    <form method="post" action="bookingsummary.php">
-                        <label for="searchdate">View Summary of Booking  by Date:
-                            <input type="date" id="searchdate" name="searchdate">
-                        </label>
-                        <label for="myWeek">View Summary of Booking  by Week:
-                            <input type="date" name="searchweek" id="myWeek" value="2019-W01">
-                        </label>
-                        <label for="searchmonth">View Summary of Booking  by Month:
-                            <input type="date" id="searchmonth" name="searchmonth">
-                        </label>
-                        <label for="total">
-                            <input type="radio" id="total" name="total">Total No of bookings per day, per week, per month
-                             </label>
-                            <button type="submit" name="submit" class="button"> <span>Submit </span></button>
-                       
-                        
-                        <?php
-                        define("DBHOST", "161.117.122.252");
-                        define("DBNAME", "p1_4");
-                        define("DBUSER", "p1_4");
-                        define("DBPASS", "5xLMQfLGsc");
+        </script>
+    </div>
+    <!--end of Navigation bar-->
+
+    <div class="jumbotron text-center">
+        <h1>Booking Summary</h1>
+        <a href="customerprofile.php" title="manage">Customer</a> |
+        <a href="booking.php" title="manage">Booking</a> |
+        <a href="bookingsummary.php" title="manage">Booking Summary </a>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <form method="post" action="bookingsummary.php">
+                    <label for="searchdate">View Summary of Booking by Date:
+                        <input type="date" id="searchdate" name="searchdate">
+                    </label>
+                    <label for="myWeek">View Summary of Booking by Week:
+                        <input type="date" name="searchweek" id="myWeek" value="2019-W01">
+                    </label>
+                    <label for="searchmonth">View Summary of Booking by Month:
+                        <input type="date" id="searchmonth" name="searchmonth">
+                    </label>
+                    <label for="total">
+                        <input type="radio" id="total" name="total">Total No of bookings per day, per week, per month
+                    </label>
+                    <button type="submit" name="submit" class="button"> <span>Submit </span></button>
+
+
+                    <?php
+                         require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
 
-                        <?php
+                    <?php
                         if (isset($_POST['submit']) and ( $_POST['searchdate'] != "")) {
                             ?>
-                            <table class="table_summary">
-                                <tr>
-                                    <td>Check-in (Date)</td>
-                                    <td>Room Type</td>
-                                </tr>
-                                <?php
+                    <table class="table_summary">
+                        <tr>
+                            <td>Check-in (Date)</td>
+                            <td>Room Type</td>
+                        </tr>
+                        <?php
                                 $search = "%{$_POST['searchdate']}%";
                                 $flag = 0;
                                 $sql = $conn->prepare("select checkin, roomType from booking as b inner join rooms as r on b.roomID=r.roomID where date(checkin) like ?");
@@ -98,40 +97,40 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 $sql->execute();
                                 $result = $sql->get_result();
                                 $sql->close();
-//                                $result = mysqli_query($conn, $sql);
-//                                $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                //$result = mysqli_query($conn, $sql);
+                                //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     ?>
-                                    <tr>
-                                        <td>
-                                            <?php echo $data['checkin'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['roomType'] ?>
+                        <tr>
+                            <td>
+                                <?php echo $data['checkin'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['roomType'] ?>
 
-                                        </td>
-                                    </tr>
-                                    <?php
+                            </td>
+                        </tr>
+                        <?php
                                 }
                                 ?>
-                            </table>
-                            <?php
+                    </table>
+                    <?php
                         }
                         mysqli_close($conn);
                         ?>
 
-                        <?php
+                    <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-                        <?php
+                    <?php
                         if (isset($_POST['submit']) and ( $_POST['searchweek'] != "")) {
                             ?>
-                            <table class="table_summary">
-                                <tr>
-                                    <td>Check-in (Week)</td>
-                                    <td>Room Type</td>
-                                </tr>
-                                <?php
+                    <table class="table_summary">
+                        <tr>
+                            <td>Check-in (Week)</td>
+                            <td>Room Type</td>
+                        </tr>
+                        <?php
                                 //$search = $_POST["searchweek"];
                                 $search = $_POST['searchweek'];
                                 $flag = 0;
@@ -145,38 +144,38 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     ?>
-                                    <tr>
-                                        <td>
-                                            Week <?php echo $data['weekNo'] ?>
-                                        </td>
-                                        <td>
+                        <tr>
+                            <td>
+                                Week <?php echo $data['weekNo'] ?>
+                            </td>
+                            <td>
 
-                                            <?php echo $data['roomType'] ?>
+                                <?php echo $data['roomType'] ?>
 
-                                        </td>
-                                    </tr>
-                                    <?php
+                            </td>
+                        </tr>
+                        <?php
                                 }
                                 ?>
-                            </table>
-                            <?php
+                    </table>
+                    <?php
                         }
                         mysqli_close($conn);
                         ?>
-                        
-                        <?php
+
+                    <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-                        <?php
+                    <?php
                         if (isset($_POST['submit']) and ( $_POST['searchmonth'] != "")) {
                             ?>
-                            <table class="table_summary">
-                                <tr>
-                                    <td>Check in (MONTH)</td>
-                                    <td>Room Type</td>
-                                </tr>
+                    <table class="table_summary">
+                        <tr>
+                            <td>Check in (MONTH)</td>
+                            <td>Room Type</td>
+                        </tr>
 
-                                <?php
+                        <?php
                                 $search = $_POST["searchmonth"];
                                 $flag = 0;
                                 $sql = $conn->prepare("select DATE_FORMAT(checkin, '%b %y') as month, roomType from booking as b inner join rooms as r on b.roomID=r.roomID where month(checkin) = month(?)");
@@ -188,37 +187,37 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     ?>
-                                    <tr>
-                                        <td>
-                                            <?php echo $data['month'] ?>
-                                        </td>
-                                        <th>
-                                            <?php echo $data['roomType'] ?>
-                                        </th>
-                                    </tr>
-                                    <?php
+                        <tr>
+                            <td>
+                                <?php echo $data['month'] ?>
+                            </td>
+                            <th>
+                                <?php echo $data['roomType'] ?>
+                            </th>
+                        </tr>
+                        <?php
                                 }
                                 ?>
-                            </table>
-                            <?php
+                    </table>
+                    <?php
                         }
                         mysqli_close($conn);
                         ?>
 
-                        <?php
+                    <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-                        <?php
+                    <?php
                         if (isset($_POST['submit']) and ( isset($_POST['total']))) {
                             ?>
-                            <table class="table_summary">
-                                <tr>
-                                    <td>Total Bookings per Day</td>
-                                    <td>Total Bookings per Week</td>
-                                    <td>Total Bookings per Month</td>
-                                </tr>
+                    <table class="table_summary">
+                        <tr>
+                            <td>Total Bookings per Day</td>
+                            <td>Total Bookings per Week</td>
+                            <td>Total Bookings per Month</td>
+                        </tr>
 
-                                <?php
+                        <?php
                                 $search = $_POST["total"];
                                 $month = $_POST["searchmonth"];
                                 $week = $_POST["searchweek"];
@@ -238,40 +237,41 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                                 while ($data = mysqli_fetch_assoc($result)) {
                                     ?>
-                                    <tr>
-                                        <td>
-                                            <?php echo $data['d'] ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $data['m'] ?>
+                        <tr>
+                            <td>
+                                <?php echo $data['d'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['m'] ?>
 
-                                        </td>
-                                        <td>
-                                            <?php echo $data['w'] ?>
-                                        </td>
-                                    </tr>
-                                    <?php
+                            </td>
+                            <td>
+                                <?php echo $data['w'] ?>
+                            </td>
+                        </tr>
+                        <?php
                                 }
                                 ?>
-                            </table>
-                            <?php
+                    </table>
+                    <?php
                         }
                         mysqli_close($conn);
                         ?>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
 
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
-    </body>
+    <!--Footer-->
+    <div id="footer-placeholder">
+        <script>
+            $(function() {
+                $("#footer-placeholder").load("footer.php");
+            });
+
+        </script>
+    </div>
+    <!--end of Footer-->
+</body>
+
 </html>
-
