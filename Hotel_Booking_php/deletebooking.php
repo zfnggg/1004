@@ -10,11 +10,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 <?php
 
 
-define("DBHOST", "161.117.122.252");
-define("DBNAME", "p1_4");
-define("DBUSER", "p1_4");
-define("DBPASS", "5xLMQfLGsc");
-
+require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
 $cidToDelete = $_POST["cid"];
@@ -27,4 +23,3 @@ $sql->close();
 //$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 header("Location:booking.php?id=$cidToDelete");
 ?>
-
