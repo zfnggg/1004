@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-include "./navbaruser.php";
-
-?>
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -23,6 +18,15 @@ include "./navbaruser.php";
     </head>
 
     <body>
+        <!--Navigation bar-->
+        <div id="nav-placeholder">
+            <script>
+                $(function () {
+                    $("#nav-placeholder").load("navbaruser.php");
+                });
+            </script>
+        </div>
+        <!--end of Navigation bar-->
 
         <section>
             <div class="jumbotron text-center bg-light">
@@ -73,9 +77,16 @@ include "./navbaruser.php";
             </form>
             <!-- End of Booking Form -->
         </section>
-    <?php
-    include "./footer.php";
-    ?>
+
+        <!--Footer-->
+        <div id="footer-placeholder">
+            <script>
+                $(function () {
+                    $("#footer-placeholder").load("footer.php");
+                });
+            </script>
+        </div>
+        <!--end of Footer-->
     </body>
 </html>
 

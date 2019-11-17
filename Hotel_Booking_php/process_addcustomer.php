@@ -1,9 +1,5 @@
 <?php
-
-define("DBHOST", "161.117.122.252");
-define("DBNAME", "p1_4");
-define("DBUSER", "p1_4");
-define("DBPASS", "5xLMQfLGsc");
+require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 ?>
 <?php
@@ -39,15 +35,14 @@ if (!isset($_GET['action'])) {
                 echo "USERNAME EXISTS!!";
                 die();
             } else {
+                $EncryptPassword = md5($pword);
                 $sql_insert = $conn->prepare("insert into users (customerName,username,password,email,phoneNo,role,profilePicture)
                             values(?,?,?,?,?,?,?)");
                 //values('$cname', '$uname', '$pword', '$email', '$phoneno', '$role', '" . $target_Folder . $file_name . "')");
                 move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);
-                $sql_insert->bind_param("ssssiss", $cname, $uname, $pword, $email, $phoneno, $role, $pic);
+                $sql_insert->bind_param("ssssiss", $cname, $uname, $EncryptPassword, $email, $phoneno, $role, $pic);
                 $sql_insert->execute();
                 $result = $sql->get_result();
-
-
                 $sql_insert->close();
                 mysqli_close($conn);
             }
@@ -173,4 +168,3 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
-
