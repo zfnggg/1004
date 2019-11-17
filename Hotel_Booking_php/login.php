@@ -4,6 +4,11 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+include "./navbaruser.php";
+
+?>
+
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -40,14 +45,23 @@ and open the template in the editor.
                         <h3>Login</h3>
                         <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
                         <input type="password" placeholder="Password" name="password" autocomplete="current-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$">
+                       
+                        <div class="elem-group">
+                            <label for="captcha">Please Enter the Captcha Text</label>
+                            <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
+                            <br>
+                            <input type="text" id="captcha" name="captcha" pattern="[A-Z]{6}">
+                        </div>
+
+
                         <button id="btn1" name="submit" type="submit" >Login</button>
                         <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
                         <noscript>
                         Your Javascript is currently not working, kindly enable your JavaScript.<br>
                         If you are unable to turn on the Javascript, please kindly use the link below: <br>
-                           <a href="forgetpassword.php">Forget Password</a>
-                           <link href="css/noscript.css" rel="stylesheet" />
-                      </noscript>
+                        <a href="forgetpassword.php">Forget Password</a>
+                        <link href="css/noscript.css" rel="stylesheet" />
+                        </noscript>
                     </div>
                     <div class="col-md-6">
                         <h3>Haven't Sign Up!</h3>
@@ -74,38 +88,37 @@ and open the template in the editor.
                 </div>
             </form>
         </div>
-
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+        <?php
+        include "./footer.php";
+        ?>
 
         <script>
             // Get the modal
             var modal = document.getElementById('id01');
 
             // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) 
+            window.onclick = function (event)
             {
                 if (event.target === modal) {
                     modal.style.display = "none";
-                    document.getElementById('email').value="";
+                    document.getElementById('email').value = "";
                 }
             };
-           function myFunction() {
-            document.getElementById('id01').style.display = 'none';
-             document.getElementById('email').value="";
+            function myFunction() {
+                document.getElementById('id01').style.display = 'none';
+                document.getElementById('email').value = "";
             }
             function init() {
-            document.getElementById("email").value = "";
-            document.getElementById("username").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("username").value = "";
             }
             window.onload = init;
+            
+            var refreshButton = document.querySelector(".refresh-captcha");
+            refreshButton.onclick = function() 
+            {
+              document.querySelector(".captcha-image").src = 'captcha.php?' + Date.now();
+            }
         </script>
     </body>
 </html>
