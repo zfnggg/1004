@@ -25,13 +25,13 @@ and open the template in the editor.
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
         <!-- Font Awesome Icons -->
         <script defer src="js/main.js"></script>
-        <script src="js/purify.js"></script>
+        <script type="text/javascript" src="src/purify.js"></script>
         <!-- Own Javascript -->
     </head>
 
     <body>
 
-        <form action="process_registration.php" method="post">
+        <form action="process_registration.php" method="post" onsubmit="return validateRegister()">
             <div class="container-registration text-center">
                 <h1>Registration</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -65,82 +65,7 @@ and open the template in the editor.
         <script>
             
     
-        function myFunction() {
-
-                var customerName = document.forms["addcustomer"]["customerName"];
-                var username = document.forms["addcustomer"]["username"];
-                var email = document.forms["addcustomer"]["email"];
-                var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-                var password = document.forms["addcustomer"]["password"];
-                var confirmpwd = document.forms["addcustomer"]["confirmPassword"];
-                var phoneNo = document.forms["addcustomer"]["phoneNo"];
-                
-                var profilepic = document.forms["addcustomer"]["profilePicture"];
-
-                //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
-                //Prevents XSS attacks
-                customerName = DOMPurify.sanitize(customerName);
-                username = DOMPurify.sanitize(username);
-                email = DOMPurify.sanitize(email);
-                password = DOMPurify.sanitize(password);
-                confirmpwd = DOMPurify.sanitize(confirmpwd);
-                phoneNo = DOMPurify.sanitize(phoneNo);
-
-
-                if (customerName.value === "")
-                {
-                    window.alert("Please enter  name.");
-
-                    return false;
-                }
-
-                if (username.value === "")
-                {
-                    window.alert("Please enter username.");
-
-                    return false;
-                }
-                if (phoneNo.value === "")
-                {
-                    window.alert("Please enter phone number.");
-
-                    return false;
-                }
-                
-                if (profilepic.value === "")
-                {
-                    window.alert("Please upload profile picture.");
-
-                    return false;
-                }
-
-                if (email.value === "")
-                {
-                    window.alert("Please enter a valid e-mail address.");
-
-                    return false;
-                } else if (regexEmail.test(email.value)) {
-                    window.alert("Valid Email");
-
-                } else {
-                    window.alert("Not valid email");
-                    return false;
-                }
-                if (password.value === "")
-
-                {
-                    alert("Password must not be empty");
-                    return false;
-                } else if (password.value !== confirmpwd.value)
-                {
-                    window.alert("Passwords Don't Match");
-                    return false;
-                } else
-                {
-                    window.alert("Passwords Match");
-                    return true;
-                }
-            }
+        
         </script>
     </body>
     <?php
