@@ -41,7 +41,7 @@ include "./navbaruser.php";
     <?php
         //session_start();
         $u = $_SESSION['MM_Username'];
-         require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+         require_once('../protected/config.php');
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         $option = $_GET['id'];
         $sql = "select  *  from rooms where roomID =$option";
