@@ -5,6 +5,10 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
+include "./navbaruser.php";
+
+?>
+<?php
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
     header('location:login.php');
@@ -38,16 +42,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
-    <!-- Start of Navigation Bar -->
-    <div id="nav-placeholder">
-        <script>
-            $(function() {
-                $("#nav-placeholder").load("navbaruser.php");
-            });
-
-        </script>
-    </div>
-    <!--end of Navigation bar-->
+   
 
     <div class="jumbotron text-center">
         <h1>Booking</h1>
@@ -161,16 +156,11 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
     </script>
 
-    <!--Footer-->
-    <div id="footer-placeholder">
-        <script>
-            $(function() {
-                $("#footer-placeholder").load("footer.php");
-            });
+    <?php
+            include "./footer.php";
+            ?>
 
-        </script>
-    </div>
-    <!--end of Footer-->
+    </html>
 </body>
 
 </html>
