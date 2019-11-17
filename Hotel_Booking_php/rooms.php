@@ -58,7 +58,7 @@ include "./navbaruser.php";
 
     <!--rooms-->
     <?php
-       require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+    require_once('../protected/config.php');
 
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         $sql = "select * from rooms";
