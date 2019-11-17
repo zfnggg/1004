@@ -20,10 +20,7 @@ if (!isset($_['submit'])) {
     $pax = $_POST['pax'];
 
 
-    define("DBHOST", "161.117.122.252");
-    define("DBNAME", "p1_4");
-    define("DBUSER", "p1_4");
-    define("DBPASS", "5xLMQfLGsc");
+require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
@@ -119,4 +116,3 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
-
