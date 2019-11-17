@@ -15,29 +15,31 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 }
 ?>
 <html lang="en">
-    <head>
-        <title>D'Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
-        <!-- Zheng Feng CSS -->
-        <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
-        <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
-        <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
-        <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
-        <!-- Own Javascript -->
-        <script defer src="js/main.js"></script>
-    </head>
 
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main CSS Style Sheet-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Zheng Feng CSS -->
+    <!-- Events CSS Style Sheet-->
+    <link href="css/events.css" rel="stylesheet" />
+    <!-- FAQ CSS Style Sheet-->
+    <link href="css/faq.css" rel="stylesheet" />
+    <!-- Dining CSS Style Sheet-->
+    <link href="css/dining.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Own Javascript -->
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
     <main>
         <?php
 //        session_start();
@@ -45,19 +47,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         ?>
 
         <div class="jumbotron text-center">
-            <h1>My Reservation  </h1>
-            <h1>Hello and welcome back,  <?php echo $_SESSION['MM_Username']; ?></h1>
+            <h1>My Reservation </h1>
+            <h1>Hello and welcome back, <?php echo $_SESSION['MM_Username']; ?></h1>
         </div>
 
-        <div class="container-fluid text-center">    
+        <div class="container-fluid text-center">
             <div class="row content">
-                <div class="col-sm-8 text-center"> 
+                <div class="col-sm-8 text-center">
 
                     <?php
-                    define("DBHOST", "161.117.122.252");
-                    define("DBNAME", "p1_4");
-                    define("DBUSER", "p1_4");
-                    define("DBPASS", "5xLMQfLGsc");
+                require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $sql = "select b.bookingID, c.customerName, r.roomType, b.checkin,b.checkout, b.numdays, b.total, b.pax from rooms as r "
@@ -80,42 +79,44 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         <?php
                         while ($data = mysqli_fetch_assoc($mycart)) {
                             ?>
-                            <tr>
-                                <td>
-                                    <?php echo $data['bookingID'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['customerName'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['roomType'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['checkin'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['checkout'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['numdays'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['total'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['pax'] ?>
-                                </td>
-                            </tr>
-                            <?php
+                        <tr>
+                            <td>
+                                <?php echo $data['bookingID'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['customerName'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['roomType'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['checkin'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['checkout'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['numdays'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['total'] ?>
+                            </td>
+                            <td>
+                                <?php echo $data['pax'] ?>
+                            </td>
+                        </tr>
+                        <?php
                         }
                         mysqli_close($conn);
                         ?>
-                    </table>                 
+                    </table>
                 </div>
             </div>
         </div>
     </main>
-    <?php
+</body>
+<?php
     include "./footer.php";
     ?>
+
 </html>
