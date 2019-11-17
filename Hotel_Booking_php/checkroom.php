@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include "./navbaruser.php";
+
+?>
 <html lang="en">
     <head>
         <title>D'Hotel</title>
@@ -18,16 +22,7 @@
     </head>
 
     <body>
-        <!--Navigation bar-->
-        <div id="nav-placeholder">
-            <script>
-                $(function () {
-                    $("#nav-placeholder").load("navbaruser.php");
-                });
-            </script>
-        </div>
-        <!--end of Navigation bar-->
-
+        
         <section>
             <div class="jumbotron text-center bg-light">
                 <h2>ENJOY YOUR STAY WITH US NOW</h2>
@@ -78,15 +73,11 @@
             <!-- End of Booking Form -->
         </section>
 
-        <!--Footer-->
-        <div id="footer-placeholder">
-            <script>
-                $(function () {
-                    $("#footer-placeholder").load("footer.php");
-                });
-            </script>
-        </div>
-        <!--end of Footer-->
+       <?php
+                include "./footer.php";
+                ?>
+
+        </html>
     </body>
 </html>
 

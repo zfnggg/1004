@@ -43,7 +43,6 @@ include "./navbaruser.php";
                             <input type="text" id="captcha" name="captcha">
                         </div>
 
-
                         <button id="btn1" name="submit" type="submit" >Login</button>
                         <p class="a" > <a href="#" onclick="document.getElementById('id01').style.display = 'block'" style="width:auto;">Forget Password</a></p>
                         <noscript>

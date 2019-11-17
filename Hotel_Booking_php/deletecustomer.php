@@ -13,7 +13,7 @@ require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
 
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 $cidToDelete = $_POST["cid"];
-$sql = $conn->prepare("delete from customer where customerID=?");
+$sql = $conn->prepare("delete from users where userID=?");
 $sql->bind_param("i", $cidToDelete);
 $sql->execute();
 $result = $sql->get_result();
