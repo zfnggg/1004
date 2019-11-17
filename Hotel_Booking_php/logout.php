@@ -31,7 +31,7 @@ and open the template in the editor.
         <div>
             <div class="jumbotron text-center bg-light">
                 <?php
-                session_start();
+                //session_start();
                 $_SESSION = array();
                 session_unset();
                 session_destroy();
