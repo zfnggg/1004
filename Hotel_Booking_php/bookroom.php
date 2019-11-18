@@ -89,7 +89,7 @@ include "./navbaruser.php";
 <br/>
                         <label for ="numdays">No of days: <input type="text" id="numdays" name="num_days" readonly required></label>
 <br/>
-                        <label for ="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]{1}$" required></label>
+                        <label for ="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]$" required></label>
 <br/>
                         <label for ="total">Total Charges:$ <input type="text" id="total" name="total_sum" readonly></label>
                         <input type="hidden" id="status" name="status" value="going">
@@ -106,7 +106,7 @@ include "./navbaruser.php";
                             <i class="fa fa-cc-mastercard" style="color:red;"></i>
                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div>
-                         <label for ="cardnumber">Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^[0-9]{16}$" placeholder="4444-2222-3333-1111" required></label>
+                         <label for ="cardnumber">Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required></label>
 <br/>
                             <label for ="expmonth">Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></label><br/>
                         <label for ="cvv">CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></label>
@@ -132,10 +132,11 @@ include "./navbaruser.php";
                         var checkout = document.forms["bookroom"]["checkout"];
 
                         var creditcard = document.forms["bookroom"]["cardnumber"];
-                        var regexcc = /^[0-9]{16}$/;
+                        //var regexcc = /^[0-9]{16}$/;
+                        var regexcc = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 
                         var pax = document.forms["bookroom"]["pax"];
-                        var regexpax = /^[0-9]{2}$/;
+                        var regexpax = /^[0-9]$/;
 
                         var cvv = document.forms["bookroom"]["cvv"];
                         var regexcvv = /^[0-9]{3}$/;
@@ -171,7 +172,7 @@ include "./navbaruser.php";
                                 window.alert("Invalid Credit Card number");
                                 return false;
                             }
-
+                            
                             if (cvv.value === "") {
                                 window.alert("CVV is empty");
                                 return false;
@@ -293,4 +294,5 @@ include "./navbaruser.php";
 </body>
 
 </html>
+
 
