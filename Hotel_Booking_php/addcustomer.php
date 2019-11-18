@@ -62,123 +62,57 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                 ?>
 
-                <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data">
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <td>
-                                    <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="username">Username: <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="password"> Password <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="confirmPassword"> Confirm Password:<input type="password" id="confirmPassword" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="email"> Email <input type="email" id="email" name="email" pattern="^\S+@\S+$" required> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="phoneNo"> Phone No: <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" title="Please enter phone number as 8-digit numbers only" required> </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-
-                                    <label for="role"> Role:
-                                        <input type="radio" name="role" id="role" value="C" required> Customer<br>
-                                        <input type="radio" name="role" id="role" value="A" required> Admin<br>
-                                    </label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label for="profilePicture"> Profile Pic:<input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required> </label>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data" novalidate onsubmit="return validateAddCustomer()">
+                   <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="username">Username: <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="password"> Password <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}" required></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="confirmPassword"> Confirm Password:<input type="password" id="confirmPassword" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}" required></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="email"> Email <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required> </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="phoneNo"> Phone No: <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" title="Please enter phone number as 8-digit numbers only" required> </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                
+                                <label for="role"> Role:
+                                    <input type="radio" name="role" id="role" value="C" required> Customer<br>
+                                    <input type="radio" name="role" id="role" value="A" required> Admin<br>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="profilePicture"> Profile Pic:<input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required> </label>
+                            </td>
+                        </tr>
+                    </table>
+</div>
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
-
-                <script>
-                    function myFunction() {
-
-                        var customerName = document.forms["addcustomer"]["customerName"];
-                        var username = document.forms["addcustomer"]["username"];
-                        var email = document.forms["addcustomer"]["email"];
-                        var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-                        var password = document.forms["addcustomer"]["password"];
-                        var confirmpwd = document.forms["addcustomer"]["confirmPassword"];
-                        var phoneNo = document.forms["addcustomer"]["phoneNo"];
-                        var role = document.forms["addcustomer"]["role"];
-                        var profilepic = document.forms["addcustomer"]["profilePicture"];
-
-                        if (customerName.value === "") {
-                            window.alert("Please enter customer name.");
-
-                            return false;
-                        }
-
-                        if (username.value === "") {
-                            window.alert("Please enter username.");
-
-                            return false;
-                        }
-                        if (phoneNo.value === "") {
-                            window.alert("Please enter phone number.");
-
-                            return false;
-                        }
-                        if (role.value === "") {
-                            window.alert("Please select role.");
-
-                            return false;
-                        }
-                        if (profilepic.value === "") {
-                            window.alert("Please upload profile picture.");
-
-                            return false;
-                        }
-
-                        if (email.value === "") {
-                            window.alert("Please enter a valid e-mail address.");
-
-                            return false;
-                        } else if (regexEmail.test(email.value)) {
-                            window.alert("Valid Email");
-
-                        } else {
-                            window.alert("Not valid email");
-                            return false;
-                        }
-                        if (password.value === "")
-
-                        {
-                            alert("Password must not be empty");
-                            return false;
-                        } else if (password.value !== confirmpwd.value) {
-                            window.alert("Passwords Don't Match");
-                            return false;
-                        } else {
-                            window.alert("Passwords Match");
-                            return true;
-                        }
-                    }
-                </script>
             </div>
         </div>
     </div>
