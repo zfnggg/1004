@@ -73,7 +73,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         ?>
 
-                        <table class="search_table">
+                        <div class="table-responsive">
+                        <table class="table">
                             <tr>
                                 <th>Booking ID</th>
                                 <th>Customer Name</th>
@@ -119,6 +120,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             mysqli_close($conn);
                             ?>
                         </table>
+</div>
                     </div>
                 </div>
             </div>
