@@ -69,6 +69,7 @@ and open the template in the editor.
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            <p>Photos from Pixabay.com</p>
         </header>
 
         <section class="services bg-light">
