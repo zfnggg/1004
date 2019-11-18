@@ -69,6 +69,7 @@ and open the template in the editor.
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            <p>Photos from Pixabay.com</p>
         </header>
 
         <section class="services bg-light">
@@ -89,6 +90,7 @@ and open the template in the editor.
                                 <span class="icon mb-3 d-block flaticon-bed"></span>
                                 <h2 class="mb-4">Bedrooms</h2>
                                 <p>With an array of astounding bedrooms,ranging from single rooms to a presidential suite, we ensure maximum comfort and and 100% customer satisfaction</p>
+                                <p>Photos from Pixabay.com</p>
                                 <!-- can put class="lead" if want bigger -->
                                 <div class="justify-content-center">
                                     <a id="A1">

@@ -106,6 +106,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </td>
                         <td>
                             <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " alt="image" width="100">
+                            <figcaption>Photo from Pixabay.com</figcaption>
                         </td>
                         <td>
                             <form method="post" action="deletecustomer.php">
