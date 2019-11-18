@@ -82,7 +82,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </tr>
                         <tr>
                             <td>
-                                <label for="password">Password:<input type="password" id="password" name="pword"></label>
+                                <label for="password">Password:<input type="password" id="password" required name="pword"></label>
                             </td>
                         </tr>
                         <tr>

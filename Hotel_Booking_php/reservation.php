@@ -51,10 +51,22 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         $u = $_SESSION['MM_Username'];
         ?>
 
+        <?php
+        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+        require_once('../protected/config.php');
+        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+            ?>
+
         <article>
             <div class="jumbotron text-center">
                 <h1>My Reservation </h1>
                 <h1>Hello and welcome back, <?php echo $_SESSION['MM_Username']; ?></h1>
+            <?php
+            $sqlpic = "select profilePicture from users where username = '$u'  ";
+            $mycart1 = mysqli_query($conn, $sqlpic) or die(mysqli_error($conn));
+            $data1 = mysqli_fetch_assoc($mycart1); ?>
+            <img src="../Hotel_Booking_php/<?php echo $data1['profilePicture'] ?> " alt="image" width="100">
+           
             </div>
         </article>
 
@@ -64,16 +76,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     <div class="col-sm-8 text-center">
 
                         <?php
-                        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
-                        require_once('../protected/config.php');
-
-                        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                            
                         $sql = "select b.bookingID, c.customerName, r.roomType, b.checkin,b.checkout, b.numdays, b.total, b.pax from rooms as r "
                             . "inner join booking as b on r.roomID=b.roomID inner join users as c on b.userID=c.userID where username = '$u'  ";
                         $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         ?>
 
-                        <table class="search_table">
+                        <div class="table-responsive">
+                        <table class="table">
                             <tr>
                                 <th>Booking ID</th>
                                 <th>Customer Name</th>
@@ -114,11 +124,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                         <?php echo $data['pax'] ?>
                                     </td>
                                 </tr>
+
                             <?php
                             }
+                                
                             mysqli_close($conn);
                             ?>
                         </table>
+</div>
                     </div>
                 </div>
             </div>
@@ -132,3 +145,4 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </body>
 
 </html>
+

@@ -64,7 +64,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ?>
 
-                <div class="table-responsive">
+                <div class="table-responsive-sm">
                 <table class="table">
                     <tr>
                         <th>customer ID</th>

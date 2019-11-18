@@ -185,7 +185,7 @@ td {
 
     border: 2px solid white;
     width: 100%;
-    padding: 5px;
+    padding: 5px !important;
     height: 50px;
 
     background-color: lightblue;
