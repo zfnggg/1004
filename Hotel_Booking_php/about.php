@@ -46,6 +46,7 @@ and open the template in the editor.
 
     <figure>
         <img src="img/family.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
+        <figcaption>Photo from Pixabay.com</figcaption>
     </figure>
 
     <section>
@@ -63,6 +64,7 @@ and open the template in the editor.
                     <div class="col-sm-2"></div>    <!-- NEXT COLUMN -->
                     <div class="col-sm-4 text-center">
                         <img src="img/restaurant1.jpg" class="shrinkImageAbout" alt="rest1">
+                        <figcaption>Photo from Pixabay.com</figcaption>
                         <div><i class="fas fa-cocktail iconGrow"></i></div>
                         <div class="textPadTop">
                             <h5>Relax and enjoy tasty delicacies at our Michelin Star restaurant. Bring your loved ones to enjoy our plethora of mouth-watering entrées, main courses, and topping it off with our home-made desserts</h5>
@@ -70,6 +72,7 @@ and open the template in the editor.
                     </div>
                     <div class="col-sm-4 text-center">
                         <img src="img/towel.jpg" class="shrinkImageAbout" alt="towel">
+                        <figcaption>Photo from Pixabay.com</figcaption>
                         <div><i class="fas fa-swimmer iconGrow"></i></div>
                         <div class="textPadTop">
                             <h5>Comfort at your doorstep. Our facilities include a Thai-style massage parlor, an indoor badminton court, an outdoor swimming pool and so much more! You'll never have a moment of boredom here!</h5>
