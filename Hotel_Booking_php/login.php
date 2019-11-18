@@ -28,7 +28,8 @@ include_once ("./navbaruser.php");
     </head>
 
     <body>
-        <form action="checklogin.php" method="post" name="formlogin" onsubmit="return validateLoginForm()">
+    <!-- onsubmit="return validateLoginForm()" -->
+        <form action="checklogin.php" method="post" name="formlogin" novalidate>
             <div class="container">
                 <div class="row">
                     <div class="col-md-6" >

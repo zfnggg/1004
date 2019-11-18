@@ -39,7 +39,7 @@ and open the template in the editor.
     <!-- action="process_registration.php" method="post" for php-->
 
     <main>
-        <form action="process_registration.php" method="post" name="formRegister" onsubmit="return validateRegistration()" novalidate>
+        <form action="process_registration.php" method="post" name="formRegister" novalidate>
             <div class="container-registration text-center">
                 <h1>Registration</h1>
                 <p>Please fill in this form to create an account.</p>

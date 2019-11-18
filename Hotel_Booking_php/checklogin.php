@@ -48,12 +48,27 @@
             return $data;
         }
 
+        //will not need php validation
+        //username-----------------------------------------------------------------------------------------------------------------
         if (empty($_POST["username"])) {
             $errorMsg .= "Username is required.<br>";
             $success = false;
         } else {
             $username = sanitize_input($_POST["username"]);
+            if (preg_match("/^([a-zA-Z' ]+)$/", $username)) {
+                if (strlen($username) >= 40) {
+                    $errorMsg .= "Userame too long.<br>";
+                    $success = false;
+                }
+            }
+            else {
+                $errorMsg .= "Invalid Username.<br>";
+                $success = false;
+            }
         }
+
+
+        //password-----------------------------------------------------------------------------------------------------------------
         if (empty($_POST["password"])) {
             $errorMsg .= "Password is required.<br>";
             $success = false;
@@ -61,6 +76,8 @@
             $p = sanitize_input($_POST["password"]);
             $p = md5($p);
         }
+
+
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         if (isset($_POST["submit"])) {
             $c = $_POST['captcha'];

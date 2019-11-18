@@ -59,7 +59,8 @@ include "./navbaruser.php";
 //                mysqli_query($conn, $sql) or die(mysqli_error($conn));
                 ?>
 
-                <form name="formeditprofile" onsubmit="return validateEditProfile()" novalidate method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data">
+                <!-- onsubmit="return validateEditProfile()" -->
+                <form name="formeditprofile" method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data" novalidate>
                     <table>
                         <tr>
                             <td>

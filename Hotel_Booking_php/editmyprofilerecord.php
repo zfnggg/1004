@@ -44,6 +44,68 @@ $uname = sanitize_input($_POST['username']);
 $phoneno = sanitize_input($_POST['phoneNo']);
 $success = true;
 
+//customer Name
+if (empty($_POST['customerName'])) {
+    $errorMsg .= "Customer Name is required.<br>";
+    $success = false;
+} else {
+    $name = sanitize_input($_POST["customerName"]);
+    if (preg_match("/^([a-zA-Z' ]+)$/", $name)) {
+        if (strlen($name) >= 40) {
+            $errorMsg .= "Customer Name too long.<br>";
+            $success = false;
+        }
+    }
+    else {
+        $errorMsg .= "Invalid Customer Name.<br>";
+        $success = false;
+    }
+}
+
+//username
+if (empty($_POST['username'])) {
+    $errorMsg .= "username  is required.<br>";
+    $success = false;
+} else {
+    $uname = sanitize_input($_POST["username"]);
+    if (preg_match("/^([a-zA-Z' ]+)$/", $uname)) {
+        if (strlen($uname) >= 40) {
+            $errorMsg .= "Userame too long.<br>";
+            $success = false;
+        }
+    }
+    else {
+        $errorMsg .= "Invalid Username.<br>";
+        $success = false;
+    }
+}
+
+//PASSWORD
+//Cannot be checked becos the variable is md5 hashed
+if (empty($_POST['password'])) {
+    $errorMsg .= "Password is required.<br>";
+    $success = false;
+} else {
+    /*$password = sanitize_input($_POST["password"]);
+    if (strlen($password) < 8 || strlen($password) > 30) {
+        $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
+        $success = false;
+    } elseif (!preg_match("#[0-9]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Number!<br>";
+        $success = false;
+    } elseif (!preg_match("#[A-Z]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Capital Letter!<br>";
+        $success = false;
+    } elseif (!preg_match("#[a-z]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Lowercase Letter!<br>";
+        $success = false;
+    }
+    elseif (preg_match("#[\W]+#", $password)) {
+        $errorMsg .= "Your Password Must not Contain any special characters!<br>";
+        $success = false;
+    }*/
+}
+
 //EMAIL
 if (empty($_POST['email'])) {
     $errorMsg .= "Email is required.<br>";
@@ -57,41 +119,16 @@ if (empty($_POST['email'])) {
     }
 }
 
-//customer Name
-if (empty($_POST['customerName'])) {
-    $errorMsg .= "Customer Name is required.<br>";
-    $success = false;
-} else {
-    $name = sanitize_input($_POST["customerName"]);
-    $success = true;
-}
-
-//username
-if (empty($_POST['username'])) {
-    $errorMsg .= "username  is required.<br>";
-    $success = false;
-} else {
-    $uname = sanitize_input($_POST["username"]);
-    $success = true;
-}
-
 //phone no
 if (empty($_POST['phoneNo'])) {
     $errorMsg .= "phoneNo  is required.<br>";
     $success = false;
 } else {
     $phoneno = sanitize_input($_POST["phoneNo"]);
-    $success = true;
-}
-
-
-//check for empty password
-if (empty($_POST['password'])) {
-    $errorMsg .= "Password is required.<br>";
-    $success = false;
-} else {
-    $password = sanitize_input($_POST["password"]);
-    $success = true;
+    if (!preg_match("/^([6,8,9][0-9]{7}+)$/", $phoneno)) {
+        $errorMsg .= "Invalid Phone Number.<br>";
+        $success = false;
+    }
 }
 
 
