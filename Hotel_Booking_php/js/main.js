@@ -142,7 +142,6 @@ function validateEditProfile() {
     var usernameinput = document.forms["formeditprofile"]["username"].value;
     var emailinput = document.forms["formeditprofile"]["email"].value;
     var passwordinput = document.forms["formeditprofile"]["password"].value;
-    //var confirmpasswordinput = document.forms["formeditprofile"]["confirmPassword"].value;
     var phoneinput = document.forms["formeditprofile"]["phoneNo"].value;
     var pictureinput = document.forms["formeditprofile"]["profilePicture"].value;
     
