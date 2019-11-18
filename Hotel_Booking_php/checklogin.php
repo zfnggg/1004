@@ -98,8 +98,8 @@ and open the template in the editor.
                 echo "<div class=row>";
                 echo "<div class='col-sm-3'></div>";
                 echo "<div class='col-sm-6'>";
-                echo "<h1>The following errors were detected.<h1>";
-                echo "<h2> . $errorMsg . </h2>";
+                echo "<h3>The following errors were detected:<h3>";
+                echo "<h4> $errorMsg </h4>";
                 echo "</div>";
                 echo "<div class='col-sm-3'></div>";
                 echo "<br>";
