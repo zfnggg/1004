@@ -60,8 +60,7 @@
                     $errorMsg .= "Userame too long.<br>";
                     $success = false;
                 }
-            }
-            else {
+            } else {
                 $errorMsg .= "Invalid Username.<br>";
                 $success = false;
             }
@@ -77,9 +76,35 @@
             $p = md5($p);
         }
 
+        if (empty($_POST["submit"])) {
+            $errorMsg .= "There seems to be an error.<br>";
+            $success = false;
+        }
 
-        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-        if (isset($_POST["submit"])) {
+        if ($success = false) {
+            echo "<div class=row>";
+            echo "<div class='col-sm-3'></div>";
+            echo "<div class='col-sm-6'>";
+            echo "<h1>The following errors were detected.<h1>";
+            echo "<h2> . $errorMsg . </h2>";
+            echo "</div>";
+            echo "<div class='col-sm-3'></div>";
+            echo "<br>";
+            echo "</div>";
+
+            echo "<div class=row>";
+            echo "<div class='col-sm-5'></div>";
+            echo "<div class='col-sm-2'>";
+            echo ("<button onclick=\"location.href='login.php'\">Return to Login</button>");
+            echo "</div>";
+            echo "<div class='col-sm-5'></div>";
+            echo "</div>";
+            echo "</div>";
+            echo "<hr>";
+        } 
+        else 
+        {
+            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
             $c = $_POST['captcha'];
             $u = $_POST['username'];
             $p = $_POST['password'];
@@ -130,7 +155,9 @@
 
                 $sql->close();
                 mysqli_close($conn);
-            } else {
+            } 
+            
+            else {
                 echo "<div class=row>";
                 echo "<div class='col-sm-3'></div>";
                 echo "<div class='col-sm-6'>";
@@ -152,6 +179,9 @@
                 session_destroy();
             }
         } ?>
+        }
+        }
+
     </main>
 
 
