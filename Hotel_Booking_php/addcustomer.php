@@ -5,12 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include "./navbaruser.php";
-
-?>
-<?php
 if (!isset($_SERVER['HTTP_REFERER'])) {
-// redirect them to your desired location
+    // redirect them to your desired location
     header('location:login.php');
     exit;
 }
@@ -41,26 +37,34 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
-    
+    <header>
+        <?php
+        include "./navbaruser.php";
 
-    <div class="jumbotron text-center">
-        <h1>Add Customer</h1>
-        <a href="customerprofile.php" title="manage">Customer</a> |
-        <a href="booking.php" title="manage">Booking</a> |
-        <a href="bookingsummary.php" title="manage">Booking Summary </a>
-    </div>
+        ?>
+    </header>
+
+    <section>
+        <div class="jumbotron text-center">
+            <h1>Add Customer</h1>
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
+            <a href="bookingsummary.php" title="manage">Booking Summary </a>
+        </div>
+    </section>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-4">
 
                 <?php
-                 require_once('../protected/config.php');
-                    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                    ?>
+                require_once('../protected/config.php');
+                $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                ?>
 
                 <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data">
-                    <table>
+                   <div class="table-responsive">
+                    <table class="table">
                         <tr>
                             <td>
                                 <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
@@ -93,6 +97,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </tr>
                         <tr>
                             <td>
+                                
                                 <label for="role"> Role:
                                     <input type="radio" name="role" id="role" value="C" required> Customer<br>
                                     <input type="radio" name="role" id="role" value="A" required> Admin<br>
@@ -105,6 +110,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             </td>
                         </tr>
                     </table>
+</div>
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
 
@@ -172,17 +178,15 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             return true;
                         }
                     }
-
                 </script>
             </div>
         </div>
     </div>
 
-   <?php
-            include "./footer.php";
-            ?>
+    <?php
+    include "./footer.php";
+    ?>
 
-    </html>
 </body>
 
 </html>

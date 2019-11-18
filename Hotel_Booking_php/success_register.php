@@ -31,14 +31,14 @@ and open the template in the editor.
         ?>
     </header>
 
-    <main>
+    <section>
         <div class="jumbotron text-center bg-light">
             <h2>Your account has been successfully registered</h2>
             <p>Click here to <a href="./login.php">sign in</a></p>
         </div>
 
         <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="background">
-    </main>
+    </section>
 
     <?php
     include "./footer.php";

@@ -121,7 +121,7 @@ include "./navbaruser.php";
             include "./footer.php";
             ?>
 
-    </html>
+
 </body>
 
 </html>

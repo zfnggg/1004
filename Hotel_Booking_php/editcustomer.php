@@ -70,7 +70,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     while ($data = mysqli_fetch_assoc($result)) {
                         ?>
                 <form method="post" name="editcust" action="editcustomerrecord.php?action=add" enctype="multipart/form-data">
-                    <table>
+                    <div class="table-responsive">
+                    <table class="table">
                         <tr>
                             <td>
                                 <label for="cName"> Customer Name:
@@ -81,7 +82,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </tr>
                         <tr>
                             <td>
-                                <label for="password">Password:<input type="password" id="password" name="pword" value="<?php echo $data['password'] ?>"></label>
+                                <label for="password">Password:<input type="password" id="password" name="pword"></label>
                             </td>
                         </tr>
                         <tr>
@@ -114,6 +115,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             </td>
                         </tr>
                     </table>
+</div>
                     <button type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">Update</button>
                 </form>
                 <?php

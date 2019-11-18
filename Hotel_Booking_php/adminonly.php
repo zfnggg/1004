@@ -82,14 +82,15 @@ $chart_data = substr($chart_data, 0, -2);
         </div>
     </div>
 
-    <div class="container" style="width:900px;">
-        <h3 class="centeralign">Revenue</h3>
+    <div class="centeralign">
+        <h3>Revenue</h3>
         <br /><br />
         <div id="chart"></div>
-    </div>
+  
 
     <script>
         Morris.Bar({
+                  barSize: "20",
             element: 'chart',
             data: [<?php echo $chart_data; ?>],
             xkey: 'year',
@@ -100,7 +101,7 @@ $chart_data = substr($chart_data, 0, -2);
         });
 
     </script>
-
+  </div>
     <?php
             include "./footer.php";
             ?>
@@ -109,3 +110,4 @@ $chart_data = substr($chart_data, 0, -2);
 </body>
 
 </html>
+
