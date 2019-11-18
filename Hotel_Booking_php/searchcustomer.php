@@ -80,7 +80,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             ?>
                             <hr>
 
-                            <table class="search_table">
+                            <div class="table-responsive">
+                            <table class="table">
                                 <tr>
                                     <td>Customer ID</td>
                                     <td>Customer Name</td>
@@ -117,6 +118,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         mysqli_close($conn);
                         ?>
                             </table>
+</div>
                         </form>
                     </div>
                     <div class="col-sm-4"></div>
