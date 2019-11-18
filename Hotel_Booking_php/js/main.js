@@ -263,85 +263,106 @@ function validateAddCustomer() {
     var regExEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var regExPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$/; 
     var regExPhone = /^[6,8,9][0-9]{7}$/;
-
-    var customerName = document.forms["addcustomer"]["customerName"];
-    var username = document.forms["addcustomer"]["username"];
-    var email = document.forms["addcustomer"]["email"];
-    var password = document.forms["addcustomer"]["password"];
-    var confirmpwd = document.forms["addcustomer"]["confirmPassword"];
-    var phoneNo = document.forms["addcustomer"]["phoneNo"];
-    var role = document.forms["addcustomer"]["role"];
-    var profilepic = document.forms["addcustomer"]["profilePicture"];
-
-    if (customerName == "") {
+    
+    
+    var nameinput = document.forms["addcustomer"]["customerName"].value;
+    var usernameinput = document.forms["addcustomer"]["username"].value;
+    var emailinput = document.forms["addcustomer"]["email"].value;
+    var passwordinput = document.forms["addcustomer"]["password"].value;
+    var confirmpasswordinput = document.forms["addcustomer"]["confirmPassword"].value;
+    var phoneinput = document.forms["addcustomer"]["phoneNo"].value;
+    //var pictureinput = document.getElementById("profilePic");
+    var pictureinput = document.forms["addcustomer"]["profilePicture"].value;
+    var roleinput = document.forms["addcustomer"]["role"].value;
+    
+    if (nameinput == "") {
         alert('Please insert name.');
         return false;
     }
     else {
-        if (!regExName.test(customerName)){
+        if (!regExName.test(nameinput)){
             alert('Name must not contain symbols, numbers or have more than 1 whitespace. Please re-enter.');
             return false;
         }
     }
     
-    if (username == "") {
+    if (usernameinput == "") {
         alert('Please insert username.');
         return false;
     }
     else {
-        if (!regExUsername.test(username)){
+        if (!regExUsername.test(usernameinput)){
             alert('Username must not contain symbols, numbers or have more than 1 whitespace. Please re-enter.');
             return false;
         }
     }
     
-    if (password == "") {
+    if (passwordinput == "") {
         alert('Please insert Password.');
         return false;
     }
     else {
-        if (!regExPw.test(password)){
+        if (!regExPw.test(passwordinput)){
             alert('Password requires 1 digit, 1 lower case, 1 upper case, min 8 characters. Please re-enter. ');
             return false;
         }
     }
     
-    if (confirmpwd != password) {
+    if (confirmpasswordinput != passwordinput) {
         alert('Passwords do not match.');
             return false;
     }
     
-    if (email == "") {
+    if (emailinput == "") {
         alert('Please insert Email.');
         return false;
     }
     else {
-        if (!regExEmail.test(email)){
+        if (!regExEmail.test(emailinput)){
             alert('Email is invalid. Please re-enter.');
             return false;
         }
     }
     
-    if (phoneNo == "") {
+    if (phoneinput == "") {
         alert('Please insert Phone Number.');
         return false;
     }
     else {
-        if (!regExPhone.test(phoneNo)){
+        if (!regExPhone.test(phoneinput)){
             alert('Phone Number must be a local Singapore number. Please re-enter.');
             return false;
         }
     }
 
-    if (role.value === "") {
-        window.alert("Please select role.");
+    if (roleinput == "") {
+        alert('Please insert Role.');
         return false;
     }
     
-    if (profilepic == "") {
+    if (pictureinput == "") {
         alert('Please upload a picture.');
         return false;
     }
 }
             
+function validateStatusUpdate() {
+    //var regExName = /^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$/;
+    var status = document.forms["booking"]["name"].value;
 
+
+            if (status == "")
+            {
+                alert("Status must not be empty");
+                return false;
+            } 
+            else {
+                alert(status);
+                if (status != "going" || status != "not going"){
+                    alert('Status must be only be going or not going');
+                    return false;
+                }
+                window.alert("Updated Successfully ! ");
+                return true;
+            }
+}

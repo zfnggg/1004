@@ -32,9 +32,9 @@ if (isset($_POST["submit"])) {
 $newName = $errorMsg = "";
 $success = true;
 
-//customer Name
+//
 if (empty($_POST['name'])) {
-    $errorMsg .= "status is required.<br>";
+    $errorMsg .= "Status is required.<br>";
     $success = false;
 } else {
     $newName = sanitize_input($_POST["name"]);

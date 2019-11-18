@@ -119,13 +119,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </td>
 
                         <td>
-                            <form name="booking" method="post" action="editbookingrecord.php">
+                        <!-- action="editbookingrecord.php" -->
+                            <form name="booking" method="post"  novalidate>
                                 <input name="cid" type="hidden" value="<?php echo $data['bookingID'] ?>">
                                 <br />
                                 <label>Status:
                                     <input type="text" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="name" value="<?php echo $data['status'] ?>" required></label>
                                 <br />
-                                <input type="submit" name="submit" value="update" onclick="myFunction()">
+                                <input type="submit" name="submit" value="update" onclick="validateStatusUpdate()">
                             </form>
                         </td>
                     </tr>
@@ -138,25 +139,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
             </div>
         </div>
     </div>
-
-    <script>
-        function myFunction() {
-
-            var status = document.forms["booking"]["name"];
-
-
-            if (status.value === "")
-
-            {
-                alert("Status must not be empty");
-                return false;
-            } else {
-                window.alert("Updated Successfully ! ");
-                return true;
-            }
-        }
-
-    </script>
 
     <?php
             include "./footer.php";
