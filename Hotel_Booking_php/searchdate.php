@@ -70,7 +70,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
 
-                        <table class="search">
+                        <div class="table-responsive">
+                        <table class="table">
                             <tr>
                                 <td>Booking ID</td>
                                 <td>Check in Date</td>
@@ -119,6 +120,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     mysqli_close($conn);
                     ?>
                         </table>
+</div>
                     </form>
                 </div>
                 <div class="col-sm-2"></div>
