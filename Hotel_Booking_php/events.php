@@ -54,6 +54,7 @@ include "./navbaruser.php";
                 <p><em>Full buyouts available upon request.</em></p>
             </div>
         </div>
+        <p>Photo from Pixabay.com</p>
 
         <div class="ballroom-image">
             <div class="ballroom-text">
@@ -64,6 +65,7 @@ include "./navbaruser.php";
                 <p><em>"The perfect day calls for the perfect room."</em></p>
             </div>
         </div>
+        <p>Photo from Pixabay.com</p>
 
        <?php
         include "./footer.php";

@@ -86,7 +86,7 @@ if (empty($_POST['password'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
 } else {
-    /*$password = sanitize_input($_POST["password"]);
+    $password = sanitize_input($_POST["password"]);
     if (strlen($password) < 8 || strlen($password) > 30) {
         $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
         $success = false;
@@ -103,7 +103,7 @@ if (empty($_POST['password'])) {
     elseif (preg_match("#[\W]+#", $password)) {
         $errorMsg .= "Your Password Must not Contain any special characters!<br>";
         $success = false;
-    }*/
+    }
 }
 
 //EMAIL

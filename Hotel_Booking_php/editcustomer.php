@@ -110,6 +110,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <td>
                                 <label for="profilePicture"> Profile Pic:
                                     <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " width="100" alt="">
+                                    <figcaption>Photo from Pixabay.com</figcaption>
                                     <input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required>
                                 </label>
                             </td>

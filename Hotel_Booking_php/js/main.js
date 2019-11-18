@@ -256,3 +256,92 @@ function validateForgetPasswordForm()
         }
     }
 }
+
+function validateAddCustomer() {
+    var regExName = /^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$/;
+    var regExUsername = /^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$/;
+    var regExEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    var regExPw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$/; 
+    var regExPhone = /^[6,8,9][0-9]{7}$/;
+
+    var customerName = document.forms["addcustomer"]["customerName"];
+    var username = document.forms["addcustomer"]["username"];
+    var email = document.forms["addcustomer"]["email"];
+    var password = document.forms["addcustomer"]["password"];
+    var confirmpwd = document.forms["addcustomer"]["confirmPassword"];
+    var phoneNo = document.forms["addcustomer"]["phoneNo"];
+    var role = document.forms["addcustomer"]["role"];
+    var profilepic = document.forms["addcustomer"]["profilePicture"];
+
+    if (customerName == "") {
+        alert('Please insert name.');
+        return false;
+    }
+    else {
+        if (!regExName.test(customerName)){
+            alert('Name must not contain symbols, numbers or have more than 1 whitespace. Please re-enter.');
+            return false;
+        }
+    }
+    
+    if (username == "") {
+        alert('Please insert username.');
+        return false;
+    }
+    else {
+        if (!regExUsername.test(username)){
+            alert('Username must not contain symbols, numbers or have more than 1 whitespace. Please re-enter.');
+            return false;
+        }
+    }
+    
+    if (password == "") {
+        alert('Please insert Password.');
+        return false;
+    }
+    else {
+        if (!regExPw.test(password)){
+            alert('Password requires 1 digit, 1 lower case, 1 upper case, min 8 characters. Please re-enter. ');
+            return false;
+        }
+    }
+    
+    if (confirmpwd != password) {
+        alert('Passwords do not match.');
+            return false;
+    }
+    
+    if (email == "") {
+        alert('Please insert Email.');
+        return false;
+    }
+    else {
+        if (!regExEmail.test(email)){
+            alert('Email is invalid. Please re-enter.');
+            return false;
+        }
+    }
+    
+    if (phoneNo == "") {
+        alert('Please insert Phone Number.');
+        return false;
+    }
+    else {
+        if (!regExPhone.test(phoneNo)){
+            alert('Phone Number must be a local Singapore number. Please re-enter.');
+            return false;
+        }
+    }
+
+    if (role.value === "") {
+        window.alert("Please select role.");
+        return false;
+    }
+    
+    if (profilepic == "") {
+        alert('Please upload a picture.');
+        return false;
+    }
+}
+            
+
