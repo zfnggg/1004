@@ -81,7 +81,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         </tr>
                         <tr>
                             <td>
-                                <label for="password">Password:<input type="password" id="password" name="pword" value="<?php echo $data['password'] ?>"></label>
+                                <label for="password">Password:<input type="password" id="password" name="pword"></label>
                             </td>
                         </tr>
                         <tr>
