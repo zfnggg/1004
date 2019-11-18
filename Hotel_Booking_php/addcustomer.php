@@ -63,7 +63,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 ?>
 
                 <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data">
-                    <table>
+                   <div class="table-responsive">
+                    <table class="table">
                         <tr>
                             <td>
                                 <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
@@ -109,6 +110,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             </td>
                         </tr>
                     </table>
+</div>
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
 
