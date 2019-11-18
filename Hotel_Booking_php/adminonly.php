@@ -5,12 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include "./navbaruser.php";
-
-?>
-<?php
 if (!isset($_SERVER['HTTP_REFERER'])) {
-// redirect them to your desired location
+    // redirect them to your desired location
     header('location:login.php');
 
     exit;
@@ -42,6 +38,7 @@ $chart_data = substr($chart_data, 0, -2);
     <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
     <!-- Main CSS Style Sheet-->
     <link href="css/main.css" rel="stylesheet" />
     <!-- Zheng Feng CSS -->
@@ -62,52 +59,67 @@ $chart_data = substr($chart_data, 0, -2);
 </head>
 
 <body>
-    
 
-    <div class="jumbotron text-center">
-        <h1>Admin Page</h1>
-    </div>
+    <header>
+        <?php
+        include "./navbaruser.php";
 
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-2 sidenav">
+        ?>
+    </header>
+
+    <main>
+        <section>
+            <div class="jumbotron text-center">
+                <h1>Admin Page</h1>
             </div>
-            <div class="col-sm-8 text-left">
-                <br /> <a href="customerprofile.php" title="manage">Customer Profile</a>
-                <br /> <a href="booking.php" title="manage">Booking</a>
-                <br /> <a href="bookingsummary.php" title="manage">Booking Summary</a>
+        </section>
+
+
+        <section>
+            <div class="container-fluid text-center">
+                <div class="row content">
+                    <div class="col-sm-2 sidenav">
+                    </div>
+                    <div class="col-sm-8 text-left">
+                        <br /> <a href="customerprofile.php" title="manage">Customer Profile</a>
+                        <br /> <a href="booking.php" title="manage">Booking</a>
+                        <br /> <a href="bookingsummary.php" title="manage">Booking Summary</a>
+                    </div>
+                    <div class="col-sm-2 sidenav">
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-2 sidenav">
-            </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="centeralign">
-        <h3>Revenue</h3>
-        <br /><br />
-        <div id="chart"></div>
-  
+        <section>
+            <header>
+                <div class="centeralign">
+                    <h3>Revenue</h3>
+                    <br /><br />
+            </header>
 
-    <script>
-        Morris.Bar({
-                  barSize: "20",
-            element: 'chart',
-            data: [<?php echo $chart_data; ?>],
-            xkey: 'year',
-            ykeys: ['total'],
-            labels: ['total'],
-            hideHover: 'auto',
-            stacked: true
-        });
+                <div id="chart"></div>
 
-    </script>
-  </div>
-    <?php
+
+                <script>
+                    Morris.Bar({
+                        barSize: "20",
+                        element: 'chart',
+                        data: [<?php echo $chart_data; ?>],
+                        xkey: 'year',
+                        ykeys: ['total'],
+                        labels: ['total'],
+                        hideHover: 'auto',
+                        stacked: true
+                    });
+                </script>
+                </div>
+            </section>
+
+            <?php
             include "./footer.php";
             ?>
-
-    </html>
+    </main>
 </body>
 
 </html>
-
