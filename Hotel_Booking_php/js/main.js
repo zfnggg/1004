@@ -142,7 +142,7 @@ function validateEditProfile() {
     var usernameinput = document.forms["formeditprofile"]["username"].value;
     var emailinput = document.forms["formeditprofile"]["email"].value;
     var passwordinput = document.forms["formeditprofile"]["password"].value;
-    var confirmpasswordinput = document.forms["formeditprofile"]["confirmPassword"].value;
+    //var confirmpasswordinput = document.forms["formeditprofile"]["confirmPassword"].value;
     var phoneinput = document.forms["formeditprofile"]["phoneNo"].value;
     var pictureinput = document.forms["formeditprofile"]["profilePicture"].value;
     
@@ -219,8 +219,6 @@ function validateLoginForm() {
     var usernameinput = document.forms["formlogin"]["username"].value;
     var passwordinput = document.forms["formlogin"]["password"].value;
 
-    //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
-    //Prevents XSS attacks
     if (usernameinput === "") {
         alert('Please insert username');
         return false;
