@@ -39,7 +39,7 @@ and open the template in the editor.
     <!-- action="process_registration.php" method="post" for php-->
 
     <main>
-        <form action="process_registration.php" method="post" name="formRegister" onsubmit="return validateRegistration()">
+        <form action="process_registration.php" method="post" name="formRegister" onsubmit="return validateRegistration()" novalidate>
             <div class="container-registration text-center">
                 <h1>Registration</h1>
                 <p>Please fill in this form to create an account.</p>
@@ -51,7 +51,7 @@ and open the template in the editor.
                 <p>Password:
                     <input type="password" autocomplete="new-password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30}"> </p>
                 <p>Confirm Password:
-                    <input type="password" autocomplete="new-password" name="confirmPassword"> </p>
+                    <input type="password" autocomplete="new-password" name="confirmPassword" required> </p>
                 <p>Email:
                     <input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> </p>
                 <p>Phone No:

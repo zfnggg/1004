@@ -43,7 +43,7 @@ and open the template in the editor.
             $data = htmlspecialchars($data);
             return $data;
         }
-
+        
         $email = $errorMsg = "";
         $cpword = sanitize_input($_POST["confirmPassword"]);
         $password = sanitize_input($_POST["password"]);
