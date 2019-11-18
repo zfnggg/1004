@@ -81,12 +81,12 @@ include "./navbaruser.php";
                             <td>
                                 <label for="password">Password:
 
-                                    <input type="password" name="password" id="password" value="<?php echo $userrecord['password']; ?>"></label>
+                                    <input type="password" name="password" id="password"></label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="email">Email:</p>
+                                <label for="email">Email:
 
                                     <input type="text" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php echo $userrecord['email']; ?>">
                                 </label>
@@ -120,7 +120,7 @@ include "./navbaruser.php";
             include "./footer.php";
             ?>
 
-    </html>
+</html>
 </body>
 
 </html>
