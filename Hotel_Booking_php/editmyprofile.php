@@ -82,7 +82,7 @@ include "./navbaruser.php";
                             <td>
                                 <label for="password">Password:
 
-                                    <input type="password" name="password" id="password" value="<?php echo $userrecord['password']; ?>"></label>
+                                    <input type="password" name="password" id="password"></label>
                             </td>
                         </tr>
                         <tr>

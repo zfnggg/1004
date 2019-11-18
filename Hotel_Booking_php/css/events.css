@@ -1,5 +1,5 @@
 .eventroom-image {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost/HotelBooking/public_html/img/eventroom.jpg");
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost/Hotel_Booking_php/img/eventroom.jpg");
         height: 500px; /* You must set a specified height */
         background-position: center; /* Center the image */
         background-repeat: no-repeat; /* Do not repeat the image */
@@ -18,7 +18,7 @@
   }
 
 .ballroom-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost/HotelBooking/public_html/img/ballroom.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("http://localhost/Hotel_Booking_php/img/ballroom.jpg");
     height: 500px; /* You must set a specified height */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
