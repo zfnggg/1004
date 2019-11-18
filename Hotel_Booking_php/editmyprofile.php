@@ -60,50 +60,53 @@ include "./navbaruser.php";
                 ?>
 
                 <form name="formeditprofile" onsubmit="return validateEditProfile()" novalidate method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data">
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="customerName">Customer Name:
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <label for="customerName">Customer Name:
 
-                                    <input type="text" id="customerName" name="customerName" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
-                                </label>
-                                <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="username">Username :</label>
-                                <input type="text" id="username" name="username" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['username']; ?>">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="password">Password:
-                                    <input type="password" required name="password" id="password"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email">Email:
-                                    <input type="text" id="email" required name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php echo $userrecord['email']; ?>">
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label for="phoneNo">
-                                    Phone No:
-                                    <input type="text" id="phoneNo" required name="phoneNo" required pattern="[6,8,9][0-9]{7}" value="<?php echo $userrecord['phoneNo']; ?>"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="profilePicture">Profile Picture:
-                                    <input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required></label>
-                            </td>
-                        </tr>
-                    </table>
-                    <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
-                    <input type="submit" name="submit" value="Upload" class="btn btn-primary">
+                                        <input type="text" id="customerName" name="customerName" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['customerName']; ?>">
+                                    </label>
+                                    <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="username">Username :</label>
+                                    <input type="text" id="username" name="username" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" value="<?php echo $userrecord['username']; ?>">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="password">Password:
+                                        <input type="password" required name="password" id="password"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email">Email:
+                                        <input type="text" id="email" required name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<?php echo $userrecord['email']; ?>">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="phoneNo">
+                                        Phone No:
+                                        <input type="text" id="phoneNo" required name="phoneNo" required pattern="[6,8,9][0-9]{7}" value="<?php echo $userrecord['phoneNo']; ?>"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="profilePicture">Profile Picture:
+                                        <input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required></label>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
+                        <input type="submit" name="submit" value="Upload" class="btn btn-primary">
+                    </div>
                 </form>
             </div>
         </div>
