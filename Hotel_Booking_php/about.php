@@ -35,8 +35,6 @@ and open the template in the editor.
     <header>
         <?php
         include "./navbaruser.php";
-        Response.AddHeader("X-Frame-Options", "DENY");
-    
         ?>
     </header>
 
