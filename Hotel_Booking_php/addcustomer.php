@@ -63,54 +63,54 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 ?>
 
                 <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data">
-                   <div class="table-responsive">
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="username">Username: <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="password"> Password <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="confirmPassword"> Confirm Password:<input type="password" id="confirmPassword" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email"> Email <input type="email" id="email" name="email" pattern="^\S+@\S+$" required> </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="phoneNo"> Phone No: <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" title="Please enter phone number as 8-digit numbers only" required> </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                
-                                <label for="role"> Role:
-                                    <input type="radio" name="role" id="role" value="C" required> Customer<br>
-                                    <input type="radio" name="role" id="role" value="A" required> Admin<br>
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="profilePicture"> Profile Pic:<input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required> </label>
-                            </td>
-                        </tr>
-                    </table>
-</div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <label for="customerName">Name <input type="text" id="customerName" name="customerName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="username">Username: <input type="text" id="username" name="username" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="password"> Password <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="confirmPassword"> Confirm Password:<input type="password" id="confirmPassword" name="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="email"> Email <input type="email" id="email" name="email" pattern="^\S+@\S+$" required> </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="phoneNo"> Phone No: <input type="text" id="phoneNo" name="phoneNo" pattern="[6,8,9][0-9]{7}" title="Please enter phone number as 8-digit numbers only" required> </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                    <label for="role"> Role:
+                                        <input type="radio" name="role" id="role" value="C" required> Customer<br>
+                                        <input type="radio" name="role" id="role" value="A" required> Admin<br>
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="profilePicture"> Profile Pic:<input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required> </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <input type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">
                 </form>
 

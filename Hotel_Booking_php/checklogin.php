@@ -40,6 +40,8 @@
 
         $email = $errorMsg = "";
         $success = true;
+        $c = $_POST['captcha'];
+
         function sanitize_input($data)
         {
             $data = trim($data);
@@ -76,8 +78,15 @@
             $p = md5($p);
         }
 
-        if (empty($_POST["submit"])) {
-            $errorMsg .= "There seems to be an error.<br>";
+        //Captcha Check
+        if ($c != $_SESSION['captcha_code']) {
+            $errorMsg .= "CAPTCHA Code enterred is invalid.";
+            $success = false;
+        }
+
+        if (!isset($_POST["submit"]))
+        {
+            $errorMsg .= "Incomplete form";
             $success = false;
         }
 
@@ -95,7 +104,7 @@
             echo "<div class=row>";
             echo "<div class='col-sm-5'></div>";
             echo "<div class='col-sm-2'>";
-            echo ("<button onclick=\"location.href='login.php'\">Return to Login</button>");
+            echo ("<button onclick=\"location.href='./login.php'\">Return to Login</button>");
             echo "</div>";
             echo "<div class='col-sm-5'></div>";
             echo "</div>";
@@ -104,24 +113,24 @@
         } 
         else 
         {
-            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-            $c = $_POST['captcha'];
-            $u = $_POST['username'];
-            $p = $_POST['password'];
-            $u = mysqli_real_escape_string($conn, $u);
-            $p = mysqli_real_escape_string($conn, $p);
-            $p = md5($p);
+                $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                $u = $_POST['username'];
+                $p = $_POST['password'];
+                $u = mysqli_real_escape_string($conn, $u);
+                $p = mysqli_real_escape_string($conn, $p);
+                $p = md5($p);
 
-            if ($c == $_SESSION['captcha_code']) {
+
                 $sql = $conn->prepare("SELECT * FROM users WHERE username = ? and password= ? ");
                 $sql->bind_param("ss", $u, $p);
                 $sql->execute();
                 $search_result = $sql->get_result();
 
-                //          $search_result = mysqli_query($conn, $sql);
+                //$search_result = mysqli_query($conn, $sql);
                 $userfound = mysqli_fetch_assoc($search_result);
 
-                if ($userfound >= 1) {
+                if ($userfound >= 1) 
+                {
                     $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
                     $sql->bind_param("s", $u);
                     $sql->execute();
@@ -132,7 +141,10 @@
                     $_SESSION['MM_Username'] = $u;
                     $_SESSION['MM_role'] = $r;
                     header("Location:reservation.php");
-                } else {
+                } 
+                
+                else 
+                {
                     echo "<div class=row>";
                     echo "<div class='col-sm-3'></div>";
                     echo "<div class='col-sm-6'>";
@@ -145,7 +157,7 @@
                     echo "<div class=row>";
                     echo "<div class='col-sm-5'></div>";
                     echo "<div class='col-sm-2'>";
-                    echo ("<button onclick=\"location.href='login.php'\">Return to Login</button>");
+                    echo ("<button onclick=\"location.href='./login.php'\">Return to Login</button>");
                     echo "</div>";
                     echo "<div class='col-sm-5'></div>";
                     echo "</div>";
@@ -155,33 +167,8 @@
 
                 $sql->close();
                 mysqli_close($conn);
-            } 
-            
-            else {
-                echo "<div class=row>";
-                echo "<div class='col-sm-3'></div>";
-                echo "<div class='col-sm-6'>";
-                echo "<h1>CAPTCHA Code enterred is invalid. Please Try Again</h1>";
-                echo "</div>";
-                echo "<div class='col-sm-3'></div>";
-                echo "<br>";
-                echo "</div>";
-
-                echo "<div class=row>";
-                echo "<div class='col-sm-5'></div>";
-                echo "<div class='col-sm-2'>";
-                echo ("<button onclick=\"location.href='login.php'\">Return to Login</button>");
-                echo "</div>";
-                echo "<div class='col-sm-5'></div>";
-                echo "</div>";
-                echo "</div>";
-                echo "<hr>";
-                session_destroy();
-            }
-        } ?>
+                ?>
         }
-        }
-
     </main>
 
 
