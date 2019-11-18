@@ -93,6 +93,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <th>Number of days</th>
                                 <th>Total Charges ($)</th>
                                 <th>Pax</th>
+                                <th>Cancel Booking</th>
                             </tr>
 
                             <?php
@@ -123,6 +124,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <?php echo $data['pax'] ?>
                                     </td>
+                                    <td>
+                                        <form method="post" action="deletemybooking.php">
+                                            <input name="cid" type="hidden" value="<?php echo $data['bookingID'] ?>">
+                                            <input type="submit" value="delete">
+                                        </form>
+                                    </td>
+
                                 </tr>
 
                             <?php
