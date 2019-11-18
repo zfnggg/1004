@@ -5,6 +5,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 
+
 <html lang="en">
 
 <head>
@@ -34,6 +35,8 @@ and open the template in the editor.
     <header>
         <?php
         include "./navbaruser.php";
+        Response.AddHeader("X-Frame-Options", "DENY");
+    
         ?>
     </header>
 
@@ -84,7 +87,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="col-sm-2"> </div>
-                    
+
                 </div>
             </div>
         </div>
