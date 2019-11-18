@@ -168,11 +168,12 @@ and open the template in the editor.
                         echo "</div>";
                         echo "<hr>";
                     }
+                    $sql->close();
+                    mysqli_close($conn);
         }
-        $sql->close();
-        mysqli_close($conn);
+
         ?>
-        
+
         <?php
         include "./footer.php";
         ?>
