@@ -89,7 +89,7 @@ include "./navbaruser.php";
 <br/>
                         <label for ="numdays">No of days: <input type="text" id="numdays" name="num_days" readonly required></label>
 <br/>
-                        <label for ="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]{1}$" required></label>
+                        <label for ="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]$" required></label>
 <br/>
                         <label for ="total">Total Charges:$ <input type="text" id="total" name="total_sum" readonly></label>
                         <input type="hidden" id="status" name="status" value="going">
@@ -135,7 +135,7 @@ include "./navbaruser.php";
                         var regexcc = /^[0-9]{16}$/;
 
                         var pax = document.forms["bookroom"]["pax"];
-                        var regexpax = /^[0-9]{2}$/;
+                        var regexpax = /^[0-9]$/;
 
                         var cvv = document.forms["bookroom"]["cvv"];
                         var regexcvv = /^[0-9]{3}$/;
