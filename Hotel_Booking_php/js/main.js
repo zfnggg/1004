@@ -218,6 +218,7 @@ function validateLoginForm() {
 
     var usernameinput = document.forms["formlogin"]["username"].value;
     var passwordinput = document.forms["formlogin"]["password"].value;
+    var captchainput = document.forms["formlogin"]["captcha"].value;
 
     //Sanitize input using an exernal javascript library called DOMPurify. Source:https://github.com/cure53/DOMPurify
     //Prevents XSS attacks
@@ -239,6 +240,11 @@ function validateLoginForm() {
             alert('Password is invalid. Please re-enter. Requires 1 digit, 1 lower case, 1 upper case, min 8 characters');
             return false;
         }
+    }
+    if(captchainput ==="")
+    {
+        alert('Please insert captcha text');
+        return false;
     }
 
 }

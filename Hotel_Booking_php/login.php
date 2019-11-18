@@ -40,7 +40,7 @@ include_once ("./navbaruser.php");
                             <label for="captcha">Please Enter the Captcha Text</label>
                             <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
                             <br>
-                            <input type="text" id="captcha" name="captcha">
+                            <input type="text" id="captcha" name="captcha" required>
                         </div>
 
                         <button id="btn1" name="submit" type="submit" >Login</button>
