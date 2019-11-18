@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 include "./navbaruser.php";
-
 ?>
 <html lang="en">
     <head>
@@ -22,7 +21,7 @@ include "./navbaruser.php";
     </head>
 
     <body>
-        
+
         <section>
             <div class="jumbotron text-center bg-light">
                 <h2>ENJOY YOUR STAY WITH US NOW</h2>
@@ -41,16 +40,16 @@ include "./navbaruser.php";
                                     <div class="col-md-4">
                                         <div class="form-group text-center">
                                             <label for="checkin">Check-In Date
-                                            <input name="checkin" type="date"  id="checkin" class="form-control" required/>
-                                        </label>
+                                                <input name="checkin" type="date"  id="checkin" class="form-control" required/>
+                                            </label>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group text-center">
                                             <label for="checkout">Checkout Date
-                                            <input name="checkout" type="date" id="checkout" class="form-control" required/>
-                                        </label>
+                                                <input name="checkout" type="date" id="checkout" class="form-control" required/>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -73,11 +72,11 @@ include "./navbaruser.php";
             <!-- End of Booking Form -->
         </section>
 
-       <?php
-                include "./footer.php";
-                ?>
+        <?php
+        include "./footer.php";
+        ?>
 
-        </html>
-    </body>
+</html>
+</body>
 </html>
 
