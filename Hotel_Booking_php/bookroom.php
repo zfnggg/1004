@@ -68,6 +68,7 @@ include "./navbaruser.php";
             <div class="col-sm-8">
                 <h2><?php echo $data['roomType'] ?></h2>
                 <img src="../HotelBooking_php/public_html/img/<?php echo $data['roomImg'] ?> " style="width:100%" alt="Image of selected room">
+                <figcaption>Photo from Pixabay.com</figcaption>
                 <br><br>
             </div>
 
@@ -231,18 +232,22 @@ include "./navbaruser.php";
         <div class="row">
             <div class="col-sm-3">
                 <img src="img/events.jpeg" class="img-responsive" style="width:100%; " alt="Image">
+                <figcaption>Photo from Pixabay.com</figcaption>
                 <p>Events</p>
             </div>
             <div class="col-sm-3">
                 <img src="img/dining.jpg" class="img-responsive" style="width:100%" alt="Image">
+                <figcaption>Photo from Pixabay.com</figcaption>
                 <p>Dining</p>
             </div>
             <div class="col-sm-3">
                 <img src="img/rest.jpeg" class="img-responsive" style="width:100%" alt="Image">
+                <figcaption>Photo from Pixabay.com</figcaption>
                 <p>Restaurants</p>
             </div>
             <div class="col-sm-3">
                 <img src="img/bar.jpg" class="img-responsive" style="width:100%" alt="Image">
+                <figcaption>Photo from Pixabay.com</figcaption>
                 <p>Bar</p>
             </div>
         </div>

@@ -28,6 +28,7 @@ include "./navbaruser.php";
             </div>
 
             <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
+            <figcaption>Photo from Pixabay.com</figcaption>
 
             <!-- Booking Form -->
             <form action="./availablerooms.php" method="post" name="checkroom">

@@ -38,6 +38,7 @@ and open the template in the editor.
         </div>
 
         <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="background">
+        <figcaption>Photo from Pixabay.com</figcaption>
     </section>
 
     <?php

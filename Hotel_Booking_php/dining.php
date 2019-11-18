@@ -49,6 +49,7 @@ include "./navbaruser.php";
             <div class="row">
                 <figure class="col-md-6 col-sm-12">
                     <img src="./img/breakfast.jpg" class="float-left bf-margin" alt="A breakfast dish from Po">
+                    <figcaption>Photo from Pixabay.com</figcaption>
                 </figure>
                 <header class="col-md-6 col-sm-12">
                     <div class="description text-center bf-desc-margin">
@@ -70,6 +71,7 @@ include "./navbaruser.php";
             <div class="row">
                 <figure class="col-md-6 col-sm-12 order-md-2">
                     <img src="./img/lunch.jpg" class="lunch-margin" alt="A burger from 25 Degrees">
+                    <figcaption>Photo from Pixabay.com</figcaption>
                 </figure>
                 <header class="col-md-6 col-sm-12 order-md-1">
                     <div class="description text-center lunch-desc-margin">
@@ -91,6 +93,7 @@ include "./navbaruser.php";
             <div class="row">
                 <figure class="col-md-6 col-sm-12">
                     <img src="./img/dinner.jpg" class="float-left bf-margin" alt="Inside of Ginett restaurant">
+                    <figcaption>Photo from Pixabay.com</figcaption>
                 </figure>
                 <header class="col-md-6 col-sm-12">
                     <div class="description text-center bf-desc-margin">

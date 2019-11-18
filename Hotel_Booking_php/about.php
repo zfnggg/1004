@@ -46,6 +46,7 @@ and open the template in the editor.
 
     <figure>
         <img src="img/family.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="bg1">
+        <figcaption>Photo from Pixabay.com</figcaption>
     </figure>
 
     <section>
@@ -64,6 +65,7 @@ and open the template in the editor.
                     <div class="col-sm-4 text-center">
                         <figure>
                             <img src="img/restaurant1.jpg" class="shrinkImageAbout" alt="rest1">
+                            <figcaption>Photo from Pixabay.com</figcaption>
                         </figure>
                         <div><i class="fas fa-cocktail iconGrow"></i></div>
                         <div class="textPadTop">
@@ -74,6 +76,7 @@ and open the template in the editor.
                     <div class="col-sm-4 text-center">
                         <figure>
                             <img src="img/towel.jpg" class="shrinkImageAbout" alt="towel">
+                            <figcaption>Photo from Pixabay.com</figcaption>
                         </figure>
                         <div><i class="fas fa-swimmer iconGrow"></i></div>
                         <div class="textPadTop">

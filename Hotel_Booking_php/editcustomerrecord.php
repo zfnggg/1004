@@ -74,8 +74,17 @@ if (empty($_POST['cName'])) {
     $errorMsg .= "Customer Name is required.<br>";
     $success = false;
 } else {
-    $newName = sanitize_input($_POST["cName"]);
-    $success = true;
+    $name = sanitize_input($_POST["cName"]);
+    if (preg_match("/^([a-zA-Z' ]+)$/", $name)) {
+        if (strlen($name) >= 40) {
+            $errorMsg .= "Customer Name too long.<br>";
+            $success = false;
+        }
+    }
+    else {
+        $errorMsg .= "Invalid Customer Name.<br>";
+        $success = false;
+    }
 }
 
 //phone no
@@ -84,7 +93,10 @@ if (empty($_POST['phone'])) {
     $success = false;
 } else {
     $phoneno = sanitize_input($_POST["phone"]);
-    $success = true;
+    if (!preg_match("/^([6,8,9][0-9]{7}+)$/", $phoneno)) {
+        $errorMsg .= "Invalid Phone Number.<br>";
+        $success = false;
+    }
 }
 
 //role
