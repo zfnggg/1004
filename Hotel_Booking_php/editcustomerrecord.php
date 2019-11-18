@@ -121,7 +121,7 @@ if ($success) {
     echo "<h4>The following input errors were detected:</h4>";
     echo "<p>" . $errorMsg . "</p>";
     echo "<br>";
-    echo("<button onclick=\"location.href='addcustomer.php'\">Return add customer.</button>");
+    echo("<button onclick=\"location.href='editcustomer.php'\">Return to  edit customer.</button>");
 }
 
 //Helper function that checks input for malicious or unwanted content.
