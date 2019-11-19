@@ -5,8 +5,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include_once ("./navbaruser.php");
+include ("./navbaruser.php");
 
+$_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16)); 
 ?>
 
 <html lang="en">
@@ -42,6 +43,7 @@ include_once ("./navbaruser.php");
                             <img src="captcha.php" alt="CAPTCHA" class="captcha-image"><i class="fas fa-redo refresh-captcha"></i>
                             <br>
                             <input type="text" id="captcha" name="captcha" required>
+                            <input type="hidden" name="_token" value="<?php echo $_SESSION['_token'] ?>"> 
                         </div>
 
                         <button id="btn1" name="submit" type="submit" >Login</button>

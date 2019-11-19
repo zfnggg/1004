@@ -57,6 +57,7 @@ and open the template in the editor.
                 <p>Phone No:
                     <input type="text" name="phoneNo" required pattern="[6,8,9][0-9]{7}"> </p>
                 <input type="hidden" name="role" value="C">
+                <input type="hidden" name="_token" value="<?php echo $_SESSION['_token'] ?>"> 
                 <p>Profile Picture:
                     <input type="file" name="profilePicture" id="profilePic" required accept=".png,.gif,.jpg,.webp"> </p>
                 <hr>

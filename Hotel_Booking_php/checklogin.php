@@ -35,11 +35,19 @@ and open the template in the editor.
 
     <body>
             <?php
-            //session_start();
             //Just for MAC, for windows need to change accordingly 
             //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
             //For windows
             require_once('../protected/config.php');
+
+            if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
+                die('Invalid request method');
+            }
+            else {
+                if (!isset($_POST['_token']) || ($_POST['_token'] !== $_SESSION['_token'])){
+                    die($_POST['_token'] . "      " . $_SESSION['_token']);
+                }
+            }
 
             $email = $errorMsg = "";
             $success = true;

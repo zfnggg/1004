@@ -35,6 +35,15 @@ and open the template in the editor.
     <main>
         <?php
 
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
+            die('Invalid request method');
+        }
+        else {
+            if (!isset($_POST['_token']) || ($_POST['_token'] !== $_SESSION['_token'])){
+                die($_POST['_token'] . "      " . $_SESSION['_token']);
+            }
+        }
+
         //Helper function that checks input for malicious or unwanted content.
         function sanitize_input($data)
         {
