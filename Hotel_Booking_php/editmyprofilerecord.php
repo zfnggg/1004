@@ -23,8 +23,9 @@ if (isset($_POST["submit"]) == "Upload") {
     $file_name = $_FILES['profilePicture']['name'];
     $profilepic = "$target_Folder$file_name";
 
-    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+    //$conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
     $sql = $conn->prepare("update users set customerName=?,username=?, password=?,email=?,phoneNo=?,profilePicture=? where userID=?");
+    move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);    
     $sql->bind_param("ssssisi", $cname, $uname, $pword,$email, $phoneno, $profilepic, $userID);
     $sql->execute();
     $result = $sql->get_result();
@@ -86,7 +87,7 @@ if (empty($_POST['password'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
 } else {
-    $password = sanitize_input($_POST["password"]);
+    /*$password = sanitize_input($_POST["password"]);
     if (strlen($password) < 8 || strlen($password) > 30) {
         $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
         $success = false;
@@ -103,7 +104,7 @@ if (empty($_POST['password'])) {
     elseif (preg_match("#[\W]+#", $password)) {
         $errorMsg .= "Your Password Must not Contain any special characters!<br>";
         $success = false;
-    }
+    }*/
 }
 
 //EMAIL
@@ -158,3 +159,4 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+
