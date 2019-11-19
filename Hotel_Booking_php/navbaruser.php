@@ -7,7 +7,7 @@
 //}
 ?>
 <?php
-
+session_start();
 //Browser refuses to display requested document in a frame, in case that origin does not match
 header("X-Frame-Options: sameorigin");
 
