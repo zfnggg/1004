@@ -46,7 +46,6 @@ and open the template in the editor.
             $logMsg = "You have successfully logged out!";
         }
 
-
         setcookie(session_name(), '', 100);
         session_unset();
         session_destroy();
