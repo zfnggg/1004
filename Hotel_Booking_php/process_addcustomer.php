@@ -11,7 +11,7 @@ if (!isset($_GET['action'])) {
     $email = $_POST['email'];
     $phoneno = $_POST['phoneNo'];
     $role = $_POST['role'];
-//                        $profilepic = $_POST['profilePicture'];
+//$profilepic = $_POST['profilePicture'];
 
     if (isset($_POST["submit"]) == "Upload") {
 
