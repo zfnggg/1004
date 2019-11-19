@@ -28,11 +28,6 @@ and open the template in the editor.
 
     <header>
         <?php
-        session_start();
-        setcookie(session_name(), '', 100);
-        session_unset();
-        session_destroy();
-        $_SESSION = array();
         include "./navbaruser.php";
         
         ?>
@@ -42,8 +37,20 @@ and open the template in the editor.
     <main>
         <div class="jumbotron text-center bg-light">
             <?php
+                if(($_SESSION['logout']) == "1" ) 
+                {
+                    echo "You have been automatically logged out for being inactive for more than 15 minutes!";
+                }
 
-            echo "You've successfully logged out! "
+                elseif (!isset($_SESSION['logout'])) 
+                {
+                    echo "You have successfully logged out!";
+                }
+
+                setcookie(session_name(), '', 100);
+                session_unset();
+                session_destroy();
+                $_SESSION = array();
             ?>
             <p>Click here to <a href="./index.php">return to the main page</a></p>
         </div>

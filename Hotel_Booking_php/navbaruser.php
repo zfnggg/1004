@@ -1,9 +1,9 @@
 <?php
 //if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
-   // header('location:login.php');
-     
-   // exit;
+// header('location:login.php');
+
+// exit;
 //}
 ?>
 <?php
@@ -42,21 +42,39 @@ session_start();
                     </ul>
                 </li>
 
-                <?php if (isset($_SESSION['MM_Username'])) { ?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
-                    <ul class="dropdown-menu">
-                        <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
-                        <a class="dropdown-item" href="./reservation.php">My Reservation</a>
-                        <a class="dropdown-item" href="./logout.php">Log out</a>
-                    </ul>
-                </li>
+                <?php
+
+                if (isset($_SESSION['MM_Username'])) { ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
+                            <a class="dropdown-item" href="./reservation.php">My Reservation</a>
+                            <a class="dropdown-item" href="./logout.php">Log out</a>
+                        </ul>
+                    </li>
+                    
+                    <?php
+                        
+                        $inactive = 900;
+
+                        if (isset($_SESSION['timeout'])) {
+                            $session_life = time() - $_SESSION['timeout'];
+                            if ($session_life > $inactive) {
+                                $_SESSION['logout'] = "1";
+                                header("Location: ./logout.php");
+                            }
+                        }
+
+                        $_SESSION['timeout'] = time();
+                    ?>
+
                 <?php
                 } else {
                     ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="./login.php">Login</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.php">Login</a>
+                    </li>
                 <?php } ?>
             </ul>
         </div>

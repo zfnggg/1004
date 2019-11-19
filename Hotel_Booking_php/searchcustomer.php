@@ -18,28 +18,20 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <title>D'Hotel</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Personal StyleSheets & JS -->
+    <link href="css/main.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <link href="css/events.css" rel="stylesheet" />
+    <link href="css/faq.css" rel="stylesheet" />
+    <link href="css/dining.css" rel="stylesheet" />
+    <script defer src="js/main.js"></script>
+
+    <!-- Third Party -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- Main CSS Style Sheet-->
-
-    <link type="text/css" href="css/main.css" rel="stylesheet" />
-
-    <link type="text/css" href="css/main.css" rel="stylesheet" />
-
-
-    <!-- Zheng Feng CSS -->
-    <!-- Events CSS Style Sheet-->
-    <link href="css/events.css" rel="stylesheet" />
-    <!-- FAQ CSS Style Sheet-->
-    <link href="css/faq.css" rel="stylesheet" />
-    <!-- Dining CSS Style Sheet-->
-    <link href="css/dining.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- Own Javascript -->
-    <script defer src="js/main.js"></script>
 </head>
 
 <body>
@@ -51,36 +43,34 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     </header>
 
     <main>
-        <section>
-            <div class="jumbotron text-center">
-                <h1>Search Customer</h1>
-                <a href="customerprofile.php" title="manage">Customer</a> |
-                <a href="booking.php" title="manage">Booking</a> |
-                <a href="bookingsummary.php" title="manage">Booking Summary </a>
-            </div>
+        
+        <section class="jumbotron text-center">
+            <h1>Search Customer</h1>
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
+            <a href="bookingsummary.php" title="manage">Booking Summary </a>
         </section>
 
-        <section>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4">
-                        <form name="myForm" method="post" action="searchcustomer.php">
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <form name="myForm" method="post" action="searchcustomer.php">
 
-                            <label for="search">Search Customer Name :
-                                <input type="text" id="search" name="search" size="40" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required />
+                        <label for="search">Search Customer Name :
+                            <input type="text" id="search" name="search" size="40" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required />
 
-                            </label>
-                            <input type="submit" value="Search" class="btn btn-primary" onclick="myFunction()">
-                            <?php
-                            //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
-                            require_once('../protected/config.php');
+                        </label>
+                        <input type="submit" value="Search" class="btn btn-primary" onclick="myFunction()">
+                        <?php
+                        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                        require_once('../protected/config.php');
 
-                            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                            ?>
-                            <hr>
+                        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                        ?>
+                        <hr>
 
-                            <div class="table-responsive">
+                        <div class="table-responsive">
                             <table class="table">
                                 <tr>
                                     <td>Customer ID</td>
@@ -118,16 +108,12 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         mysqli_close($conn);
                         ?>
                             </table>
-</div>
-                        </form>
-                    </div>
-                    <div class="col-sm-4"></div>
+                        </div>
+                    </form>
                 </div>
-
+                <div class="col-sm-4"></div>
             </div>
-
         </section>
-
     </main>
 
     <?php

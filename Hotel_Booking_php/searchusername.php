@@ -46,35 +46,34 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         ?>
     </header>
 
-    <main>
-        <div class="jumbotron text-center">
-            <h1>Search Username </h1>
-            <a href="customerprofile.php" title="manage">Customer</a> |
-            <a href="booking.php" title="manage">Booking</a> |
-            <a href="bookingsummary.php" title="manage">Booking Summary </a>
-        </div>
+    <section class="jumbotron text-center">
+        <h1>Search Username </h1>
+        <a href="customerprofile.php" title="manage">Customer</a> |
+        <a href="booking.php" title="manage">Booking</a> |
+        <a href="bookingsummary.php" title="manage">Booking Summary </a>
+    </section>
 
-        <section>
-            <div class="container-fluid text-center">
-                <div class="row content">
-                    <div class="col-sm-8 text-centre">
-                        <form name="search" method="post" action="searchusername.php">
-                            <label for="search">Search Booking by Username:
-                                <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
+    <section>
+        <div class="container-fluid text-center">
+            <div class="row content">
+                <div class="col-sm-8 text-centre">
+                    <form name="search" method="post" action="searchusername.php">
+                        <label for="search">Search Booking by Username:
+                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
 
-                            </label>
-                            <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
-                        </form>
+                        </label>
+                        <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
+                    </form>
 
-                        <hr>
-                        <?php
-                        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
-                        require_once('../protected/config.php');
+                    <hr>
+                    <?php
+                    //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                    require_once('../protected/config.php');
 
-                        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                        ?>
+                    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                    ?>
 
-                       <div class="table-responsive">
+                    <div class="table-responsive">
                         <table class="table">
                             <tr>
                                 <td>Booking ID</td>
@@ -121,12 +120,11 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     mysqli_close($conn);
                     ?>
                         </table>
-</div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <?php
     include "./footer.php";
