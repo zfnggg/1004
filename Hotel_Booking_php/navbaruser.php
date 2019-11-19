@@ -72,12 +72,12 @@ header("X-Content-Type-Options: nosniff");
                     <?php
                         
                         $inactive = 900;
-                        $_SESSION['logout'] = null;
+                        $_SESSION["logout"] = null;
 
                         if (isset($_SESSION['timeout'])) {
                             $session_life = time() - $_SESSION['timeout'];
                             if ($session_life > $inactive) {
-                                $_SESSION['logout'] = "1";
+                                $_SESSION["logout"] = "1";
                                 header("Location: ./logout.php");
                             }
                         }
