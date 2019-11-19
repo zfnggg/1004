@@ -31,26 +31,26 @@ $chart_data = substr($chart_data, 0, -2);
 <html lang="en">
 
 <head>
-    <title>D'Hotel</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Personal Style Sheets & JS-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet" />
-    <link href="css/events.css" rel="stylesheet" />
-    <link href="css/faq.css" rel="stylesheet" />
-    <link href="css/dining.css" rel="stylesheet" />
-    <script defer src="js/main.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Third Party -->
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <script src="js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+        <title>D'Hotel</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Main CSS Style Sheet-->
+        <link href="css/main.css" rel = "stylesheet" /> 
+        <!-- Zheng Feng CSS -->
+        <!-- Events CSS Style Sheet-->
+        <link href="css/events.css" rel = "stylesheet" /> 
+        <!-- FAQ CSS Style Sheet-->
+        <link href="css/faq.css" rel = "stylesheet" /> 
+        <!-- Dining CSS Style Sheet-->
+        <link href="css/dining.css" rel = "stylesheet" /> 
+        <!-- Font Awesome Icons -->
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
+        <!-- Own Javascript -->
+        <script defer src="js/main.js"></script>  
 </head>
 
 <body>
