@@ -72,6 +72,7 @@ header("X-Content-Type-Options: nosniff");
                     <?php
                         
                         $inactive = 900;
+                        $_SESSION['logout'] = null;
 
                         if (isset($_SESSION['timeout'])) {
                             $session_life = time() - $_SESSION['timeout'];
