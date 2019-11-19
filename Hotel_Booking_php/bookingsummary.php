@@ -5,12 +5,8 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <?php
-include "./navbaruser.php";
-
-?>
-<?php
 if (!isset($_SERVER['HTTP_REFERER'])) {
-// redirect them to your desired location
+    // redirect them to your desired location
     header('location:login.php');
 
     exit;
@@ -42,226 +38,232 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
-   
 
-    <div class="jumbotron text-center">
-        <h1>Booking Summary</h1>
-        <a href="customerprofile.php" title="manage">Customer</a> |
-        <a href="booking.php" title="manage">Booking</a> |
-        <a href="bookingsummary.php" title="manage">Booking Summary </a>
-    </div>
+    <header>
+        <?php
+        include "./navbaruser.php";
+        ?>
+    </header>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4">
-                <form method="post" action="bookingsummary.php">
-                    <label for="searchdate">View Summary of Booking by Date:
+    <main>
+        <section class="jumbotron text-center">
+            <h1>Booking Summary</h1>
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
+            <a href="bookingsummary.php" title="manage">Booking Summary </a>
+        </section>
+
+        <section class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <form method="post" action="bookingsummary.php">
+
+                        <label for="searchdate">View Summary of Booking by Date:</label>
                         <input type="date" id="searchdate" name="searchdate">
-                    </label>
-                    <label for="myWeek">View Summary of Booking by Week:
+
+                        <label for="myWeek">View Summary of Booking by Week:</label>
                         <input type="date" name="searchweek" id="myWeek" value="2019-W01">
-                    </label>
-                    <label for="searchmonth">View Summary of Booking by Month:
+
+                        <label for="searchmonth">View Summary of Booking by Month:</label>
                         <input type="date" id="searchmonth" name="searchmonth">
-                    </label>
-                    <label for="total">
-                        <input type="radio" id="total" name="total">Total No of bookings per day, per week, per month
-                    </label>
-                    <button type="submit" name="submit" class="button"> <span>Submit </span></button>
+
+                        <label for="total">Total No of bookings per day, per week, per month</label>
+                        <input type="radio" id="total" name="total">
+
+                        <button type="submit" name="submit" class="button"> <span>Submit </span></button>
 
 
-                    <?php
-                         require_once('../protected/config.php');
+                        <?php
+                        require_once('../protected/config.php');
 
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
 
-                    <?php
-                        if (isset($_POST['submit']) and ( $_POST['searchdate'] != "")) {
+                        <?php
+                        if (isset($_POST['submit']) and ($_POST['searchdate'] != "")) {
                             ?>
-                    <table class="table_summary">
-                        <tr>
-                            <td>Check-in (Date)</td>
-                            <td>Room Type</td>
-                        </tr>
-                        <?php
-                                $search = "%{$_POST['searchdate']}%";
-                                $flag = 0;
-                                $sql = $conn->prepare("select checkin, roomType from booking as b inner join rooms as r on b.roomID=r.roomID where date(checkin) like ?");
-                                $sql->bind_param("s", $search);
-                                $sql->execute();
-                                $result = $sql->get_result();
-                                $sql->close();
-                                //$result = mysqli_query($conn, $sql);
-                                //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                                while ($data = mysqli_fetch_assoc($result)) {
-                                    ?>
-                        <tr>
-                            <td>
-                                <?php echo $data['checkin'] ?>
-                            </td>
-                            <td>
-                                <?php echo $data['roomType'] ?>
+                            <table class="table_summary">
+                                <tr>
+                                    <td>Check-in (Date)</td>
+                                    <td>Room Type</td>
+                                </tr>
+                                <?php
+                                    $search = "%{$_POST['searchdate']}%";
+                                    $flag = 0;
+                                    $sql = $conn->prepare("select checkin, roomType from booking as b inner join rooms as r on b.roomID=r.roomID where date(checkin) like ?");
+                                    $sql->bind_param("s", $search);
+                                    $sql->execute();
+                                    $result = $sql->get_result();
+                                    $sql->close();
+                                    //$result = mysqli_query($conn, $sql);
+                                    //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                    while ($data = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $data['checkin'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $data['roomType'] ?>
 
-                            </td>
-                        </tr>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    }
+                                    ?>
+                            </table>
                         <?php
-                                }
-                                ?>
-                    </table>
-                    <?php
                         }
                         mysqli_close($conn);
                         ?>
 
-                    <?php
+                        <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-                    <?php
-                        if (isset($_POST['submit']) and ( $_POST['searchweek'] != "")) {
+                        <?php
+                        if (isset($_POST['submit']) and ($_POST['searchweek'] != "")) {
                             ?>
-                    <table class="table_summary">
-                        <tr>
-                            <td>Check-in (Week)</td>
-                            <td>Room Type</td>
-                        </tr>
-                        <?php
-                                //$search = $_POST["searchweek"];
-                                $search = $_POST['searchweek'];
-                                $flag = 0;
-                                $s = explode("-W0", $search);
-                                $sql = $conn->prepare("select week(checkin) as weekNo , roomType from booking as b inner join rooms as r on b.roomID=r.roomID where week(checkin) = week(?)");
-                                $sql->bind_param("s", $search);
-                                $sql->execute();
-                                $result = $sql->get_result();
-                                $sql->close();
-                                //$result = mysqli_query($conn, $sql);
-                                //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                                while ($data = mysqli_fetch_assoc($result)) {
+                            <table class="table_summary">
+                                <tr>
+                                    <td>Check-in (Week)</td>
+                                    <td>Room Type</td>
+                                </tr>
+                                <?php
+                                    //$search = $_POST["searchweek"];
+                                    $search = $_POST['searchweek'];
+                                    $flag = 0;
+                                    $s = explode("-W0", $search);
+                                    $sql = $conn->prepare("select week(checkin) as weekNo , roomType from booking as b inner join rooms as r on b.roomID=r.roomID where week(checkin) = week(?)");
+                                    $sql->bind_param("s", $search);
+                                    $sql->execute();
+                                    $result = $sql->get_result();
+                                    $sql->close();
+                                    //$result = mysqli_query($conn, $sql);
+                                    //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                    while ($data = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                    <tr>
+                                        <td>
+                                            Week <?php echo $data['weekNo'] ?>
+                                        </td>
+                                        <td>
+
+                                            <?php echo $data['roomType'] ?>
+
+                                        </td>
+                                    </tr>
+                                <?php
+                                    }
                                     ?>
-                        <tr>
-                            <td>
-                                Week <?php echo $data['weekNo'] ?>
-                            </td>
-                            <td>
-
-                                <?php echo $data['roomType'] ?>
-
-                            </td>
-                        </tr>
+                            </table>
                         <?php
-                                }
-                                ?>
-                    </table>
-                    <?php
                         }
                         mysqli_close($conn);
                         ?>
 
-                    <?php
+                        <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-                    <?php
-                        if (isset($_POST['submit']) and ( $_POST['searchmonth'] != "")) {
+                        <?php
+                        if (isset($_POST['submit']) and ($_POST['searchmonth'] != "")) {
                             ?>
-                    <table class="table_summary">
-                        <tr>
-                            <td>Check in (MONTH)</td>
-                            <td>Room Type</td>
-                        </tr>
+                            <table class="table_summary">
+                                <tr>
+                                    <td>Check in (MONTH)</td>
+                                    <td>Room Type</td>
+                                </tr>
 
-                        <?php
-                                $search = $_POST["searchmonth"];
-                                $flag = 0;
-                                $sql = $conn->prepare("select DATE_FORMAT(checkin, '%b %y') as month, roomType from booking as b inner join rooms as r on b.roomID=r.roomID where month(checkin) = month(?)");
-                                $sql->bind_param("s", $search);
-                                $sql->execute();
-                                $result = $sql->get_result();
-                                $sql->close();
-                                //$result = mysqli_query($conn, $sql);
-                                //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                                while ($data = mysqli_fetch_assoc($result)) {
+                                <?php
+                                    $search = $_POST["searchmonth"];
+                                    $flag = 0;
+                                    $sql = $conn->prepare("select DATE_FORMAT(checkin, '%b %y') as month, roomType from booking as b inner join rooms as r on b.roomID=r.roomID where month(checkin) = month(?)");
+                                    $sql->bind_param("s", $search);
+                                    $sql->execute();
+                                    $result = $sql->get_result();
+                                    $sql->close();
+                                    //$result = mysqli_query($conn, $sql);
+                                    //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                    while ($data = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $data['month'] ?>
+                                        </td>
+                                        <th>
+                                            <?php echo $data['roomType'] ?>
+                                        </th>
+                                    </tr>
+                                <?php
+                                    }
                                     ?>
-                        <tr>
-                            <td>
-                                <?php echo $data['month'] ?>
-                            </td>
-                            <th>
-                                <?php echo $data['roomType'] ?>
-                            </th>
-                        </tr>
+                            </table>
                         <?php
-                                }
-                                ?>
-                    </table>
-                    <?php
                         }
                         mysqli_close($conn);
                         ?>
 
-                    <?php
+                        <?php
                         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                         ?>
-                    <?php
-                        if (isset($_POST['submit']) and ( isset($_POST['total']))) {
-                            ?>
-                    <table class="table_summary">
-                        <tr>
-                            <td>Total Bookings per Day</td>
-                            <td>Total Bookings per Week</td>
-                            <td>Total Bookings per Month</td>
-                        </tr>
-
                         <?php
-                                $search = $_POST["total"];
-                                $month = $_POST["searchmonth"];
-                                $week = $_POST["searchweek"];
-                                $date = "%{$_POST['searchdate']}%";
-                                $s = explode("-W0", $week);
-                                $m = explode("2019-0", $month);
-                                $flag = 0;
-                                $sql = $conn->prepare("SELECT count(case when date(checkin) like ? then 1 end) as d,
+                        if (isset($_POST['submit']) and (isset($_POST['total']))) {
+                            ?>
+                            <table class="table_summary">
+                                <tr>
+                                    <td>Total Bookings per Day</td>
+                                    <td>Total Bookings per Week</td>
+                                    <td>Total Bookings per Month</td>
+                                </tr>
+
+                                <?php
+                                    $search = $_POST["total"];
+                                    $month = $_POST["searchmonth"];
+                                    $week = $_POST["searchweek"];
+                                    $date = "%{$_POST['searchdate']}%";
+                                    $s = explode("-W0", $week);
+                                    $m = explode("2019-0", $month);
+                                    $flag = 0;
+                                    $sql = $conn->prepare("SELECT count(case when date(checkin) like ? then 1 end) as d,
                            count(case when week(checkin) like week(?) then 1 end) as m ,
                         count(case when  month(checkin) like month(?) then 1 end) as w
                               FROM booking ");
-                                $sql->bind_param("sss", $date, $week, $month);
-                                $sql->execute();
-                                $result = $sql->get_result();
-                                $sql->close();
-                                //$result = mysqli_query($conn, $sql);
-                                //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                                while ($data = mysqli_fetch_assoc($result)) {
-                                    ?>
-                        <tr>
-                            <td>
-                                <?php echo $data['d'] ?>
-                            </td>
-                            <td>
-                                <?php echo $data['m'] ?>
+                                    $sql->bind_param("sss", $date, $week, $month);
+                                    $sql->execute();
+                                    $result = $sql->get_result();
+                                    $sql->close();
+                                    //$result = mysqli_query($conn, $sql);
+                                    //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                    while ($data = mysqli_fetch_assoc($result)) {
+                                        ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $data['d'] ?>
+                                        </td>
+                                        <td>
+                                            <?php echo $data['m'] ?>
 
-                            </td>
-                            <td>
-                                <?php echo $data['w'] ?>
-                            </td>
-                        </tr>
+                                        </td>
+                                        <td>
+                                            <?php echo $data['w'] ?>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    }
+                                    ?>
+                            </table>
                         <?php
-                                }
-                                ?>
-                    </table>
-                    <?php
                         }
                         mysqli_close($conn);
                         ?>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    </div>
-
+        </section>
+    </main>
     <?php
-            include "./footer.php";
-            ?>
+    include "./footer.php";
+    ?>
 
-    </html>
 </body>
 
 </html>

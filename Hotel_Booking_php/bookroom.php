@@ -4,10 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-include "./navbaruser.php";
-
-?>
 <html lang="en">
 
 <head>
@@ -34,32 +30,36 @@ include "./navbaruser.php";
 </head>
 
 <body>
-    
 
-    <!--check if user is logged in when clicked on Show Price else go to login page-->
-
-    <?php
-        //session_start();
-        $u = $_SESSION['MM_Username'];
-         require_once('../protected/config.php');
-        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-        $option = $_GET['id'];
-        $sql = "select  *  from rooms where roomID =$option";
-        $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        $data = mysqli_fetch_assoc($mycart)
+    <header>
+        <?php
+        include "./navbaruser.php";
         ?>
+    </header>
+    
+    <!--Check if user is logged in when clicked on Show Price else go to login page-->
+    <?php
+    //session_start();
+    $u = $_SESSION['MM_Username'];
+    require_once('../protected/config.php');
+    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+    $option = $_GET['id'];
+    $sql = "select  *  from rooms where roomID =$option";
+    $mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+    $data = mysqli_fetch_assoc($mycart)
+    ?>
 
     <div class="jumbotron text-center">
         <h1><?php echo $data['roomType'] ?></h1>
         <p>$<?php echo $data['price'] ?> per day</p>
         <h3><?php
-                if (isset($_SESSION['MM_Username']) && $_SESSION['MM_Username'] == true) {
-                    $welcomeMessage = "Welcome " . $_SESSION['MM_Username'] . "!";
-                    echo "$welcomeMessage";
-                } else {
-                    header('Location: login.php');
-                }
-                ?>
+            if (isset($_SESSION['MM_Username']) && $_SESSION['MM_Username'] == true) {
+                $welcomeMessage = "Welcome " . $_SESSION['MM_Username'] . "!";
+                echo "$welcomeMessage";
+            } else {
+                header('Location: login.php');
+            }
+            ?>
         </h3>
     </div>
     <!-- rooms -->
@@ -75,28 +75,28 @@ include "./navbaruser.php";
             <div class="col-sm-4 payment">
                 <div id="booknow">
                     <?php
-                        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                        $customersql = "SELECT * FROM users WHERE username = '$u' ";
-                        $mycustomer = mysqli_query($conn, $customersql);
-                        $customer = mysqli_fetch_assoc($mycustomer);
-                        mysqli_query($conn, $customersql) or die(mysqli_error($conn));
-                        ?>
+                    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                    $customersql = "SELECT * FROM users WHERE username = '$u' ";
+                    $mycustomer = mysqli_query($conn, $customersql);
+                    $customer = mysqli_fetch_assoc($mycustomer);
+                    mysqli_query($conn, $customersql) or die(mysqli_error($conn));
+                    ?>
 
                     <form method="POST" name="bookroom" action="process_booking.php">
                         <h3>Total Payment:</h3>
-                        <label for ="checkin">Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></label>
-<br/>
-                        <label for ="checkout">Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></label>
-<br/>
-                        <label for ="numdays">No of days: <input type="text" id="numdays" name="num_days" readonly required></label>
-<br/>
-                        <label for ="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]$" required></label>
-<br/>
-                        <label for ="total">Total Charges:$ <input type="text" id="total" name="total_sum" readonly></label>
+                        <label for="checkin">Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></label>
+                        <br />
+                        <label for="checkout">Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></label>
+                        <br />
+                        <label for="numdays">No of days: <input type="text" id="numdays" name="num_days" readonly required></label>
+                        <br />
+                        <label for="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]$" required></label>
+                        <br />
+                        <label for="total">Total Charges:$ <input type="text" id="total" name="total_sum" readonly></label>
                         <input type="hidden" id="status" name="status" value="going">
 
                         <h3>Personal Information:</h3>
-                         <label for ="customerName">Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></label>
+                        <label for="customerName">Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></label>
                         <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
                         <input type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
                         <h3>Payment Details:</h3>
@@ -107,10 +107,10 @@ include "./navbaruser.php";
                             <i class="fa fa-cc-mastercard" style="color:red;"></i>
                             <i class="fa fa-cc-discover" style="color:orange;"></i>
                         </div>
-                         <label for ="cardnumber">Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required></label>
-<br/>
-                            <label for ="expmonth">Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></label><br/>
-                        <label for ="cvv">CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></label>
+                        <label for="cardnumber">Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required></label>
+                        <br />
+                        <label for="expmonth">Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></label><br />
+                        <label for="cvv">CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></label>
                         <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
                     </form>
 
@@ -173,7 +173,7 @@ include "./navbaruser.php";
                                 window.alert("Invalid Credit Card number");
                                 return false;
                             }
-                            
+
                             if (cvv.value === "") {
                                 window.alert("CVV is empty");
                                 return false;
@@ -205,7 +205,6 @@ include "./navbaruser.php";
                                 document.getElementById("total").value = price();
                             }
                         }
-
                     </script>
                 </div>
             </div>
@@ -292,12 +291,10 @@ include "./navbaruser.php";
     <!--end of comments container-->
 
     <?php
-            include "./footer.php";
-            ?>
+    include "./footer.php";
+    ?>
 
-    </html>
+</html>
 </body>
 
 </html>
-
-

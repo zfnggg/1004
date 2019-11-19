@@ -10,17 +10,18 @@ and open the template in the editor.
     <title>D'Hotel</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Third Party -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+    <!-- Personal Style Sheet & Javascript -->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/registration.css" rel="stylesheet" />
-    <!-- Own CSS Style Sheet-->
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <!-- Font Awesome Icons -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <script defer src="js/main.js"></script>
-    <!-- Own Javascript -->
+
 </head>
 
 <body>
