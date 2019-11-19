@@ -10,8 +10,8 @@ if (!isset($_GET['action'])) {
     $pword = $_POST['password'];
     $email = $_POST['email'];
     $phoneno = $_POST['phoneNo'];
-    $role = $_POST['role'];
-//$profilepic = $_POST['profilePicture'];
+    //$role = $_POST['role'];
+//                        $profilepic = $_POST['profilePicture'];
 
     if (isset($_POST["submit"]) == "Upload") {
 
@@ -59,10 +59,80 @@ $password = sanitize_input($_POST["password"]);
 $cname = sanitize_input($_POST['customerName']);
 $uname = sanitize_input($_POST['username']);
 $phoneno = sanitize_input($_POST['phoneNo']);
-$role = sanitize_input($_POST['role']);
+//$role = sanitize_input($_POST['role']);
 
 $success = true;
 
+
+//customer Name
+if (empty($_POST['customerName'])) {
+    $errorMsg .= "Customer Name is required.<br>";
+    $success = false;
+} else {
+    if (preg_match("/^([a-zA-Z' ]+)$/", $cname)) {
+        if (strlen($cname) >= 40) {
+            $errorMsg .= "Customer Name too long.<br>";
+            $success = false;
+        }
+    }
+    else {
+        $errorMsg .= "Invalid Customer Name.<br>";
+        $success = false;
+    }
+}
+
+//username Name
+if (empty($_POST['username'])) {
+    $errorMsg .= "Username  is required.<br>";
+    $success = false;
+} else {
+    if (preg_match("/^([a-zA-Z' ]+)$/", $uname)) {
+        if (strlen($uname) >= 40) {
+            $errorMsg .= "Userame too long.<br>";
+            $success = false;
+        }
+    }
+    else {
+        $errorMsg .= "Invalid Username.<br>";
+        $success = false;
+    }
+}
+
+//PASSWORD
+if (empty($_POST['password'])) {
+    $errorMsg .= "Password is required.<br>";
+    $success = false;
+} else {
+    if (strlen($password) < 8 || strlen($password) > 30) {
+        $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
+        $success = false;
+    } elseif (!preg_match("#[0-9]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Number!<br>";
+        $success = false;
+    } elseif (!preg_match("#[A-Z]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Capital Letter!<br>";
+        $success = false;
+    } elseif (!preg_match("#[a-z]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Lowercase Letter!<br>";
+        $success = false;
+    }
+    elseif (preg_match("#[\W]+#", $password)) {
+        $errorMsg .= "Your Password Must not Contain any special characters!<br>";
+        $success = false;
+    }
+}
+
+//check for empty confirm password
+if (empty($_POST['confirmPassword'])) {
+    $errorMsg .= "Confirm password is required.<br>";
+    $success = false;
+} else {
+    if ($cpassword != $password) {
+        $errorMsg .= "Your passwords do not match!<br>";
+        $success = false;
+    }
+    $success = true;
+}
 
 //EMAIL
 if (empty($_POST['email'])) {
@@ -72,40 +142,24 @@ if (empty($_POST['email'])) {
     $email = sanitize_input($_POST["email"]);
     // Additional check to make sure e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errorMsg .= "Invalid email format.";
+        $errorMsg .= "Invalid email format.<br>";
         $success = false;
     }
 }
 
-//customer Name
-if (empty($_POST['customerName'])) {
-    $errorMsg .= "Customer Name is required.<br>";
-    $success = false;
-} else {
-    $name = sanitize_input($_POST["customerName"]);
-    $success = true;
-}
-
-//username Name
-if (empty($_POST['username'])) {
-    $errorMsg .= "username  is required.<br>";
-    $success = false;
-} else {
-    $uname = sanitize_input($_POST["username"]);
-    $success = true;
-}
-
 //phone no
 if (empty($_POST['phoneNo'])) {
-    $errorMsg .= "phoneNo  is required.<br>";
+    $errorMsg .= "Phone Number  is required.<br>";
     $success = false;
 } else {
-    $phoneno = sanitize_input($_POST["phoneNo"]);
-    $success = true;
+    if (!preg_match("/^([6,8,9][0-9]{7}+)$/", $phoneno)) {
+        $errorMsg .= "Invalid Phone Number.<br>";
+        $success = false;
+    }
 }
 
 //role
-if (empty($_POST['role'])) {
+if (!isset($_POST['role'])) {
     $errorMsg .= "role  is required.<br>";
     $success = false;
 } else {
@@ -113,31 +167,9 @@ if (empty($_POST['role'])) {
     $success = true;
 }
 
-//check for empty password
-if (empty($_POST['password'])) {
-    $errorMsg .= "Password is required.<br>";
-    $success = false;
-} else {
-    $password = sanitize_input($_POST["password"]);
-    $success = true;
-}
-
-//check for empty confirm password
-if (empty($_POST['confirmPassword'])) {
-    $errorMsg .= "Confirm password is required.<br>";
-    $success = false;
-} else {
-    $cpassword = sanitize_input($_POST["confirmPassword"]);
-    $success = true;
-}
-
-//PASSWORD
-if ($password === $cpassword) {
-    //echo "<h3>password matched</h3>";
-} else {
-
-    $errorMsg .= "<h3>Password does not match!</h3>";
-    //echo "<h3>password does not match</h3>";
+//profile picture
+if (empty($_POST['profilePicture'])) {
+    $errorMsg .= "Profile Picture is required.<br>";
     $success = false;
 }
 
