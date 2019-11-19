@@ -9,6 +9,21 @@
 <?php
 session_start();
 
+//Browser refuses to display requested document in a frame, in case that origin does not match
+header("X-Frame-Options: sameorigin");
+
+//Enables the XSS Filter. Rather than sanitize the page, when a XSS attack is detected
+//The browser will prevent rendering of the page.
+header("X-XSS-Protection: 1; mode=block");
+
+//The referrer is always sent, but contain only the origin if a request is cross-origin. Otherwise, the full URL is sent.
+header("Referrer-Policy: origin-when-cross-origin");
+
+//Enable and disable specific browser features and APIs
+header("Feature-Policy: camera 'none'; fullscreen 'self'; geolocation *; microphone 'self'");
+
+//Prevents attacks based on MIME-type mismatch
+header("X-Content-Type-Options: nosniff");
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">

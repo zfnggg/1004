@@ -47,6 +47,7 @@ and open the template in the editor.
         ?>
     </header>
 
+    <main>
     <article>
         <div class="jumbotron text-center">
             <h1>Rooms</h1>
@@ -62,7 +63,7 @@ and open the template in the editor.
         </div>
     </article>
 
-    <main>
+
         <!--Display of Rooms-->
         <?php
         //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
