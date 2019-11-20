@@ -10,7 +10,7 @@ if (!isset($_GET['action'])) {
     $pword = $_POST['password'];
     $email = $_POST['email'];
     $phoneno = $_POST['phoneNo'];
-    //$role = $_POST['role'];
+    $role = $_POST['role'];
 //                        $profilepic = $_POST['profilePicture'];
 
     if (isset($_POST["submit"]) == "Upload") {
