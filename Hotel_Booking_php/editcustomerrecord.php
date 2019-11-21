@@ -48,11 +48,17 @@ if (isset($_POST["submit"]) == "Upload") {
 
 <?php
 
-$email = $errorMsg = "";
+$errorMsg = "";
+$name = sanitize_input($_POST["cName"]);
+$email = sanitize_input($_POST["email"]);
+//Got 2 occurrences of this. Which one is which?
 $pword = sanitize_input($_POST["pword"]);
+$password = sanitize_input($_POST["pword"]);
 $newName = sanitize_input($_POST['cName']);
-$phone = sanitize_input($_POST['phone']);
-$role = sanitize_input($_POST['role']);
+//$phone = sanitize_input($_POST['phone']);
+$phoneno = sanitize_input($_POST["phone"]);
+//$role = sanitize_input($_POST['role']);
+
 $success = true;
 
 
@@ -61,7 +67,6 @@ if (empty($_POST['email'])) {
     $errorMsg .= "Email is required.<br>";
     $success = false;
 } else {
-    $email = sanitize_input($_POST["email"]);
     // Additional check to make sure e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errorMsg .= "Invalid email format.";
@@ -74,7 +79,6 @@ if (empty($_POST['cName'])) {
     $errorMsg .= "Customer Name is required.<br>";
     $success = false;
 } else {
-    $name = sanitize_input($_POST["cName"]);
     if (preg_match("/^([a-zA-Z' ]+)$/", $name)) {
         if (strlen($name) >= 40) {
             $errorMsg .= "Customer Name too long.<br>";
@@ -92,7 +96,6 @@ if (empty($_POST['phone'])) {
     $errorMsg .= "phoneNo  is required.<br>";
     $success = false;
 } else {
-    $phoneno = sanitize_input($_POST["phone"]);
     if (!preg_match("/^([6,8,9][0-9]{7}+)$/", $phoneno)) {
         $errorMsg .= "Invalid Phone Number.<br>";
         $success = false;
@@ -104,7 +107,6 @@ if (empty($_POST['role'])) {
     $errorMsg .= "role  is required.<br>";
     $success = false;
 } else {
-    $role = sanitize_input($_POST["role"]);
     $success = true;
 }
 
@@ -113,8 +115,23 @@ if (empty($_POST['pword'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
 } else {
-    $password = sanitize_input($_POST["pword"]);
-    $success = true;
+    if (strlen($password) < 8 || strlen($password) > 30) {
+        $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
+        $success = false;
+    } elseif (!preg_match("#[0-9]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Number!<br>";
+        $success = false;
+    } elseif (!preg_match("#[A-Z]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Capital Letter!<br>";
+        $success = false;
+    } elseif (!preg_match("#[a-z]+#", $password)) {
+        $errorMsg .= "Your Password Must Contain At Least 1 Lowercase Letter!<br>";
+        $success = false;
+    }
+    elseif (preg_match("#[\W]+#", $password)) {
+        $errorMsg .= "Your Password Must not Contain any special characters!<br>";
+        $success = false;
+    }
 }
 
 

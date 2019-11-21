@@ -36,11 +36,12 @@ require_once('../protected/config.php');
 
 <?php
 
-$email = $errorMsg = "";
+$errorMsg = "";
 $checkin = sanitize_input($_POST["check_in"]);
 $checkout = sanitize_input($_POST['check_out']);
 $total = sanitize_input($_POST['total_sum']);
 $num_days = sanitize_input($_POST['num_days']);
+$pax = sanitize_input($_POST["pax"]);
 $success = true;
 
 //check_in
@@ -48,7 +49,7 @@ if (empty($_POST['check_in'])) {
     $errorMsg .= "check in  is required.<br>";
     $success = false;
 } else {
-    $checkin = sanitize_input($_POST["check_in"]);
+    //$checkin = sanitize_input($_POST["check_in"]);
     $success = true;
 }
 
@@ -57,7 +58,7 @@ if (empty($_POST['check_out'])) {
     $errorMsg .= "check_out  is required.<br>";
     $success = false;
 } else {
-    $checkout = sanitize_input($_POST["check_out"]);
+    //$checkout = sanitize_input($_POST["check_out"]);
     $success = true;
 }
 
@@ -66,7 +67,7 @@ if (empty($_POST['total_sum'])) {
     $errorMsg .= "total sum is required.<br>";
     $success = false;
 } else {
-    $total = sanitize_input($_POST["total_sum"]);
+    //$total = sanitize_input($_POST["total_sum"]);
     $success = true;
 }
 
@@ -75,7 +76,6 @@ if (empty($_POST['pax'])) {
     $errorMsg .= "Pax is required.<br>";
     $success = false;
 } else {
-    $pax = sanitize_input($_POST["pax"]);
     $success = true;
 }
 
@@ -84,7 +84,7 @@ if (empty($_POST['num_days'])) {
     $errorMsg .= "num days is required.<br>";
     $success = false;
 } else {
-    $num_days = sanitize_input($_POST["num_days"]);
+    //$num_days = sanitize_input($_POST["num_days"]);
     $success = true;
 }
 

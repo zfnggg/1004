@@ -38,11 +38,15 @@ if (isset($_POST["submit"]) == "Upload") {
 
 <?php
 
-$email = $errorMsg = "";
+$errorMsg = "";
+$email = sanitize_input($_POST["email"]);
+//$password = sanitize_input($_POST["password"]);
 $password = sanitize_input($_POST["password"]);
-$cname = sanitize_input($_POST['customerName']);
-$uname = sanitize_input($_POST['username']);
-$phoneno = sanitize_input($_POST['phoneNo']);
+//$cname = sanitize_input($_POST['customerName']);
+$name = sanitize_input($_POST["customerName"]);
+$uname = sanitize_input($_POST["username"]);
+//$phoneno = sanitize_input($_POST['phoneNo']);
+$phoneno = sanitize_input($_POST["phoneNo"]);
 $success = true;
 
 //customer Name
@@ -50,7 +54,6 @@ if (empty($_POST['customerName'])) {
     $errorMsg .= "Customer Name is required.<br>";
     $success = false;
 } else {
-    $name = sanitize_input($_POST["customerName"]);
     if (preg_match("/^([a-zA-Z' ]+)$/", $name)) {
         if (strlen($name) >= 40) {
             $errorMsg .= "Customer Name too long.<br>";
@@ -68,7 +71,6 @@ if (empty($_POST['username'])) {
     $errorMsg .= "username  is required.<br>";
     $success = false;
 } else {
-    $uname = sanitize_input($_POST["username"]);
     if (preg_match("/^([a-zA-Z' ]+)$/", $uname)) {
         if (strlen($uname) >= 40) {
             $errorMsg .= "Userame too long.<br>";
@@ -87,7 +89,6 @@ if (empty($_POST['password'])) {
     $errorMsg .= "Password is required.<br>";
     $success = false;
 } else {
-    /*$password = sanitize_input($_POST["password"]);
     if (strlen($password) < 8 || strlen($password) > 30) {
         $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
         $success = false;
@@ -104,7 +105,7 @@ if (empty($_POST['password'])) {
     elseif (preg_match("#[\W]+#", $password)) {
         $errorMsg .= "Your Password Must not Contain any special characters!<br>";
         $success = false;
-    }*/
+    }
 }
 
 //EMAIL
@@ -112,7 +113,6 @@ if (empty($_POST['email'])) {
     $errorMsg .= "Email is required.<br>";
     $success = false;
 } else {
-    $email = sanitize_input($_POST["email"]);
     // Additional check to make sure e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errorMsg .= "Invalid email format.";
@@ -125,13 +125,17 @@ if (empty($_POST['phoneNo'])) {
     $errorMsg .= "phoneNo  is required.<br>";
     $success = false;
 } else {
-    $phoneno = sanitize_input($_POST["phoneNo"]);
     if (!preg_match("/^([6,8,9][0-9]{7}+)$/", $phoneno)) {
         $errorMsg .= "Invalid Phone Number.<br>";
         $success = false;
     }
 }
 
+// ERRORR. EVEN IF U UPLOAD A PICTURE, IT STILL SAYS PICTURE IS REQUIRED
+if (empty($_POST["profilePicture"])) {
+    $errorMsg .= "Picture  is required.<br>";
+    $success = false;
+}
 
 //SUCCESS
 if ($success) {

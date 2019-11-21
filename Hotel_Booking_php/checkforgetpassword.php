@@ -42,7 +42,8 @@ define("DBHOST", "161.117.122.252");
 define("DBNAME", "p1_4");
 define("DBUSER", "p1_4");
 define("DBPASS", "5xLMQfLGsc"); 
-$email = $errorMsg = "";
+$errorMsg = "";
+$email = sanitize_input($_POST["email"]);
 $success = true;
 
 
@@ -53,7 +54,7 @@ if(empty($_POST["email"]))
 }
 else
 {
-    $email = sanitize_input($_POST["email"]);
+    
     //To check if the email address is well formed 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL))
     {

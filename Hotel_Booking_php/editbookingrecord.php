@@ -29,7 +29,8 @@ if (isset($_POST["submit"])) {
 
 <?php
 
-$newName = $errorMsg = "";
+$errorMsg = "";
+$newName = sanitize_input($_POST["name"]);
 $success = true;
 
 //
@@ -37,7 +38,7 @@ if (empty($_POST['name'])) {
     $errorMsg .= "Status is required.<br>";
     $success = false;
 } else {
-    $newName = sanitize_input($_POST["name"]);
+    
     $success = true;
 }
 

@@ -51,6 +51,8 @@ and open the template in the editor.
         }
     }
 
+    $username = sanitize_input($_POST["username"]);
+    $p = sanitize_input($_POST["password"]);
     $email = $errorMsg = "";
     $success = true;
     $c = $_POST['captcha'];
@@ -69,7 +71,6 @@ and open the template in the editor.
         $errorMsg .= "Username is required.<br>";
         $success = false;
     } else {
-        $username = sanitize_input($_POST["username"]);
         if (preg_match("/^([a-zA-Z' ]+)$/", $username)) {
             if (strlen($username) >= 40) {
                 $errorMsg .= "Userame too long.<br>";
@@ -87,7 +88,6 @@ and open the template in the editor.
         $errorMsg .= "Password is required.<br>";
         $success = false;
     } else {
-        $p = sanitize_input($_POST["password"]);
         $p = md5($p);
     }
 
