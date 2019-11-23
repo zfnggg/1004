@@ -125,8 +125,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                         <form name="booking" method="post" novalidate>
                                             <input name="cid" type="hidden" value="<?php echo $data['bookingID'] ?>">
                                             <br />
-                                            <label>Update Status:<br>
-                                                    <fieldset>
+                                            <label>
+                                            <fieldset>
+                                                <legend class="UpdateStatus">Update Status:</legend>
+                                                
                                                 <input type="radio" name="name" value="Going"> Going<br>
                                                  <input type="radio" name="name" value="Not Going"> Not Going<br>
                                                 </fieldset>
