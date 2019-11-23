@@ -10,7 +10,7 @@ if (!isset($_GET['action'])) {
     $pword = $_POST['password'];
     $email = $_POST['email'];
     $phoneno = $_POST['phoneNo'];
-    //$role = $_POST['role'];
+    $role = $_POST['role'];
 //                        $profilepic = $_POST['profilePicture'];
 
     if (isset($_POST["submit"]) == "Upload") {
@@ -53,7 +53,8 @@ if (!isset($_GET['action'])) {
 
 <?php
 
-$email = $errorMsg = "";
+$errorMsg = "";
+$email = sanitize_input($_POST["email"]);
 $cpassword = sanitize_input($_POST["confirmPassword"]);
 $password = sanitize_input($_POST["password"]);
 $cname = sanitize_input($_POST['customerName']);
@@ -139,7 +140,6 @@ if (empty($_POST['email'])) {
     $errorMsg .= "Email is required.<br>";
     $success = false;
 } else {
-    $email = sanitize_input($_POST["email"]);
     // Additional check to make sure e-mail address is well-formed
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errorMsg .= "Invalid email format.<br>";
@@ -163,7 +163,6 @@ if (!isset($_POST['role'])) {
     $errorMsg .= "role  is required.<br>";
     $success = false;
 } else {
-    $role = sanitize_input($_POST["role"]);
     $success = true;
 }
 

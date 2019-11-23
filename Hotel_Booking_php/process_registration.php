@@ -53,7 +53,9 @@ and open the template in the editor.
             return $data;
         }
         
-        $email = $errorMsg = "";
+        $errorMsg = "";
+        $email = sanitize_input($_POST["email"]);
+        $name = sanitize_input($_POST["customerName"]);
         $cpword = sanitize_input($_POST["confirmPassword"]);
         $password = sanitize_input($_POST["password"]);
         $cname = sanitize_input($_POST['customerName']);
@@ -67,7 +69,6 @@ and open the template in the editor.
             $errorMsg .= "Customer Name is required.<br>";
             $success = false;
         } else {
-            $name = sanitize_input($_POST["customerName"]);
             if (preg_match("/^([a-zA-Z' ]+)$/", $name)) {
                 if (strlen($name) >= 40) {
                     $errorMsg .= "Customer Name too long.<br>";
@@ -86,7 +87,7 @@ and open the template in the editor.
             $errorMsg .= "Username  is required.<br>";
             $success = false;
         } else {
-            $uname = sanitize_input($_POST["username"]);
+            //$uname = sanitize_input($_POST["username"]);
             if (preg_match("/^([a-zA-Z' ]+)$/", $uname)) {
                 if (strlen($uname) >= 40) {
                     $errorMsg .= "Userame too long.<br>";
@@ -104,7 +105,7 @@ and open the template in the editor.
             $errorMsg .= "Password is required.<br>";
             $success = false;
         } else {
-            $password = sanitize_input($_POST["password"]);
+            //$password = sanitize_input($_POST["password"]);
             if (strlen($password) < 8 || strlen($password) > 30) {
                 $errorMsg .= "Your Password Must Be Between 8 and 30 Characters!<br>";
                 $success = false;
@@ -130,7 +131,7 @@ and open the template in the editor.
             $errorMsg .= "Confirm password is required.<br>";
             $success = false;
         } else {
-            $cpword = sanitize_input($_POST["confirmPassword"]);
+            //$cpword = sanitize_input($_POST["confirmPassword"]);
             if ($cpword != $password) {
                 $errorMsg .= "Your passwords do not match!<br>";
                 $success = false;
@@ -143,7 +144,6 @@ and open the template in the editor.
             $errorMsg .= "Email is required.<br>";
             $success = false;
         } else {
-            $email = sanitize_input($_POST["email"]);
             // Additional check to make sure e-mail address is well-formed
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errorMsg .= "Invalid email format.";
@@ -156,7 +156,7 @@ and open the template in the editor.
             $errorMsg .= "Phone Number  is required.<br>";
             $success = false;
         } else {
-            $phoneno = sanitize_input($_POST["phoneNo"]);
+            //$phoneno = sanitize_input($_POST["phoneNo"]);
             if (!preg_match("/^([6,8,9][0-9]{7}+)$/", $phoneno)) {
                 $errorMsg .= "Invalid Phone Number.<br>";
                 $success = false;

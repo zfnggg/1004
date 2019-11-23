@@ -60,8 +60,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     require_once('../protected/config.php');
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     ?>
-                    <!--onsubmit="return validateAddCustomer()"-->
-                    <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data" novalidate >
+                    
+                    <form method="POST" name="addcustomer" action="process_addcustomer.php" enctype="multipart/form-data" onsubmit="return validateAddCustomer()">
                         <div class="table-responsive">
                             <table class="table">
                                 <tr>
