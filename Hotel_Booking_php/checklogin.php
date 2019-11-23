@@ -152,8 +152,18 @@ and open the template in the editor.
             $r = $one_record['role'];
             $_SESSION['MM_Username'] = $u;
             $_SESSION['MM_role'] = $r;
-            header("Location:reservation.php");
-        } else {
+            if ($_SESSION['MM_role'] = 'A')
+            {
+                header("Location:adminonly.php");
+            }
+
+            else
+            {
+                header("Location:reservation.php");
+            }
+        } 
+        
+        else {
             echo "<section class=row>";
             echo "<div class='col-sm-3'></div>";
             echo "<div class='col-sm-6'>";
