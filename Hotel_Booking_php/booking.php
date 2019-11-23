@@ -125,10 +125,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                         <form name="booking" method="post" novalidate>
                                             <input name="cid" type="hidden" value="<?php echo $data['bookingID'] ?>">
                                             <br />
-                                            <label>Status:
-                                                <input type="text" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="name" value="<?php echo $data['status'] ?>" required></label>
+                                            <label>Update Status:<br>
+                                                    <fieldset>
+                                                <input type="radio" name="name" value="Going"> Going<br>
+                                                 <input type="radio" name="name" value="Not Going"> Not Going<br>
+                                                </fieldset>
+                                            </label>
+                                            <label>Current Status:
+                                                <?php echo $data['status'] ?></label>
                                             <br />
-                                            <input type="submit" name="submit" value="update" onclick="validateStatusUpdate()">
+                                            <input type="submit" name="submit" value="update">
                                         </form>
                                     </td>
                                 </tr>
