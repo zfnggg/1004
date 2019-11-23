@@ -1,9 +1,11 @@
-<?php
-include "./navbaruser.php";
-
-?>
-<html>
-
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    
 <head>
     <title>D'Hotel</title>
     <meta charset="UTF-8">
@@ -22,25 +24,32 @@ include "./navbaruser.php";
 </head>
 
 <body>
-    
-    <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
-        <div class="container">
-            <h1>Forget Password</h1>
-            <p>Please fill in this form to get a new password.</p>
-            <hr>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required>
-            <p>We send you a email to restart your password. </p>
-            <div class="clearfix">
-                <button name="submit" type="submit" class="sendemailbtn1">Send Email</button>
-            </div>
-        </div>
-    </form>
-    <?php
-            include "./footer.php";
-            ?>
 
-    </html>
+    <header>
+        <?php
+        include "./navbaruser.php";
+        ?>
+    </header>
+
+    <section>
+        <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
+            <div class="container">
+                <h1>Forget Password</h1>
+                <p>Please fill in this form to get a new password.</p>
+                <hr>
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" id="email" required>
+                <p>We will send you an email to reset your password. </p>
+                <div class="clearfix">
+                    <button name="submit" type="submit" class="sendemailbtn1">Send Email</button>
+                </div>
+            </div>
+        </form>
+    </section>
+    <?php
+    include "./footer.php";
+    ?>
+
 </body>
 
 </html>

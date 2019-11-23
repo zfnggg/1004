@@ -33,9 +33,9 @@ and open the template in the editor.
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         if (!isset($_SERVER['HTTP_REFERER'])) {
             // redirect them to your desired location
-                header('location:login.php');
-            
-                exit;
+            header('location:login.php');
+
+            exit;
         }
         ?>
     </header>
@@ -44,11 +44,12 @@ and open the template in the editor.
     <?php
 
     //Helper function that checks input for malicious or unwanted content.
-    function sanitize_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    function sanitize_input($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
 
     $errorMsg = "";
@@ -63,19 +64,19 @@ and open the template in the editor.
     if (empty($_POST['check_in'])) {
         $errorMsg .= "check in  is required.<br>";
         $success = false;
-    } 
+    }
 
     //check_out
     if (empty($_POST['check_out'])) {
         $errorMsg .= "check_out  is required.<br>";
         $success = false;
-    } 
+    }
 
     //check for empty total_sum
     if (empty($_POST['total_sum'])) {
         $errorMsg .= "total sum is required.<br>";
         $success = false;
-    } 
+    }
 
     //check for empty pax
     if (empty($_POST['pax'])) {
@@ -87,11 +88,10 @@ and open the template in the editor.
     if (empty($_POST['num_days'])) {
         $errorMsg .= "num days is required.<br>";
         $success = false;
-    } 
-    
+    }
 
-    if (!isset($_['submit'])) 
-    {
+
+    if (!isset($_['submit'])) {
         $userID = $_POST['userID'];
         $roomID = $_POST['roomID'];
         $checkin = $_POST['check_in'];
@@ -115,69 +115,65 @@ and open the template in the editor.
     }
     ?>
 
-<?php
+    <?php
 
 
-//SUCCESS
-if ($success) 
-{
-    echo "<main>";
-    echo "<section class=row>";
-    echo "<div class='col-sm-2'></div>";
-    echo "<div class='col-sm-8'>";
-    echo "<h1>Booking Successful</h1>";
-    echo "<h2>Customer ID : $userID </h2>";
-    echo "<h2>Room ID : $roomID </h2>";
-    echo "<h2 >Checkin  :   $checkin</h2>";
-    echo "<h2 >Checkout : $checkout</h2>";
-    echo "<h2 >Total : $total</h2>";
-    echo "<h2 >Num of days : $num_days</h2>";
-    echo "<h2 >Num of pax : $pax</h2>";
-    echo "</div>";
-    echo "<div class='col-sm-2'></div>";
-    echo "<br>";
-    echo "</section>";
+    //SUCCESS
+    if ($success) {
+        echo "<main>";
+        echo "<section class=row>";
+        echo "<div class='col-sm-2'></div>";
+        echo "<div class='col-sm-8'>";
+        echo "<h1>Booking Successful</h1>";
+        echo "<h2>Customer ID : $userID </h2>";
+        echo "<h2>Room ID : $roomID </h2>";
+        echo "<h2 >Checkin  :   $checkin</h2>";
+        echo "<h2 >Checkout : $checkout</h2>";
+        echo "<h2 >Total : $total</h2>";
+        echo "<h2 >Num of days : $num_days</h2>";
+        echo "<h2 >Num of pax : $pax</h2>";
+        echo "</div>";
+        echo "<div class='col-sm-2'></div>";
+        echo "<br>";
+        echo "</section>";
 
-    echo "<section class=row>";
-    echo "<div class='col-sm-5'></div>";
-    echo "<div class='col-sm-2'>";
-    echo("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
-    echo "</div>";
-    echo "<div class='col-sm-5'></div>";
-    echo "</div>";
-    echo "</section>";
-    echo "<hr>";
+        echo "<section class=row>";
+        echo "<div class='col-sm-5'></div>";
+        echo "<div class='col-sm-2'>";
+        echo ("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
+        echo "</div>";
+        echo "<div class='col-sm-5'></div>";
+        echo "</div>";
+        echo "</section>";
+        echo "<hr>";
+    } else {
+        echo "<section class=row>";
+        echo "<div class='col-sm-3'></div>";
+        echo "<div class='col-sm-6'>";
+        echo "<h1>" . $errorMsg . "</h1>";
+        echo "</div>";
+        echo "<div class='col-sm-3'></div>";
+        echo "<br>";
+        echo "</section>";
 
-} 
-else 
-{
-    echo "<section class=row>";
-    echo "<div class='col-sm-3'></div>";
-    echo "<div class='col-sm-6'>";
-    echo "<h1>" . $errorMsg . "</h1>";
-    echo "</div>";
-    echo "<div class='col-sm-3'></div>";
-    echo "<br>";
-    echo "</section>";
-
-    echo "<section class=row>";
-    echo "<div class='col-sm-5'></div>";
-    echo "<div class='col-sm-2'>";
-    echo("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
-    echo "</div>";
-    echo "<div class='col-sm-5'></div>";
-    echo "</div>";
-    echo "</section>";
-    echo "<hr>";
-}
+        echo "<section class=row>";
+        echo "<div class='col-sm-5'></div>";
+        echo "<div class='col-sm-2'>";
+        echo ("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
+        echo "</div>";
+        echo "<div class='col-sm-5'></div>";
+        echo "</div>";
+        echo "</section>";
+        echo "<hr>";
+    }
 
     ?>
 
-</main>
+    </main>
 
     <?php
     include "./footer.php";
     ?>
-    </body>
+</body>
 
 </html>

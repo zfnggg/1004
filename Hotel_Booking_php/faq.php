@@ -4,37 +4,41 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
 
-include "./navbaruser.php";
-
-?>
 <html lang="en">
-    <head>
-        <title>D'Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" />
-        <!-- Zheng Feng CSS -->
-        <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" />
-        <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" />
-        <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" />
-        <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        <!-- Own Javascript -->
-        <script defer src="js/main.js"></script>
-    </head>
 
-    <body>
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main CSS Style Sheet-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Zheng Feng CSS -->
+    <!-- Events CSS Style Sheet-->
+    <link href="css/events.css" rel="stylesheet" />
+    <!-- FAQ CSS Style Sheet-->
+    <link href="css/faq.css" rel="stylesheet" />
+    <!-- Dining CSS Style Sheet-->
+    <link href="css/dining.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Own Javascript -->
+    <script defer src="js/main.js"></script>
+</head>
 
+<body>
+
+    <header>
+        <?php
+        include "./navbaruser.php";
+        ?>
+    </header>
+
+    <main>
         <div class="container-fluid">
             <div class="row">
                 <header class="col">
@@ -147,9 +151,12 @@ include "./navbaruser.php";
                 </div>
             </div>
         </div>
-    </body>
-        <?php
-    include "./footer.php";
-    ?>
-</html>
+    </main>
 
+</body>
+
+<?php
+include "./footer.php";
+?>
+
+</html>

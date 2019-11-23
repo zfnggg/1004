@@ -28,7 +28,7 @@ header("X-Content-Type-Options: nosniff");
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand"><img src="img/icon.png" id="icon" alt=""></a>
-        <a class="navbar-brand" id="titleHead" href="#">D'Hotel</a>
+        <a class="navbar-brand" id="titleHead" href="./index.php">D'Hotel</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,7 +49,7 @@ header("X-Content-Type-Options: nosniff");
                     <a class="nav-link" href="./dining.php">Dining<span class="caret"></span></a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Contact</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Others</a>
                     <ul class="dropdown-menu">
                         <a class="dropdown-item" href="./faq.php">FAQ</a>
                         <a class="dropdown-item" href="./events.php">Events</a>
