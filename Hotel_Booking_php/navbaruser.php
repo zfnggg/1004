@@ -63,7 +63,15 @@ header("X-Content-Type-Options: nosniff");
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
                         <ul class="dropdown-menu">
                             <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
-                            <a class="dropdown-item" href="./reservation.php">My Reservation</a>
+                            <?php 
+                            if ($_SESSION['MM_role'] == 'A') { ?> 
+                                <a class="dropdown-item" href="./adminonly.php">Admin Panel</a>
+                            <?php
+                            } 
+                            
+                            else { ?>
+                                <a class="dropdown-item" href="./reservation.php">My Reservation</a>
+                            <?php } ?>
                             <a class="dropdown-item" href="./logout.php">Log out</a>
                         </ul>
                     </li>

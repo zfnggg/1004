@@ -217,42 +217,47 @@ and open the template in the editor.
 
         //SUCCESS
         if ($success) {
-            echo "<div class=row>";
+            echo "<body>";
+            echo "<section class=row>";
             echo "<div class='col-sm-2'></div>";
             echo "<div class='col-sm-8'>";
             echo "<h1>Your account has been successfully registered</h1>";
             echo "</div>";
             echo "<div class='col-sm-2'></div>";
             echo "<br>";
-            echo "</div>";
+            echo "</section>";
 
-            echo "<div class=row>";
+            echo "<section class=row>";
             echo "<div class='col-sm-5'></div>";
             echo "<div class='col-sm-2'>";
             echo ("<button onclick=\"location.href='login.php'\">Click here to Login</button>");
             echo "</div>";
             echo "<div class='col-sm-5'></div>";
             echo "</div>";
-            echo "</div>";
+            echo "</section>";
+            echo "</body>";
             echo "<hr>";
         } else {
-            echo "<div class=row>";
+            echo "<body>";
+            echo "<section class=row>";
             echo "<div class='col-sm-3'></div>";
             echo "<div class='col-sm-6'>";
             echo "<h1>" . $errorMsg . "</h1>";
             echo "</div>";
             echo "<div class='col-sm-3'></div>";
             echo "<br>";
-            echo "</div>";
+            echo "</section>";
+            
 
-            echo "<div class=row>";
+            echo "<section class=row>";
             echo "<div class='col-sm-5'></div>";
             echo "<div class='col-sm-2'>";
             echo ("<button onclick=\"location.href='registration.php'\">Return to Registration</button>");
             echo "</div>";
             echo "<div class='col-sm-5'></div>";
             echo "</div>";
-            echo "</div>";
+            echo "</section>";
+            echo "</body>";
             echo "<hr>";
         }
         ?>
