@@ -152,7 +152,7 @@ and open the template in the editor.
             $r = $one_record['role'];
             $_SESSION['MM_Username'] = $u;
             $_SESSION['MM_role'] = $r;
-            if ($_SESSION['MM_role'] = 'A')
+            if ($_SESSION['MM_role'] == 'A')
             {
                 header("Location:adminonly.php");
             }
