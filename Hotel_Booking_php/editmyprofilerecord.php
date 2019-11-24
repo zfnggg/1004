@@ -131,11 +131,6 @@ if (empty($_POST['phoneNo'])) {
     }
 }
 
-// ERRORR. EVEN IF U UPLOAD A PICTURE, IT STILL SAYS PICTURE IS REQUIRED
-if (empty($_POST["profilePicture"])) {
-    $errorMsg .= "Picture  is required.<br>";
-    $success = false;
-}
 
 //SUCCESS
 if ($success) {
