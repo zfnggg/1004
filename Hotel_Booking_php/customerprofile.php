@@ -9,7 +9,6 @@ and open the template in the editor.
 if (!isset($_SERVER['HTTP_REFERER'])) {
     // redirect them to your desired location
     header('location:login.php');
-
     exit;
 }
 ?>
@@ -42,6 +41,9 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <header>
         <?php
         include "./navbaruser.php";
+
+        //CRF Token 
+        $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
 
         ?>
     </header>
@@ -116,6 +118,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <form method="post" action="deletecustomer.php">
                                             <input name="cid" type="hidden" value="<?php echo $data['userID'] ?>">
+                                            <input type="hidden" name="_token" value="<?php echo $_SESSION['_token'] ?>">
                                             <input type="submit" value="delete">
                                         </form>
                                     </td>

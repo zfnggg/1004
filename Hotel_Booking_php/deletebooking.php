@@ -6,6 +6,16 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
     exit;
 }
+
+//CSRF Token Authentication
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    die('Invalid request method');
+} else {
+    if (!isset($_POST['_token'])  || ($_POST['_token'] !== $_SESSION['_token'])) {
+        die($_POST['_token'] . "      " . $_SESSION['_token']);
+    }
+}
+
 ?>
 <?php
 

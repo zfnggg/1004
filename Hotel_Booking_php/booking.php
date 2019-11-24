@@ -42,7 +42,10 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <header>
         <?php
         include "./navbaruser.php";
+        //CRF Token 
+        $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
         ?>
+        
     </header>
 
     <main>
@@ -108,7 +111,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                         <?php echo $data['checkout'] ?>
                                     </td>
                                     <td>
-                                        $<?php echo $data['total'] ?>
+                                        <?php echo $data['total'] ?>
                                     </td>
                                     <td>
                                         <?php echo $data['pax'] ?>
@@ -116,6 +119,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <form method="post" action="deletebooking.php">
                                             <input name="cid" type="hidden" value="<?php echo $data['bookingID'] ?>">
+                                            <input type="hidden" name="_token" value="<?php echo $_SESSION['_token'] ?>">
                                             <input type="submit" value="delete">
                                         </form>
                                     </td>
