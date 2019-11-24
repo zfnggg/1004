@@ -153,11 +153,7 @@ and open the template in the editor.
     } else {
     }
 
-    //profile picture
-    if (empty($_POST['profilePicture'])) {
-        $errorMsg .= "Profile Picture is required<br>";
-        $success = false;
-    }
+
 
     if (!isset($_GET['action'])) {
         $cname = $_POST['customerName'];
