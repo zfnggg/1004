@@ -36,7 +36,7 @@ and open the template in the editor.
         include "./navbaruser.php";
         ?>
     </header>
-    
+
     <!--Check if user is logged in when clicked on Show Price else go to login page-->
     <?php
     //session_start();
@@ -83,35 +83,56 @@ and open the template in the editor.
                     ?>
 
                     <form method="POST" name="bookroom" action="process_booking.php">
-                        <h3>Total Payment:</h3>
-                        <label for="checkin">Check in: <input type="date" id="checkin" name="check_in" required onchange="cal()"></label>
-                        <br />
-                        <label for="checkout">Check out: <input type="date" id="checkout" name="check_out" required onchange="cal()"></label>
-                        <br />
-                        <label for="numdays">No of days: <input type="text" id="numdays" name="num_days" readonly required></label>
-                        <br />
-                        <label for="pax">No of pax: <input type="text" id="pax" name="pax" pattern="^[0-9]$" required></label>
-                        <br />
-                        <label for="total">Total Charges:$ <input type="text" id="total" name="total_sum" readonly></label>
-                        <input type="hidden" id="status" name="status" value="going">
+                        <fieldset>
+                            <legend><h3>Total Payment</h3></legend>
+                            
+                            <label for="checkin">Check in :</label>
+                            <input type="date" id="checkin" name="check_in" required onchange="cal()">
+                            <br />
+                            
+                            <label for="checkout">Check out :</label>
+                            <input type="date" id="checkout" name="check_out" required onchange="cal()">
+                            <br />
 
-                        <h3>Personal Information:</h3>
-                        <label for="customerName">Name : <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>"></label>
-                        <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
-                        <input type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
-                        <h3>Payment Details:</h3>
-                        <h4>Accepted Cards</h4>
-                        <div class="icon-container">
-                            <i class="fa fa-cc-visa" style="color:navy;"></i>
-                            <i class="fa fa-cc-amex" style="color:blue;"></i>
-                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                            <i class="fa fa-cc-discover" style="color:orange;"></i>
-                        </div>
-                        <label for="cardnumber">Credit card: <input type="text" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required></label>
-                        <br />
-                        <label for="expmonth">Valid Thru: <input type="month" id="expmonth" name="expmonth" value="2019-11" required></label><br />
-                        <label for="cvv">CVV: <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required></label>
-                        <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
+                            <label for="numdays">No of days :</label>
+                            <input type="text" id="numdays" name="num_days" readonly required>
+                            <br />
+
+                            <label for="pax">No of pax :</label>
+                            <input type="text" id="pax" name="pax" pattern="^[0-9]$" required>
+                            <br />
+
+
+                            <label for="total">Total Charges : $</label>
+                            <input type="text" id="total" name="total_sum" readonly>
+                            <input type="hidden" id="status" name="status" value="going">
+
+                            <legend><h3>Personal Information</h3></legend>
+                            
+                            <label for="customerName">Name :</label><input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>">
+                            <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
+                            <input type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
+                            
+                            
+                            <legend><h3>Payment Details:</h3></legend>
+
+                            <h4>Accepted Cards</h4>
+                            <div class="icon-container">
+                                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                <i class="fa fa-cc-discover" style="color:orange;"></i>
+                            </div>
+
+                            <label for="cardnumber">Credit card :</label><input type="text" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required>
+                            <br />
+
+                            <label for="expmonth">Valid Till :</label> <input type="month" id="expmonth" name="expmonth" value="2019-11" required>
+                            <br />
+
+                            <label for="cvv">CVV :</label><input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required>
+                            <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
+                        </fieldset>
                     </form>
 
                     <script>
