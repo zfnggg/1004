@@ -112,7 +112,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <figure>
                                         <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " alt="" width="100">
-                                        <figcaption>Photo from Pixabay.com</figcaption>
                                         </figure>
                                     </td>
                                     <td>

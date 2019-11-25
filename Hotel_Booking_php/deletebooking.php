@@ -7,6 +7,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     exit;
 }
 
+session_start();
+
 //CSRF Token Authentication
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Invalid request method');

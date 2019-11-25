@@ -2,9 +2,12 @@
 if (!isset($_SERVER['HTTP_REFERER'])) {
 // redirect them to your desired location
     header('location:login.php');
-     
+
     exit;
 }
+
+session_start();
+
 //CSRF Token Authentication
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Invalid request method');
@@ -13,11 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         die($_POST['_token'] . "      " . $_SESSION['_token']);
     }
 }
-
-?>
-<?php
-
-session_start();
 
 require_once('../protected/config.php');
 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
