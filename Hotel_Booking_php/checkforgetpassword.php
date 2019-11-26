@@ -48,21 +48,6 @@ $email = sanitize_input($_POST["email"]);
 $success = true;
 
 
-if(empty($_POST["email"]))
-{
-    $errorMsg .= "Email is required.<br>";
-    $success = false;
-}
-else
-{
-    
-    //To check if the email address is well formed 
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-    {
-        $errorMsg .= "Invalid email format.";
-        $success = false;
-    }
-}
 function sanitize_input($data)
 {
     $data = trim($data);
