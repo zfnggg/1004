@@ -75,7 +75,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <th>customer ID</th>
                                 <th>Customer Name</th>
                                 <th>Username</th>
-                                <th>Password</th>
+                               
                                 <th>Email</th>
                                 <th>Phone No</th>
                                 <th>Role</th>
@@ -97,9 +97,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <?php echo $data['username'] ?>
                                     </td>
-                                    <td>
-                                        <?php echo md5($data['password']) ?>
-                                    </td>
+                                   
                                     <td>
                                         <?php echo $data['email'] ?>
                                     </td>
