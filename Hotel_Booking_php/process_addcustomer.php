@@ -261,7 +261,7 @@ and open the template in the editor.
         echo "<hr>";
     }
     ?>
-    </main>
+   </body>
 
     <?php
     include "./footer.php";
