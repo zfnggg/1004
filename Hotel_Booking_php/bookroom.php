@@ -67,7 +67,7 @@ and open the template in the editor.
         <div class="row content">
             <div class="col-sm-8">
                 <h2><?php echo $data['roomType'] ?></h2>
-                <img src="../HotelBooking_php/public_html/img/<?php echo $data['roomImg'] ?> " style="width:100%" alt="Image of selected room">
+                <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " style="width:100%" alt="Image of selected room">
                 <figcaption>Photo from Pixabay.com</figcaption>
                 <br><br>
             </div>
