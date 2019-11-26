@@ -80,7 +80,7 @@ and open the template in the editor.
                 while ($data = mysqli_fetch_assoc($mycart)) {
                     ?>
                     <div class="col-sm-4">
-                        <img src="../HotelBooking_php/public_html/img/<?php echo $data['roomImg'] ?> " alt="room" style="width:100%">
+                        <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " alt="room" style="width:100%">
                         <h1><?php echo $data['roomType'] ?></h1>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="glyphicon glyphicon-user"></span>
