@@ -46,85 +46,87 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         ?>
     </header>
 
-    <section class="jumbotron text-center">
-        <h1>Search Username </h1>
-        <a href="customerprofile.php" title="manage">Customer</a> |
-        <a href="booking.php" title="manage">Booking</a> |
-        <a href="bookingsummary.php" title="manage">Booking Summary </a>
-    </section>
+    <main>
+        <section class="jumbotron text-center">
+            <h1>Search Username </h1>
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
+            <a href="bookingsummary.php" title="manage">Booking Summary </a>
+        </section>
 
-    <section>
-        <div class="container-fluid text-center">
-            <div class="row content">
-                <div class="col-sm-8 text-centre">
-                    <form name="search" method="post" action="searchusername.php">
-                        <label for="search">Search Booking by Username:
-                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
+        <section>
+            <div class="container-fluid text-center">
+                <div class="row content">
+                    <div class="col-sm-8 text-centre">
+                        <form name="search" method="post" action="searchusername.php">
+                            <label for="search">Search Booking by Username:
+                                <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
 
-                        </label>
-                        <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
-                    </form>
+                            </label>
+                            <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
+                        </form>
 
-                    <hr>
-                    <?php
-                    //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
-                    require_once('../protected/config.php');
+                        <hr>
+                        <?php
+                        //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
+                        require_once('../protected/config.php');
 
-                    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                    ?>
+                        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                        ?>
 
-                    <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <td>Booking ID</td>
-                                <td>Username</td>
-                                <td>Room Type</td>
-                                <td>Status</td>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td>Booking ID</td>
+                                    <td>Username</td>
+                                    <td>Room Type</td>
+                                    <td>Status</td>
 
-                                <?php
-                                if (!isset($_GET['action'])) {
+                                    <?php
+                                    if (!isset($_GET['action'])) {
 
-                                    $search = "%{$_POST['search']}%";
-                                    $flag = 0;
-                                    $sql = $conn->prepare("select bookingID, username, roomType, status from booking as b inner join rooms as r on b.roomID=r.roomID inner join users as c on b.userID = c.userID where username like ? ");
-                                    $sql->bind_param("s", $search);
-                                    $sql->execute();
-                                    $result = $sql->get_result();
-                                    //                                    $sql->close();
+                                        $search = "%{$_POST['search']}%";
+                                        $flag = 0;
+                                        $sql = $conn->prepare("select bookingID, username, roomType, status from booking as b inner join rooms as r on b.roomID=r.roomID inner join users as c on b.userID = c.userID where username like ? ");
+                                        $sql->bind_param("s", $search);
+                                        $sql->execute();
+                                        $result = $sql->get_result();
+                                        //                                    $sql->close();
 
-                                    if (mysqli_num_rows($result) == 0) {
-                                        echo "<h1>there are no results</h1>";
-                                    }
+                                        if (mysqli_num_rows($result) == 0) {
+                                            echo "<h1>there are no results</h1>";
+                                        }
 
-                                    //$result = mysqli_query($conn, $sql);
-                                    //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                                    while ($data = mysqli_fetch_assoc($result)) {
-                                        ?>
-                            <tr>
-                                <td>
-                                    <?php echo $data['bookingID'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['username'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['roomType'] ?>
-                                </td>
-                                <td>
-                                    <?php echo $data['status'] ?>
-                                </td>
-                            </tr>
-                    <?php
+                                        //$result = mysqli_query($conn, $sql);
+                                        //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                                        while ($data = mysqli_fetch_assoc($result)) {
+                                            ?>
+                                <tr>
+                                    <td>
+                                        <?php echo $data['bookingID'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $data['username'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $data['roomType'] ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $data['status'] ?>
+                                    </td>
+                                </tr>
+                        <?php
+                            }
                         }
-                    }
-                    mysqli_close($conn);
-                    ?>
-                        </table>
+                        mysqli_close($conn);
+                        ?>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <?php
     include "./footer.php";

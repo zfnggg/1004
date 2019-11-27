@@ -40,134 +40,133 @@ and open the template in the editor.
         ?>
     </header>
 
+    <main>
+        <?php
 
-    <?php
+        //Helper function that checks input for malicious or unwanted content.
+        function sanitize_input($data)
+        {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
 
-    //Helper function that checks input for malicious or unwanted content.
-    function sanitize_input($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+        $errorMsg = "";
+        $checkin = sanitize_input($_POST["check_in"]);
+        $checkout = sanitize_input($_POST['check_out']);
+        $total = sanitize_input($_POST['total_sum']);
+        $num_days = sanitize_input($_POST['num_days']);
+        $pax = sanitize_input($_POST["pax"]);
+        $success = true;
 
-    $errorMsg = "";
-    $checkin = sanitize_input($_POST["check_in"]);
-    $checkout = sanitize_input($_POST['check_out']);
-    $total = sanitize_input($_POST['total_sum']);
-    $num_days = sanitize_input($_POST['num_days']);
-    $pax = sanitize_input($_POST["pax"]);
-    $success = true;
+        //check_in
+        if (empty($_POST['check_in'])) {
+            $errorMsg .= "check in  is required.<br>";
+            $success = false;
+        }
 
-    //check_in
-    if (empty($_POST['check_in'])) {
-        $errorMsg .= "check in  is required.<br>";
-        $success = false;
-    }
+        //check_out
+        if (empty($_POST['check_out'])) {
+            $errorMsg .= "check_out  is required.<br>";
+            $success = false;
+        }
 
-    //check_out
-    if (empty($_POST['check_out'])) {
-        $errorMsg .= "check_out  is required.<br>";
-        $success = false;
-    }
+        //check for empty total_sum
+        if (empty($_POST['total_sum'])) {
+            $errorMsg .= "total sum is required.<br>";
+            $success = false;
+        }
 
-    //check for empty total_sum
-    if (empty($_POST['total_sum'])) {
-        $errorMsg .= "total sum is required.<br>";
-        $success = false;
-    }
+        //check for empty pax
+        if (empty($_POST['pax'])) {
+            $errorMsg .= "Pax is required.<br>";
+            $success = false;
+        }
 
-    //check for empty pax
-    if (empty($_POST['pax'])) {
-        $errorMsg .= "Pax is required.<br>";
-        $success = false;
-    }
-
-    //check for empty num_days
-    if (empty($_POST['num_days'])) {
-        $errorMsg .= "num days is required.<br>";
-        $success = false;
-    }
-
-
-    if (!isset($_['submit'])) {
-        $userID = $_POST['userID'];
-        $roomID = $_POST['roomID'];
-        $checkin = $_POST['check_in'];
-        $checkout = $_POST['check_out'];
-        $total = $_POST['total_sum'];
-        $num_days = $_POST['num_days'];
-        $status = $_POST['status'];
-        $pax = $_POST['pax'];
+        //check for empty num_days
+        if (empty($_POST['num_days'])) {
+            $errorMsg .= "num days is required.<br>";
+            $success = false;
+        }
 
 
-
-        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-
-        $sql = $conn->prepare("insert into booking (userID,roomID,checkin,checkout,total,numdays,status,pax) values (?,?,?,?,?,?,?,?)");
-        $sql->bind_param("iissiisi", $userID, $roomID, $checkin, $checkout, $total, $num_days, $status, $pax);
-        $sql->execute();
-        $result = $sql->get_result();
-        $sql->close();
-        mysqli_close($conn);
-        //header("Location:bookroom.php?id=$roomID");
-    }
-    ?>
-
-    <?php
+        if (!isset($_['submit'])) {
+            $userID = $_POST['userID'];
+            $roomID = $_POST['roomID'];
+            $checkin = $_POST['check_in'];
+            $checkout = $_POST['check_out'];
+            $total = $_POST['total_sum'];
+            $num_days = $_POST['num_days'];
+            $status = $_POST['status'];
+            $pax = $_POST['pax'];
 
 
-    //SUCCESS
-    if ($success) {
-        echo "<main>";
-        echo "<section class=row>";
-        echo "<div class='col-sm-2'></div>";
-        echo "<div class='col-sm-8'>";
-        echo "<h1>Booking Successful</h1>";
-        echo "<h2>Customer ID : $userID </h2>";
-        echo "<h2>Room ID : $roomID </h2>";
-        echo "<h2 >Checkin  :   $checkin</h2>";
-        echo "<h2 >Checkout : $checkout</h2>";
-        echo "<h2 >Total : $total</h2>";
-        echo "<h2 >Num of days : $num_days</h2>";
-        echo "<h2 >Num of pax : $pax</h2>";
-        echo "</div>";
-        echo "<div class='col-sm-2'></div>";
-        echo "<br>";
-        echo "</section>";
 
-        echo "<section class=row>";
-        echo "<div class='col-sm-5'></div>";
-        echo "<div class='col-sm-2'>";
-        echo ("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
-        echo "</div>";
-        echo "<div class='col-sm-5'></div>";
-        echo "</div>";
-        echo "</section>";
-        echo "<hr>";
-    } else {
-        echo "<section class=row>";
-        echo "<div class='col-sm-3'></div>";
-        echo "<div class='col-sm-6'>";
-        echo "<h1>" . $errorMsg . "</h1>";
-        echo "</div>";
-        echo "<div class='col-sm-3'></div>";
-        echo "<br>";
-        echo "</section>";
+            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
-        echo "<section class=row>";
-        echo "<div class='col-sm-5'></div>";
-        echo "<div class='col-sm-2'>";
-        echo ("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
-        echo "</div>";
-        echo "<div class='col-sm-5'></div>";
-        echo "</div>";
-        echo "</section>";
-        echo "<hr>";
-    }
+            $sql = $conn->prepare("insert into booking (userID,roomID,checkin,checkout,total,numdays,status,pax) values (?,?,?,?,?,?,?,?)");
+            $sql->bind_param("iissiisi", $userID, $roomID, $checkin, $checkout, $total, $num_days, $status, $pax);
+            $sql->execute();
+            $result = $sql->get_result();
+            $sql->close();
+            mysqli_close($conn);
+            //header("Location:bookroom.php?id=$roomID");
+        }
+        ?>
 
-    ?>
+        <?php
+
+
+        //SUCCESS
+        if ($success) {
+            echo "<section class=row>";
+            echo "<div class='col-sm-2'></div>";
+            echo "<div class='col-sm-8'>";
+            echo "<h1>Booking Successful</h1>";
+            echo "<h2>Customer ID : $userID </h2>";
+            echo "<h2>Room ID : $roomID </h2>";
+            echo "<h2 >Checkin  :   $checkin</h2>";
+            echo "<h2 >Checkout : $checkout</h2>";
+            echo "<h2 >Total : $total</h2>";
+            echo "<h2 >Num of days : $num_days</h2>";
+            echo "<h2 >Num of pax : $pax</h2>";
+            echo "</div>";
+            echo "<div class='col-sm-2'></div>";
+            echo "<br>";
+            echo "</section>";
+
+            echo "<section class=row>";
+            echo "<div class='col-sm-5'></div>";
+            echo "<div class='col-sm-2'>";
+            echo ("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
+            echo "</div>";
+            echo "<div class='col-sm-5'></div>";
+            echo "</div>";
+            echo "</section>";
+            echo "<hr>";
+        } else {
+            echo "<section class=row>";
+            echo "<div class='col-sm-3'></div>";
+            echo "<div class='col-sm-6'>";
+            echo "<h1>" . $errorMsg . "</h1>";
+            echo "</div>";
+            echo "<div class='col-sm-3'></div>";
+            echo "<br>";
+            echo "</section>";
+
+            echo "<section class=row>";
+            echo "<div class='col-sm-5'></div>";
+            echo "<div class='col-sm-2'>";
+            echo ("<button onclick=\"location.href='bookroom.php?id=$roomID'\">Return to Booking.</button>");
+            echo "</div>";
+            echo "<div class='col-sm-5'></div>";
+            echo "</div>";
+            echo "</section>";
+            echo "<hr>";
+        }
+
+        ?>
 
     </main>
 

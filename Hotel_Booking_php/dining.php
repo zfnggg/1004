@@ -4,38 +4,43 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-
-include "./navbaruser.php";
-
-?>
 <html lang="en">
-    <head>
-        <title>D'Hotel</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- Main CSS Style Sheet-->
-        <link href="css/main.css" rel = "stylesheet" /> 
-        <!-- Zheng Feng CSS -->
-        <!-- Events CSS Style Sheet-->
-        <link href="css/events.css" rel = "stylesheet" /> 
-        <!-- FAQ CSS Style Sheet-->
-        <link href="css/faq.css" rel = "stylesheet" /> 
-        <!-- Dining CSS Style Sheet-->
-        <link href="css/dining.css" rel = "stylesheet" /> 
-        <!-- Font Awesome Icons -->
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
-        <!-- Own Javascript -->
-        <script defer src="js/main.js"></script>  
-    </head>
 
-    <body>
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main CSS Style Sheet-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Zheng Feng CSS -->
+    <!-- Events CSS Style Sheet-->
+    <link href="css/events.css" rel="stylesheet" />
+    <!-- FAQ CSS Style Sheet-->
+    <link href="css/faq.css" rel="stylesheet" />
+    <!-- Dining CSS Style Sheet-->
+    <link href="css/dining.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Own Javascript -->
+    <script defer src="js/main.js"></script>
+</head>
+
+<header>
+    <?php
+    include "./navbaruser.php";
+    ?>
+</header>
+
+
+<body>
+    <main>
+
         <!-- Title for Dining-->
-        <div class="container-fluid">
+        <section class="container-fluid">
             <div class="row">
                 <header class="col ">
                     <div class="article">
@@ -43,9 +48,9 @@ include "./navbaruser.php";
                     </div>
                 </header>
             </div>
-        </div>
-        
-        <div class="container-fluid">
+        </section>
+
+        <section class="container-fluid">
             <div class="row">
                 <figure class="col-md-6 col-sm-12">
                     <img src="./img/breakfast.jpg" class="float-left bf-margin" alt="A breakfast dish from Po">
@@ -65,9 +70,9 @@ include "./navbaruser.php";
                     </div>
                 </header>
             </div>
-        </div>
-        
-        <div class="container-fluid">
+        </section>
+
+        <section class="container-fluid">
             <div class="row">
                 <figure class="col-md-6 col-sm-12 order-md-2">
                     <img src="./img/lunch.jpg" class="lunch-margin" alt="A burger from 25 Degrees">
@@ -87,9 +92,9 @@ include "./navbaruser.php";
 
                 </header>
             </div>
-        </div>
-        
-        <div class="container-fluid">
+        </section>
+
+        <section class="container-fluid">
             <div class="row">
                 <figure class="col-md-6 col-sm-12">
                     <img src="./img/dinner.jpg" class="float-left bf-margin" alt="Inside of Ginett restaurant">
@@ -103,14 +108,18 @@ include "./navbaruser.php";
                             With a culinary team led by our highly acclaimed Executive Chef, the restaurant
                             offers imported cold cuts and cheese, premium wines and daily specials cooked
                             with quality ingredients. The venue features a cozy communal space, perfect
-                            for mingling. Open for breakfast, lunch and dinner.</p>                        
+                            for mingling. Open for breakfast, lunch and dinner.</p>
                         <a href='https://www.randblab.com/ginett-sg' rel="noopener noreferrer" target="_blank" class="btn btn-outline-dark btn-visit">Visit Site</a><span><a href='https://www.randblab.com/assets/menu/GINETT/Ginett-SG-FULL-MENU-22AUG.pdf' rel="noopener noreferrer" target="_blank" class="btn btn-outline-dark">View Menu</a></span>
                     </div>
                 </header>
             </div>
-        </div>
+        </section>
+
+    </main>
+
     <?php
     include "./footer.php";
     ?>
-    </body>
+
+</body>
 </html>

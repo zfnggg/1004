@@ -10,7 +10,7 @@ include "./navbaruser.php";
 ?>
 <?php
 if (!isset($_SERVER['HTTP_REFERER'])) {
-// redirect them to your desired location
+    // redirect them to your desired location
     header('location:login.php');
 
     exit;
@@ -42,20 +42,19 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
-   
-    <div class="jumbotron text-center">
-        <h1>Edit Profile</h1>
-        <a href="customerprofile.php" title="manage">Customer</a> |
-        <a href="booking.php" title="manage">Booking</a> |
-        <a href="bookingsummary.php" title="manage">Booking Summary </a>
-    </div>
+    <main>
+        <section class="jumbotron text-center">
+            <h1>Edit Profile</h1>
+            <a href="customerprofile.php" title="manage">Customer</a> |
+            <a href="booking.php" title="manage">Booking</a> |
+            <a href="bookingsummary.php" title="manage">Booking Summary </a>
+        </section>
 
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-8 text-left">
-
-                <?php
-                  require_once('../protected/config.php');
+        <section class="container-fluid text-center">
+            <div class="row content">
+                <div class="col-sm-8 text-left">
+                    <?php
+                    require_once('../protected/config.php');
 
                     $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
                     $option = $_GET['id'];
@@ -66,139 +65,141 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                     //$mycart = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                     ?>
 
-                <?php
+                    <?php
                     while ($data = mysqli_fetch_assoc($result)) {
                         ?>
-                <form method="post" name="editcust" action="editcustomerrecord.php?action=add" enctype="multipart/form-data">
-                    <div class="table-responsive">
-                    <table class="table">
-                        <tr>
-                            <td>
-                                <label for="cName"> Customer Name:
-                                    <input id="cName" name="cName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" type="text" value="<?php echo $data['customerName'] ?>">
-                                    <input name="cid" type="hidden" value="<?php echo $data['userID'] ?>">
-                                </label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="password">Password:<input type="password" id="password" required name="pword"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="email">Email :<input type="text" id="email" name="email" pattern="^\S+@\S+$" value="<?php echo $data['email'] ?>"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="phone">Phone No: <input type="text" id="phone" name="phone" pattern="[6,8,9][0-9]{7}" value="<?php echo $data['phoneNo'] ?>"></label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="roleC"> Role: <br />
-                                    <input type="radio" id="roleC" name="role" value="C" required> Customer<br>
-                                </label>
-                                <label for="roleA">
-                                    <input type="radio" id="roleA" name="role" value="A" required> Admin<br>
-                                </label>
+                        <form method="post" name="editcust" action="editcustomerrecord.php?action=add" enctype="multipart/form-data">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <label for="cName">Customer Name:</label>
+                                            <input id="cName" name="cName" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" type="text" value="<?php echo $data['customerName'] ?>">
+                                            <input name="cid" type="hidden" value="<?php echo $data['userID'] ?>">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="password">Password:</label>
+                                            <input type="password" id="password" required name="pword">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="email">Email :</label>
+                                            <input type="text" id="email" name="email" pattern="^\S+@\S+$" value="<?php echo $data['email'] ?>">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="phone">Phone No:</label>
+                                            <input type="text" id="phone" name="phone" pattern="[6,8,9][0-9]{7}" value="<?php echo $data['phoneNo'] ?>">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="roleC"> Role: <br /></label>
+                                            <input type="radio" id="roleC" name="role" value="C" required> Customer<br>
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="profilePicture"> Profile Pic:
-                                    <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " width="100" alt="">
-                                    <figcaption>Photo from Pixabay.com</figcaption>
-                                    <input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required>
-                                </label>
-                            </td>
-                        </tr>
-                    </table>
-</div>
-                    <button type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">Update</button>
-                </form>
-                <?php
+                                            <label for="roleA">
+                                                <input type="radio" id="roleA" name="role" value="A" required> Admin<br>
+                                            </label>
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="profilePicture">Profile Pic:</label>
+                                            <figure>
+                                                <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " width="100" alt="">
+                                                <figcaption>Photo from Pixabay.com</figcaption>
+                                            </figure>
+                                            <input type="file" name="profilePicture" id="profilePicture" accept=".png,.gif,.jpg,.webp" required>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <button type="submit" name="submit" value="Upload" class="btn btn-primary" onclick="myFunction()">Update</button>
+                        </form>
+                    <?php
                     }
                     $sql->close();
                     mysqli_close($conn);
                     ?>
+                </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <script>
-        function myFunction() {
+        <script>
+            function myFunction() {
 
-            var customerName = document.forms["editcust"]["cName"];
-            var email = document.forms["editcust"]["email"];
-            var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-            var password = document.forms["editcust"]["pword"];
-            var phoneNo = document.forms["editcust"]["phone"];
-            var role = document.forms["editcust"]["role"];
-            var profilepic = document.forms["editcust"]["profilePicture"];
+                var customerName = document.forms["editcust"]["cName"];
+                var email = document.forms["editcust"]["email"];
+                var regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+                var password = document.forms["editcust"]["pword"];
+                var phoneNo = document.forms["editcust"]["phone"];
+                var role = document.forms["editcust"]["role"];
+                var profilepic = document.forms["editcust"]["profilePicture"];
 
-            if (customerName.value === "") {
-                window.alert("Please enter customer name.");
+                if (customerName.value === "") {
+                    window.alert("Please enter customer name.");
 
-                return false;
+                    return false;
+                }
+
+                if (username.value === "") {
+                    window.alert("Please enter username.");
+
+                    return false;
+                }
+                if (phoneNo.value === "") {
+                    window.alert("Please enter phone number.");
+
+                    return false;
+                }
+                if (role.value === "") {
+                    window.alert("Please select role.");
+
+                    return false;
+                }
+                if (profilepic.value === "") {
+                    window.alert("Please upload profile picture.");
+
+                    return false;
+                }
+
+                if (email.value === "") {
+                    window.alert("Please enter a valid e-mail address.");
+
+                    return false;
+                } else if (regexEmail.test(email.value)) {
+                    window.alert("Valid Email");
+
+                } else {
+                    window.alert("Not valid email");
+                    return false;
+                }
+                if (password.value === "")
+
+                {
+                    alert("Password must not be empty");
+                    return false;
+                } else if (password.value !== confirmpwd.value) {
+                    window.alert("Passwords Don't Match");
+                    return false;
+                } else {
+                    window.alert("edied");
+                    return true;
+                }
+
             }
+        </script>
 
-            if (username.value === "") {
-                window.alert("Please enter username.");
+        <?php
+        include "./footer.php";
+        ?>
 
-                return false;
-            }
-            if (phoneNo.value === "") {
-                window.alert("Please enter phone number.");
-
-                return false;
-            }
-            if (role.value === "") {
-                window.alert("Please select role.");
-
-                return false;
-            }
-            if (profilepic.value === "") {
-                window.alert("Please upload profile picture.");
-
-                return false;
-            }
-
-            if (email.value === "") {
-                window.alert("Please enter a valid e-mail address.");
-
-                return false;
-            } else if (regexEmail.test(email.value)) {
-                window.alert("Valid Email");
-
-            } else {
-                window.alert("Not valid email");
-                return false;
-            }
-            if (password.value === "")
-
-            {
-                alert("Password must not be empty");
-                return false;
-            } else if (password.value !== confirmpwd.value) {
-                window.alert("Passwords Don't Match");
-                return false;
-            } else {
-                window.alert("edied");
-                return true;
-            }
-
-        }
-
-    </script>
-
-    <?php
-            include "./footer.php";
-            ?>
-
-    </html>
+    </main>
 </body>
 
 </html>

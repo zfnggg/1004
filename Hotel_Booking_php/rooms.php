@@ -48,20 +48,20 @@ and open the template in the editor.
     </header>
 
     <main>
-    <article>
-        <div class="jumbotron text-center">
-            <h1>Rooms</h1>
-            <form method="post">
-                <?php
-                if ($r == 'A') {
-                    ?> <a href="./adminonly.php" title="manage">Manage</a>
-                <?php
-                }
-                ?>
-            </form>
-            <p>Click <a href="./checkroom.php">Here</a> To Check Room Availability</p>
-        </div>
-    </article>
+        <article>
+            <div class="jumbotron text-center">
+                <h1>Rooms</h1>
+                <form method="post">
+                    <?php
+                    if ($r == 'A') {
+                        ?> <a href="./adminonly.php" title="manage">Manage</a>
+                    <?php
+                    }
+                    ?>
+                </form>
+                <p>Click <a href="./checkroom.php">Here</a> To Check Room Availability</p>
+            </div>
+        </article>
 
 
         <!--Display of Rooms-->
@@ -80,9 +80,11 @@ and open the template in the editor.
                 while ($data = mysqli_fetch_assoc($mycart)) {
                     ?>
                     <div class="col-sm-4">
-                        <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " alt="room" style="width:100%">
+                        <figure>
+                        <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " alt="" style="width:100%">
+                        <figcaption>Photo from Pixabay.com</figcaption>
+                        </figure>
                         <h1><?php echo $data['roomType'] ?></h1>
-<p> Photo from Pixabay.com</p>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="glyphicon glyphicon-bed"></span>

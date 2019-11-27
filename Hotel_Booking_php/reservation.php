@@ -47,17 +47,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
     <main>
         <?php
-        //        session_start();
+        //Session_start();
         $u = $_SESSION['MM_Username'];
-        ?>
-
-        <?php
         //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
         require_once('../protected/config.php');
         $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         ?>
 
-        <article>
+        <section>
             <div class="jumbotron text-center">
                 <h1>My Reservation </h1>
                 <h1>Welcome Back, <?php echo $_SESSION['MM_Username']; ?></h1>
@@ -67,7 +64,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 $data1 = mysqli_fetch_assoc($mycart1); ?>
                 <img src="../Hotel_Booking_php/<?php echo $data1['profilePicture'] ?> " alt="image" width="100">
             </div>
-        </article>
+        </section>
 
         <br>
         <section class="container-fluid text-center">

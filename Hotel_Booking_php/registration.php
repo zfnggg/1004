@@ -29,7 +29,7 @@ and open the template in the editor.
     <header>
         <?php
         include "./navbaruser.php";
-        //    session_start();
+        //Session_start();
         $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
         ?>
     </header>
@@ -40,6 +40,7 @@ and open the template in the editor.
 
     <main>
         <section class="container-registration text-center">
+
             <h1>Registration</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
@@ -74,11 +75,12 @@ and open the template in the editor.
                 <input type="submit" name="submit" value="Register" class="registerbtn-registration">
                 <br />
             </form>
-        </section>
 
-        <div class="container-registration signin-registration">
-            <p>Already have an account? <a href="./login.php">Sign in</a>.</p>
-        </div>
+            <div class="container-registration signin-registration">
+                <p>Already have an account? <a href="./login.php">Sign in</a>.</p>
+            </div>
+
+        </section>
 
     </main>
 

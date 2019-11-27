@@ -27,7 +27,7 @@ header("X-Content-Type-Options: nosniff");
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand"><img src="img/icon.png" id="icon" alt=""></a>
+        <a class="navbar-brand"><img src="img/icon.png" id="icon" alt="hotellogo"></a>
         <a class="navbar-brand" id="titleHead" href="./index.php">D'Hotel</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -63,21 +63,19 @@ header("X-Content-Type-Options: nosniff");
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" href="#">Account</a>
                         <ul class="dropdown-menu">
                             <a class="dropdown-item" href="./editmyprofile.php">Edit Profile</a>
-                            <?php 
-                            if ($_SESSION['MM_role'] == 'A') { ?> 
+                            <?php
+                                if ($_SESSION['MM_role'] == 'A') { ?>
                                 <a class="dropdown-item" href="./adminonly.php">Admin Panel</a>
                             <?php
-                            } 
-                            
-                            else { ?>
+                                } else { ?>
                                 <a class="dropdown-item" href="./reservation.php">My Reservation</a>
                             <?php } ?>
                             <a class="dropdown-item" href="./logout.php">Log out</a>
                         </ul>
                     </li>
-                    
+
                     <?php
-                        
+
                         $inactive = 900;
                         $_SESSION["logout"] = null;
 
@@ -90,7 +88,7 @@ header("X-Content-Type-Options: nosniff");
                         }
 
                         $_SESSION['timeout'] = time();
-                    ?>
+                        ?>
 
                 <?php
                 } else {

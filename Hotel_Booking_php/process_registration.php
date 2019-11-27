@@ -35,11 +35,10 @@ and open the template in the editor.
     <main>
         <?php
 
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             die('Invalid request method');
-        }
-        else {
-            if (!isset($_POST['_token']) || ($_POST['_token'] !== $_SESSION['_token'])){
+        } else {
+            if (!isset($_POST['_token']) || ($_POST['_token'] !== $_SESSION['_token'])) {
                 die($_POST['_token'] . "      " . $_SESSION['_token']);
             }
         }
@@ -52,7 +51,7 @@ and open the template in the editor.
             $data = htmlspecialchars($data);
             return $data;
         }
-        
+
         $errorMsg = "";
         $email = sanitize_input($_POST["email"]);
         $name = sanitize_input($_POST["customerName"]);
@@ -74,8 +73,7 @@ and open the template in the editor.
                     $errorMsg .= "Customer Name too long.<br>";
                     $success = false;
                 }
-            }
-            else {
+            } else {
                 $errorMsg .= "Invalid Customer Name.<br>";
                 $success = false;
             }
@@ -93,8 +91,7 @@ and open the template in the editor.
                     $errorMsg .= "Userame too long.<br>";
                     $success = false;
                 }
-            }
-            else {
+            } else {
                 $errorMsg .= "Invalid Username.<br>";
                 $success = false;
             }
@@ -118,8 +115,7 @@ and open the template in the editor.
             } elseif (!preg_match("#[a-z]+#", $password)) {
                 $errorMsg .= "Your Password Must Contain At Least 1 Lowercase Letter!<br>";
                 $success = false;
-            }
-            elseif (preg_match("#[\W]+#", $password)) {
+            } elseif (preg_match("#[\W]+#", $password)) {
                 $errorMsg .= "Your Password Must not Contain any special characters!<br>";
                 $success = false;
             }
@@ -164,10 +160,10 @@ and open the template in the editor.
         }
 
 
-require_once('../protected/config.php');
-            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-        
- if (isset($_POST["submit"]) == "Upload") {
+        require_once('../protected/config.php');
+        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+
+        if (isset($_POST["submit"]) == "Upload") {
             $cname = $_POST['customerName'];
             $uname = $_POST['username'];
             $pword = $_POST['password'];
@@ -176,14 +172,14 @@ require_once('../protected/config.php');
             $phoneno = $_POST['phoneNo'];
             //$profilepic = $_POST['profilePicture'];
             $role = $_POST['role'];
-             
+
             $target_Folder = "images/";
             $target_Path = $target_Folder . basename($_FILES['profilePicture']['name']);
             $savepath = $target_Path . basename($_FILES['profilePicture']['name']);
             $file_name = $_FILES['profilePicture']['name'];
             $profilepic = "$target_Folder$file_name";
 
-            
+
             if (isset($uname)) {
                 $sql = $conn->prepare("SELECT * FROM users where username=? or email=? ");
                 $sql->bind_param("ss", $uname, $email);
@@ -209,8 +205,6 @@ require_once('../protected/config.php');
                     mysqli_close($conn);
                 }
             }
-        
-
         }
 
         //SUCCESS
@@ -245,7 +239,7 @@ require_once('../protected/config.php');
             echo "<div class='col-sm-3'></div>";
             echo "<br>";
             echo "</section>";
-            
+
 
             echo "<section class=row>";
             echo "<div class='col-sm-5'></div>";
@@ -268,4 +262,3 @@ require_once('../protected/config.php');
 
 
 </html>
-

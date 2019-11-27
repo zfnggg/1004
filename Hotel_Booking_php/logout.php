@@ -64,8 +64,11 @@ and open the template in the editor.
             <p>Click here to <a href="./index.php">return to the main page</a></p>
         </div>
 
-        <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="backgroundimg">
+        <figure>
+        <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="">
         <figcaption>Photo from Pixabay.com</figcaption>
+        </figure>
+        
     </main>
 
     <?php
