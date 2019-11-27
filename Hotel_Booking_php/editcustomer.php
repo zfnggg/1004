@@ -4,18 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-include "./navbaruser.php";
 
-?>
-<?php
-if (!isset($_SERVER['HTTP_REFERER'])) {
-    // redirect them to your desired location
-    header('location:login.php');
-
-    exit;
-}
-?>
 <html lang="en">
 
 <head>
@@ -42,6 +31,19 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 </head>
 
 <body>
+
+    <header>
+        <?php
+        include "./navbaruser.php";
+        if (!isset($_SERVER['HTTP_REFERER'])) {
+            // redirect them to your desired location
+            header('location:login.php');
+
+            exit;
+        }
+        ?>
+    </header>
+
     <main>
         <section class="jumbotron text-center">
             <h1>Edit Profile</h1>
@@ -102,7 +104,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                             <input type="radio" id="roleC" name="role" value="C" required> Customer<br>
 
                                             <label for="roleA">
-                                                <input type="radio" id="roleA" name="role" value="A" required> Admin<br>
+                                            <input type="radio" id="roleA" name="role" value="A" required> Admin<br>
                                             </label>
 
                                         </td>

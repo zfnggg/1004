@@ -42,7 +42,7 @@ and open the template in the editor.
     <main>
         <section class="jumbotron text-center bg-light">
             <header>
-                <h2>DESTINATION: D'HOTEL</h2>
+                <h4>DESTINATION: D'HOTEL</h4>
             </header>
         </section>
 
@@ -58,7 +58,7 @@ and open the template in the editor.
                         <div class="col-sm-1"> </div> <!--  First Column -->
                         <div class="col-sm-10">
                             <div class="text-center textPadTop">
-                                <h4>Make D’Hotel your go-to destination for fun & relaxation! At Singapore’s first nature-inspired hotel with a Michelin Star restaurant, you can get away from the hustle and bustle of the city and enjoy quality time with your loved ones</h4>
+                                <h5>Make D’Hotel your go-to destination for fun & relaxation! At Singapore’s first nature-inspired hotel with a Michelin Star restaurant, you can get away from the hustle and bustle of the city and enjoy quality time with your loved ones</h5>
                             </div>
                         </div>
                         <div class="col-sm-1"></div>

@@ -16,7 +16,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 
 <head>
     <title>D'Hotel</title>
-    <meta charset = "UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
@@ -39,33 +39,33 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         ?>
     </header>
 
-    <section class="jumbotron text-center">
-        <h1>My Profile</h1>
-    </section>
+    <main>
+        <section class="jumbotron text-center">
+            <h1>My Profile</h1>
+        </section>
 
-    <section class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4 text-center">
-                <br>
-                <?php
-                //session_start();
-                $u = $_SESSION['MM_Username'];
-                require_once('../protected/config.php');
+        <section class="container-fluid text-center">
+            <div class="row content">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4 text-center">
+                    <br>
+                    <?php
+                    //session_start();
+                    $u = $_SESSION['MM_Username'];
+                    require_once('../protected/config.php');
 
-                $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-                $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
-                $sql->bind_param("s", $u);
-                $sql->execute();
-                $result = $sql->get_result();
-                //$search_result = mysqli_query($conn, $sql);
-                $userrecord = mysqli_fetch_assoc($result);
-                //mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                ?>
+                    $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+                    $sql = $conn->prepare("SELECT * FROM users WHERE username = ? ");
+                    $sql->bind_param("s", $u);
+                    $sql->execute();
+                    $result = $sql->get_result();
+                    //$search_result = mysqli_query($conn, $sql);
+                    $userrecord = mysqli_fetch_assoc($result);
+                    //mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                    ?>
 
-                <!-- onsubmit="return validateEditProfile()" -->
-                <form name="formeditprofile" method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data" onsubmit="return validateEditProfile()"
-                    <fieldset>
+                    <!-- onsubmit="return validateEditProfile()" -->
+                    <form name="formeditprofile" method="POST" action="editmyprofilerecord.php?action=add" enctype="multipart/form-data" onsubmit="return validateEditProfile()" <fieldset>
                         <table>
                             <tr>
                                 <td>
@@ -83,7 +83,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                             <tr>
                                 <td>
                                     <label for="password">Password:</label>
-                                    <input type="password" required name="password" id="password"/>
+                                    <input type="password" required name="password" id="password" />
                                 </td>
                             </tr>
                             <tr>
@@ -109,13 +109,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                         <input type="hidden" name="userID" value="<?php echo $userrecord['userID']; ?>">
                         <br>
                         <input type="submit" name="submit" value="Upload" class="btn btn-primary">
-                    </fieldset>
-                </form>
+                        </fieldset>
+                    </form>
 
+                </div>
+                <div class="col-sm-4"></div>
             </div>
-            <div class="col-sm-4"></div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <?php
     include "./footer.php";
