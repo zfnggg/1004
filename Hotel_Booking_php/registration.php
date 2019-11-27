@@ -44,7 +44,7 @@ and open the template in the editor.
             <h1>Registration</h1>
             <p>Please fill in this form to create an account.</p>
             <hr>
-            <form action="process_registration.php" method="post" name="formRegister" onsubmit="return validateRegistration()">
+            <form action="process_registration.php" method="post" name="formRegister" onsubmit="return validateRegistration()" enctype="multipart/form-data">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="customerName" required pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
 
