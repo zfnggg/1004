@@ -72,7 +72,7 @@ and open the template in the editor.
                 <hr>
                 <p>By creating an account you agree to our <a href="./tnp.php">Terms & Privacy</a>.</p>
 
-                <input type="submit" name="submit" value="Register" class="registerbtn-registration">
+                <input type="submit" name="submit" value="Upload" class="registerbtn-registration">
                 <br />
             </form>
 
