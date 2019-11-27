@@ -82,6 +82,7 @@ and open the template in the editor.
                     <div class="col-sm-4">
                         <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " alt="room" style="width:100%">
                         <h1><?php echo $data['roomType'] ?></h1>
+<p> Photo from Pixabay.com</p>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="glyphicon glyphicon-bed"></span>

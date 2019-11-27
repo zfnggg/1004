@@ -1,3 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+
+<head>
+    <title>D'Hotel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/icon" href="./img/favicon.ico" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+    <link href="css/main.css" rel="stylesheet" />
+    <!-- Own CSS Style Sheet-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <!-- Font Awesome Icons -->
+    <script defer src="js/main.js"></script>
+    <!-- Own Javascript -->
+</head>
+
+
+<body>
+
+    <header>
+        <?php
+        include "./navbaruser.php";
+        require_once('../protected/config.php');
+        $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+        ?>
+    </header>
+
 <?php
 
 if (!isset($_SERVER['HTTP_REFERER'])) {
@@ -10,7 +46,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 ?>
 <?php
 
-session_start();
+//session_start();
 
 require_once('../protected/config.php');
 
@@ -162,3 +198,13 @@ function sanitize_input($data) {
     return $data;
 }
 ?>
+    
+</body>
+
+<?php
+    include "./footer.php";
+    ?>
+
+</html>
+
+

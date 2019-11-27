@@ -50,7 +50,11 @@ $chart_data = substr($chart_data, 0, -2);
         <!-- Font Awesome Icons -->
         <script src='https://kit.fontawesome.com/a076d05399.js'></script> 
         <!-- Own Javascript -->
-        <script defer src="js/main.js"></script>  
+        <script defer src="js/main.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 </head>
 
 <body>

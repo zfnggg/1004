@@ -163,30 +163,27 @@ and open the template in the editor.
             }
         }
 
-        //Profile Picture-----------------------------------------------------------------------------------------------------------
-        if (empty($_POST['profilePicture'])) {
-            $errorMsg .= "Profile Picture is required.<br>";
-            $success = false;
-        }
 
-
-
-        if ($success) {
+require_once('../protected/config.php');
+            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
+        
+ if (isset($_POST["submit"]) == "Upload") {
             $cname = $_POST['customerName'];
             $uname = $_POST['username'];
             $pword = $_POST['password'];
             $cpword = $_POST['confirmPassword'];
             $email = $_POST['email'];
             $phoneno = $_POST['phoneNo'];
-            $profilepic = $_POST['profilePicture'];
+            //$profilepic = $_POST['profilePicture'];
             $role = $_POST['role'];
+             
+            $target_Folder = "images/";
+            $target_Path = $target_Folder . basename($_FILES['profilePicture']['name']);
+            $savepath = $target_Path . basename($_FILES['profilePicture']['name']);
+            $file_name = $_FILES['profilePicture']['name'];
+            $profilepic = "$target_Folder$file_name";
 
-            //require_once('/Applications/XAMPP/xamppfiles/protected/config.php');
-            require_once('../protected/config.php');
-
-
-            $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-
+            
             if (isset($uname)) {
                 $sql = $conn->prepare("SELECT * FROM users where username=? or email=? ");
                 $sql->bind_param("ss", $uname, $email);
@@ -202,8 +199,8 @@ and open the template in the editor.
                 } else {
                     $EncryptPassword = md5($pword);
                     $sql_insert = $conn->prepare("insert into users (customerName,username,password,email,phoneNo,role,profilePicture)
-						values(?,?,?,?,?,?,?)");
-
+                        values(?,?,?,?,?,?,?)");
+                    move_uploaded_file($_FILES['profilePicture']['tmp_name'], $target_Path);
                     $sql_insert->bind_param("ssssiss", $cname, $uname, $EncryptPassword, $email, $phoneno, $role, $profilepic);
                     $result = $sql->get_result();
                     echo "$result";
@@ -212,8 +209,9 @@ and open the template in the editor.
                     mysqli_close($conn);
                 }
             }
-        }
+        
 
+        }
 
         //SUCCESS
         if ($success) {
@@ -270,3 +268,4 @@ and open the template in the editor.
 
 
 </html>
+
