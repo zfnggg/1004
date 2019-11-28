@@ -4,14 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<?php
-if (!isset($_SERVER['HTTP_REFERER'])) {
-    // redirect them to your desired location
-    header('location:login.php');
-
-    exit;
-}
-?>
 <html lang="en">
 
 <head>
@@ -42,6 +34,13 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
     <header>
         <?php
         include "./navbaruser.php";
+
+        if (!isset($_SERVER['HTTP_REFERER'])) {
+            // redirect them to your desired location
+            header('location:login.php');
+
+            exit;
+        }
         ?>
     </header>
 

@@ -4,14 +4,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-<?php
-if (!isset($_SERVER['HTTP_REFERER'])) {
-    // redirect them to your desired location
-    header('location:login.php');
-    exit;
-}
-?>
 <html lang="en">
 
 <head>
@@ -42,6 +34,11 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <?php
         include "./navbaruser.php";
 
+        if (!isset($_SERVER['HTTP_REFERER'])) {
+            // redirect them to your desired location
+            header('location:login.php');
+            exit;
+        }
         //CRF Token 
         $_SESSION['_token'] = bin2hex(openssl_random_pseudo_bytes(16));
 
@@ -58,9 +55,14 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
         <section class="container-fluid text-center">
             <div class="row content">
                 <div class="col-sm-8 text-left">
-                    <a href="addcustomer.php?action=add" title=""><h5>Add Customer</h5></a>
+                    <a href="addcustomer.php?action=add" title="">
+                        <h2>Add Customer</h2>
+                    </a>
                     <br />
-                    <a href="searchcustomer.php?action=add" title=""><h5>Search Customer</h5></a>
+                    <a href="searchcustomer.php?action=add" title="">
+                        <h2>Search Customer</h2>
+                    </a>
+                    <br>
 
                     <?php
                     require_once('../protected/config.php');
@@ -75,7 +77,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                 <th>customer ID</th>
                                 <th>Customer Name</th>
                                 <th>Username</th>
-                               
+
                                 <th>Email</th>
                                 <th>Phone No</th>
                                 <th>Role</th>
@@ -97,7 +99,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     <td>
                                         <?php echo $data['username'] ?>
                                     </td>
-                                   
+
                                     <td>
                                         <?php echo $data['email'] ?>
                                     </td>
@@ -109,7 +111,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     </td>
                                     <td>
                                         <figure>
-                                        <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " alt="" width="100">
+                                            <img src="../Hotel_Booking_php/<?php echo $data['profilePicture'] ?> " alt="" width="100">
                                         </figure>
                                     </td>
                                     <td>

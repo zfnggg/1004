@@ -39,8 +39,10 @@ and open the template in the editor.
                 <p>Click here to <a href="./login.php">sign in</a></p>
             </div>
 
-            <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="background">
-            <figcaption>Photo from Pixabay.com</figcaption>
+            <figure>
+                <img src="img/bookroom1.jpg" class="mx-auto d-block img-fluid shrinkImageFam" alt="background">
+                <figcaption>Photo from Pixabay.com</figcaption>
+            </figure>
         </section>
     </main>
 

@@ -29,12 +29,12 @@ and open the template in the editor.
     <script defer src="js/main.js"></script>
 </head>
 
+
 <body>
     <header>
         <?php
         include "./navbaruser.php";
         ?>
-        <title>Check Login</title>
     </header>
 
 
@@ -98,7 +98,7 @@ and open the template in the editor.
 
                         mail($to, $subject, $message, $headers);
 
-                       
+
 
                         //        echo"<h2>Login Successfully</h2>";
                         //        echo"<p>Welcome Back,$fname <br>" ;
@@ -119,19 +119,19 @@ and open the template in the editor.
 
 
         <div class="container">
-            <p><?php
-                //checks if login session variable exist? If it does, display logout
-                if ($success == true) {
-                    echo "<p>We will send you an email shortly to $email</p>";
-                    echo "<form action ='index.php'>";
-                    echo "<input type='submit' value='Return to home'>";
-                    echo "</form>";
-                } else {
-                    echo "<h2>Oops!</h2>";
-                    echo "<h3>The following errors were detected: </h3>";
-                    echo "<p>$errorMsg</p>";
-                }
-                ?></p>
+            <?php
+            //checks if login session variable exist? If it does, display logout
+            if ($success == true) {
+                echo "<p>We will send you an email shortly to $email</p>";
+                echo "<form action ='index.php'>";
+                echo "<input type='submit' value='Return to home'>";
+                echo "</form>";
+            } else {
+                echo "<h2>Oops!</h2>";
+                echo "<h3>The following errors were detected: </h3>";
+                echo "<p>$errorMsg</p>";
+            }
+            ?>
         </div>
     </main>
 
@@ -139,7 +139,5 @@ and open the template in the editor.
     include "./footer.php";
     ?>
 </body>
-
-
 
 </html>

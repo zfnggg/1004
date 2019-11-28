@@ -63,15 +63,15 @@ and open the template in the editor.
                 ?>
             </h2>
         </div>
-        
+
         <!-- rooms -->
         <div class="container-fluid">
             <div class="row content">
                 <div class="col-sm-8">
                     <h2><?php echo $data['roomType'] ?></h2>
                     <figure>
-                    <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " style="width:100%" alt="Image of selected room">
-                    <figcaption>Photo from Pixabay.com</figcaption>
+                        <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " style="width:100%" alt="Image of selected room">
+                        <figcaption>Photo from Pixabay.com</figcaption>
                     </figure>
                     <br><br>
                 </div>
@@ -87,66 +87,58 @@ and open the template in the editor.
                         ?>
 
                         <form method="POST" name="bookroom" action="process_booking.php">
-                            <fieldset>
-                                <legend>
-                                    <h3>Total Payment</h3>
-                                </legend>
+                            <h3>Total Payment</h3>
 
-                                <label for="checkin">Check in :</label>
-                                <input type="date" id="checkin" name="check_in" required onchange="cal()">
-                                <br />
+                            <label for="checkin">Check in :</label>
+                            <input type="date" id="checkin" name="check_in" required onchange="cal()">
+                            <br />
 
-                                <label for="checkout">Check out :</label>
-                                <input type="date" id="checkout" name="check_out" required onchange="cal()">
-                                <br />
+                            <label for="checkout">Check out :</label>
+                            <input type="date" id="checkout" name="check_out" required onchange="cal()">
+                            <br />
 
-                                <label for="numdays">No of days :</label>
-                                <input type="text" id="numdays" name="num_days" readonly required>
-                                <br />
+                            <label for="numdays">No of days :</label>
+                            <input type="text" id="numdays" name="num_days" readonly required>
+                            <br />
 
-                                <label for="pax">No of pax :</label>
-                                <input type="text" id="pax" name="pax" pattern="^[0-9]$" required>
-                                <br />
+                            <label for="pax">No of pax :</label>
+                            <input type="text" id="pax" name="pax" pattern="^[0-9]$" required>
+                            <br />
 
+                            <label for="total">Total Charges : $</label>
+                            <input type="text" id="total" name="total_sum" readonly>
+                            <input type="hidden" id="status" name="status" value="going">
 
-                                <label for="total">Total Charges : $</label>
-                                <input type="text" id="total" name="total_sum" readonly>
-                                <input type="hidden" id="status" name="status" value="going">
+                            <h3>Personal Information</h3>
 
-                                <legend>
-                                    <h3>Personal Information</h3>
-                                </legend>
+                            <label for="customerName">Name :</label>
+                            <input type="text" id="customerName" name="customerName" value="<?php echo $customer['customerName']; ?>">
 
-                                <label for="customerName">Name :</label>
-                                <input type="text" name="customerName" value="<?php echo $customer['customerName']; ?>">
-                                <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
-                                <input type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
+                            <input type="hidden" name="userID" value="<?php echo $customer['userID']; ?>">
+                            <input type="hidden" name="roomID" value="<?php echo $data['roomID'] ?>">
 
 
-                                <legend>
-                                    <h3>Payment Details:</h3>
-                                </legend>
+                            <h3>Payment Details:</h3>
 
-                                <h4>Accepted Cards</h4>
-                                <div class="icon-container">
-                                    <i class="fa fa-cc-visa" style="color:navy;"></i>
-                                    <i class="fa fa-cc-amex" style="color:blue;"></i>
-                                    <i class="fa fa-cc-mastercard" style="color:red;"></i>
-                                    <i class="fa fa-cc-discover" style="color:orange;"></i>
-                                </div>
+                            <h4>Accepted Cards</h4>
+                            <div class="icon-container">
+                                <i class="fa fa-cc-visa" style="color:navy;"></i>
+                                <i class="fa fa-cc-amex" style="color:blue;"></i>
+                                <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                                <i class="fa fa-cc-discover" style="color:orange;"></i>
+                            </div>
 
-                                <label for="cardnumber">Credit card :</label>
-                                <input type="text" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required>
-                                <br />
+                            <label for="cardnumber">Credit Card :</label>
+                            <input type="text" id="cardnumber" name="cardnumber" maxlength="16" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?)$" placeholder="VISA ONLY" required>
+                            <br />
 
-                                <label for="expmonth">Valid Till :</label> 
-                                <input type="month" id="expmonth" name="expmonth" value="2019-11" required>
-                                <br />
+                            <label for="expmonth">Valid Till :</label>
+                            <input type="month" id="expmonth" name="expmonth" value="2019-11" required>
+                            <br />
 
-                                <label for="cvv">CVV :</label>
-                                <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required>
-                                <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
-                            </fieldset>
+                            <label for="cvv">CVV :</label>
+                            <input type="text" id="cvv" name="cvv" maxlength="3" pattern="^[0-9]{3}$" placeholder="352" required>
+                            <input type="submit" name="submit" class="btn btn-primary" onclick="myFunction()">
                         </form>
 
                         <script>
@@ -252,9 +244,9 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-sm-12">
                     <h1><small>Amenities</small></h1>
-                    <span class="glyphicon glyphicon-bed"></span>2 bed
+                    <span class="glyphicon glyphicon-bed"></span>2 Beds
                     <span class="glyphicon glyphicon-user"></span>2 Guests
-                    <span class="glyphicon glyphicon-cutlery"></span>Free Breakfast
+                    <span class="glyphicon glyphicon-cutlery"></span>Free Breakfast Included
                 </div>
             </div>
         </div>
@@ -265,24 +257,34 @@ and open the template in the editor.
             <h1><small>Around the hotel</small></h1>
             <div class="row">
                 <div class="col-sm-3">
-                    <img src="img/events.jpeg" class="img-responsive" style="width:100%; " alt="Image">
-                    <figcaption>Photo from Pixabay.com</figcaption>
-                    <p>Events</p>
+                    <figure>
+                        <img src="img/events.jpeg" class="img-responsive" style="width:100%; " alt="Image">
+                        <figcaption>
+                            Photo from Pixabay.com<br>Events
+                        </figcaption>
+                    </figure>
                 </div>
                 <div class="col-sm-3">
-                    <img src="img/dining.jpg" class="img-responsive" style="width:100%" alt="Image">
-                    <figcaption>Photo from Pixabay.com</figcaption>
-                    <p>Dining</p>
+                    <figure>
+                        <img src="img/dining.jpg" class="img-responsive" style="width:100%" alt="Image">
+                        <figcaption>
+                            Photo from Pixabay.com<br>Dining
+                        </figcaption>
+                    </figure>
                 </div>
                 <div class="col-sm-3">
-                    <img src="img/rest.jpeg" class="img-responsive" style="width:100%" alt="Image">
-                    <figcaption>Photo from Pixabay.com</figcaption>
-                    <p>Restaurants</p>
+                    <figure>
+                        <img src="img/rest.jpeg" class="img-responsive" style="width:100%" alt="Image">
+                        <figcaption>
+                            Photo from Pixabay.com<br>Restaurants
+                        </figcaption>
+                    </figure>
                 </div>
                 <div class="col-sm-3">
-                    <img src="img/bar.jpg" class="img-responsive" style="width:100%" alt="Image">
-                    <figcaption>Photo from Pixabay.com</figcaption>
-                    <p>Bar</p>
+                    <figure>
+                        <img src="img/bar.jpg" class="img-responsive" style="width:100%" alt="Image">
+                        <figcaption>Photo from Pixabay.com<br>Bar</figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
@@ -290,7 +292,7 @@ and open the template in the editor.
         <hr>
         <!--comments container-->
         <div class="container-fluid">
-            <h1><small>What others say:</small></h1>
+            <h1>Reviews By Our Guests</h1>
             <br>
             <p><span class="badge">2</span> Comments:</p><br>
             <div class="row">
@@ -298,7 +300,7 @@ and open the template in the editor.
                     <span class="glyphicon glyphicon-user"></span>
                 </div>
                 <div class="col-sm-10">
-                    <h4>Tom <small>Oct 2, 2019, 9:12 PM</small></h4>
+                    <h2>Tom <small>Oct 2, 2019, 9:12 PM</small></h2>
                     <p> very clean and spacious!</p>
                     <br>
                 </div>
@@ -306,7 +308,7 @@ and open the template in the editor.
                     <span class="glyphicon glyphicon-user"></span>
                 </div>
                 <div class="col-sm-10">
-                    <h4>Mary <small>Oct 5, 2019, 8:25 PM</small></h4>
+                    <h2>Mary <small>Oct 5, 2019, 8:25 PM</small></h2>
                     <p>Service was excellent! will come again!</p>
                     <br>
                     <p><span class="badge">1</span> Comment:</p><br>
@@ -315,7 +317,7 @@ and open the template in the editor.
                             <span class="glyphicon glyphicon-user"></span>
                         </div>
                         <div class="col-xs-10">
-                            <h4>John <small>Sep 27, 2019, 8:28 PM</small></h4>
+                            <h2>John <small>Sep 27, 2019, 8:28 PM</small></h2>
                             <p>Definitely.</p>
                             <br>
                         </div>
@@ -330,7 +332,6 @@ and open the template in the editor.
         ?>
     </main>
 
-</html>
 </body>
 
 </html>
