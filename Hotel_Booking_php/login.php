@@ -41,7 +41,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-6">
                     <h3>Login</h3>
-                    <form action="checklogin.php" method="post" name="formlogin" novalidate>
+                    <form action="checklogin.php" onsubmit="return validateLoginForm()" method="post" name="formlogin" novalidate>
 
                         <label for="username">Username</label>
                         <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
