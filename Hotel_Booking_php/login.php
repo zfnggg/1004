@@ -41,13 +41,13 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-6">
                     <h3>Login</h3>
-                    <form action="checklogin.php" onsubmit="return validateLoginForm()" method="post" name="formlogin" novalidate>
+                    <form action="checklogin.php" onsubmit="return validateLoginForm()" method="post" name="formlogin" >
 
                         <label for="username">Username</label>
-                        <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
+                        <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required>
 
                         <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Password" name="password" autocomplete="current-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$">
+                        <input type="password" id="password" placeholder="Password" name="password" autocomplete="current-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$" required>
 
                         <div class="elem-group">
                             <label for="captcha-image">Please Enter the Captcha Text</label>
@@ -84,7 +84,7 @@ and open the template in the editor.
 
         <div id="id01" class="modal">
             <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-            <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
+            <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" >
                 <div class="container">
                     <h1>Forget Password</h1>
                     <p>Please fill in this form to get a new password.</p>
