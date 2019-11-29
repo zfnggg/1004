@@ -41,7 +41,7 @@ and open the template in the editor.
     <main>
         <?php
 
-        // Constants for accessing our DB: 
+        // Constants for accessing our DB:
         define("DBHOST", "161.117.122.252");
         define("DBNAME", "p1_4");
         define("DBUSER", "p1_4");
@@ -49,7 +49,16 @@ and open the template in the editor.
         $errorMsg = $pass =  "";
         $email = sanitize_input($_POST["email"]);
         $success = true;
-
+            
+       function generateRandomString($length = 15) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 
         function sanitize_input($data)
         {
@@ -64,7 +73,7 @@ and open the template in the editor.
             $success = false;
         } else {
             $email = sanitize_input($_POST["email"]);
-            //To check if the email address is well formed 
+            //To check if the email address is well formed
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $errorMsg .= "Invalid email format.";
                 $success = false;
@@ -72,37 +81,49 @@ and open the template in the editor.
                 //Create connection
                 $conn = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
 
-                //Check connection 
+                //Check connection
                 if ($conn->connect_error) {
                     $errorMsg = "Connection failed: " . $conn->connect_error;
                     $success = false;
                 } else {
                     $sql = "SELECT * FROM users WHERE ";
                     $sql .= "email = '$email'";
-
-                    //Execute the query 
+                    
+                    //Execute the query
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
-                        //Note that email field is unique, so should only have 
-                        //one row in the result set. 
+                        //Note that email field is unique, so should only have
+                        //one row in the result set.
                         $row = $result->fetch_assoc();
                         $email = $row["email"];
                         $pass = md5($row["password"]);
-
+                        
+                        $code=generateRandomString();
+                        
                         $to = $email;
                         $subject = "Your Recovered Password";
-                        $message = "Please use this password to login " . $pass;
+                        $message = "Please use this password to login " . $code;
                         $headers =  'MIME-Version: 1.0' . "\r\n";
                         $headers .= 'From: Hotel Booking <hotelbooking@mail.com>' . "\r\n";
                         $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-                        mail($to, $subject, $message, $headers);
+                       $mml = mail($to, $subject, $message, $headers);
 
+                        if($mml){
+                        mysqli_query($conn,"UPDATE users SET password='".md5($code)."' where email='".$_POST['email']."'");
+
+                                    echo '<div class="alert alert-success">
+                                              <strong>New Password Has Been Sent to Your Mail!</strong> Check Your Inbox.
+                                            </div>';} else {
+                        echo '<div class="alert alert-warning">
+                                              <strong>Timeout, Try again later!</strong>.
+                                            </div>';
+                        }
 
 
                         //        echo"<h2>Login Successfully</h2>";
                         //        echo"<p>Welcome Back,$fname <br>" ;
-                        //        
+                        //
                         //        echo"<form action ='index.php'>";
                         //        echo "<input type='submit' value='Return to home'>";
                         //        echo"</form>";
@@ -141,3 +162,4 @@ and open the template in the editor.
 </body>
 
 </html>
+

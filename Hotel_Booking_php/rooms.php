@@ -48,19 +48,20 @@ and open the template in the editor.
     </header>
 
     <main>
-        <section class="jumbotron text-center">
-            <h1>Rooms</h1>
-            <form method="post">
-                <?php
-                if ($r == 'A') {
-                    ?> <a href="./adminonly.php" title="manage">Manage</a>
-                <?php
-                }
-                ?>
-            </form>
-            
-            <p>Click <a href="./checkroom.php">Here</a> To Check Room Availability</p>
-        </section>
+        <article>
+            <div class="jumbotron text-center">
+                <h1>Rooms</h1>
+                <form method="post">
+                    <?php
+                    if ($r == 'A') {
+                        ?> <a href="./adminonly.php" title="manage">Manage</a>
+                    <?php
+                    }
+                    ?>
+                </form>
+                <p>Click <a href="./checkroom.php">Here</a> To Check Room Availability</p>
+            </div>
+        </article>
 
 
         <!--Display of Rooms-->
@@ -80,8 +81,8 @@ and open the template in the editor.
                     ?>
                     <div class="col-sm-4">
                         <figure>
-                            <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " alt="" style="width:100%">
-                            <figcaption>Photo from Pixabay.com</figcaption>
+                        <img src="../Hotel_Booking_php/img/<?php echo $data['roomImg'] ?> " alt="" style="width:100%">
+                        <figcaption>Photo from Pixabay.com</figcaption>
                         </figure>
                         <h1><?php echo $data['roomType'] ?></h1>
                         <span class="glyphicon glyphicon-user"></span>

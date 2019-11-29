@@ -29,14 +29,14 @@ and open the template in the editor.
     <script defer src="js/main.js"></script>
 </head>
 
-
+<header>
+    <?php
+    include "./navbaruser.php";
+    ?>
+</header>
 
 <body>
-    <header>
-        <?php
-        include "./navbaruser.php";
-        ?>
-    </header>
+
     <main>
         <?php
         //Just for MAC, for windows need to change accordingly 
@@ -110,7 +110,7 @@ and open the template in the editor.
             echo "<section class=row>";
             echo "<div class='col-sm-3'></div>";
             echo "<div class='col-sm-6'>";
-            echo "<h3>The following errors were detected:</h3>";
+            echo "<h3>The following errors were detected:<h3>";
             echo "<h4> $errorMsg </h4>";
             echo "</div>";
             echo "<div class='col-sm-3'></div>";
@@ -167,14 +167,14 @@ and open the template in the editor.
                 echo "<br>";
                 echo "</section>";
 
-                echo "<div class=row>";
+                echo "<section class=row>";
                 echo "<div class='col-sm-5'></div>";
                 echo "<div class='col-sm-2'>";
                 echo ("<button onclick=\"location.href='./login.php'\">Return to Login</button>");
                 echo "</div>";
                 echo "<div class='col-sm-5'></div>";
                 echo "</div>";
-                echo "</div>";
+                echo "</section>";
                 echo "<hr>";
             }
             $sql->close();

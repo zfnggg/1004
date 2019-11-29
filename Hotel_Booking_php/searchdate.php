@@ -4,6 +4,15 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+if (!isset($_SERVER['HTTP_REFERER'])) {
+    // redirect them to your desired location
+    header('location:login.php');
+
+    exit;
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -31,12 +40,6 @@ and open the template in the editor.
     <header>
         <?php
         include "./navbaruser.php";
-        if (!isset($_SERVER['HTTP_REFERER'])) {
-            // redirect them to your desired location
-            header('location:login.php');
-
-            exit;
-        }
         ?>
     </header>
 
@@ -53,8 +56,9 @@ and open the template in the editor.
                 <div class="col-sm-2"></div>
                 <div class="col-sm-8 text-left">
                     <form name="search" method="post" action="searchdate.php">
-                        <label for="searchdate">Search Booking by Date:</label>
-                        <input type="date" id="searchdate" name="searchdate" required>
+                        <label for="searchdate">Search Booking by Date:
+                            <input type="date" id="searchdate" name="searchdate" required>
+                        </label>
                         <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
 
                         <?php

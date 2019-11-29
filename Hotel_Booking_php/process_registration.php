@@ -209,6 +209,7 @@ and open the template in the editor.
 
         //SUCCESS
         if ($success) {
+            echo "<body>";
             echo "<section class=row>";
             echo "<div class='col-sm-2'></div>";
             echo "<div class='col-sm-8'>";
@@ -226,8 +227,10 @@ and open the template in the editor.
             echo "<div class='col-sm-5'></div>";
             echo "</div>";
             echo "</section>";
+            echo "</body>";
             echo "<hr>";
         } else {
+            echo "<body>";
             echo "<section class=row>";
             echo "<div class='col-sm-3'></div>";
             echo "<div class='col-sm-6'>";
@@ -246,6 +249,7 @@ and open the template in the editor.
             echo "<div class='col-sm-5'></div>";
             echo "</div>";
             echo "</section>";
+            echo "</body>";
             echo "<hr>";
         }
         ?>

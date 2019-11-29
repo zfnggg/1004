@@ -29,14 +29,14 @@ and open the template in the editor.
     <script defer src="js/main.js"></script>
 </head>
 
+<header>
+    <?php
+    include "./navbaruser.php";
+    ?>
+</header>
+
+
 <body>
-    <header>
-        <?php
-        include "./navbaruser.php";
-        ?>
-    </header>
-
-
     <main>
 
         <!-- Title for Dining-->
@@ -122,5 +122,4 @@ and open the template in the editor.
     ?>
 
 </body>
-
 </html>

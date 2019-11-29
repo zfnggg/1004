@@ -4,6 +4,15 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
+<?php
+if (!isset($_SERVER['HTTP_REFERER'])) {
+    // redirect them to your desired location
+    header('location:login.php');
+
+    exit;
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -34,12 +43,6 @@ and open the template in the editor.
     <header>
         <?php
         include "./navbaruser.php";
-        if (!isset($_SERVER['HTTP_REFERER'])) {
-            // redirect them to your desired location
-            header('location:login.php');
-
-            exit;
-        }
         ?>
     </header>
 
@@ -56,9 +59,10 @@ and open the template in the editor.
                 <div class="row content">
                     <div class="col-sm-8 text-centre">
                         <form name="search" method="post" action="searchusername.php">
-                            <label for="search">Search Booking by Username:</label>
-                            <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
+                            <label for="search">Search Booking by Username:
+                                <input type="text" id="search" pattern="^(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" name="search" size="40" required />
 
+                            </label>
                             <button type="submit" class="btn btn-primary" onclick="myFunction()"> <span>Search </span></button>
                         </form>
 

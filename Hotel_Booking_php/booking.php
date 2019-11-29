@@ -125,8 +125,8 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                                     </td>
 
                                     <td>
-                                        <!-- action="editbookingrecord.php" -->
-                                        <form name="booking" action="editbookingrecord.php" method="post">
+                                        
+                                        <form name="booking" method="post" action="editbookingrecord.php" novalidate>
                                             <input name="cid" type="hidden" value="<?php echo $data['bookingID'] ?>">
                                             <br />
                                             <label>

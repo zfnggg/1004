@@ -32,7 +32,7 @@ and open the template in the editor.
     </header>
 
     <section>
-        <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()">
+        <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
             <div class="container">
                 <h1>Forget Password</h1>
                 <p>Please fill in this form to get a new password.</p>

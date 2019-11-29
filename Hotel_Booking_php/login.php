@@ -41,13 +41,13 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-md-6">
                     <h3>Login</h3>
-                    <form action="checklogin.php" onsubmit="return validateLoginForm()" method="post" name="formlogin" >
+                    <form action="checklogin.php" method="post" name="formlogin" novalidate>
 
                         <label for="username">Username</label>
-                        <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$" required>
+                        <input type="text" id="username" placeholder="Username" name="username" required pattern="(?=.{1,40}$)[a-zA-Z]+(?:[-'\s][a-zA-Z]+)*$">
 
                         <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Password" name="password" autocomplete="current-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$" required>
+                        <input type="password" id="password" placeholder="Password" name="password" autocomplete="current-password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,30}$">
 
                         <div class="elem-group">
                             <label for="captcha-image">Please Enter the Captcha Text</label>
@@ -84,14 +84,14 @@ and open the template in the editor.
 
         <div id="id01" class="modal">
             <span onclick="document.getElementById('id01').style.display = 'none'" class="close" title="Close Modal">&times;</span>
-            <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" >
+            <form action="checkforgetpassword.php" method="post" name="formforgetpass" class="modal-content" onsubmit="return validateForgetPasswordForm()" novalidate>
                 <div class="container">
                     <h1>Forget Password</h1>
                     <p>Please fill in this form to get a new password.</p>
                     <hr>
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" id="email" required>
-                    <p>We send you a email to reset your password. </p>
+                    <p>We send you a email to restart your password. </p>
                     <div class="clearfix">
                         <button type="button" onclick="myFunction()" class="cancelbtn">Cancel</button>
                         <button name="submit" type="submit" class="sendemailbtn">Send Email</button>
