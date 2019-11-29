@@ -63,7 +63,6 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
                 $mycart1 = mysqli_query($conn, $sqlpic) or die(mysqli_error($conn));
                 $data1 = mysqli_fetch_assoc($mycart1); ?>
                 <img src="../Hotel_Booking_php/<?php echo $data1['profilePicture'] ?> " alt="image" width="100">
-<p>picture from pixabay</p>
             </div>
         </section>
 
