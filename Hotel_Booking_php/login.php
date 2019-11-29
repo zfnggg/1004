@@ -91,7 +91,7 @@ and open the template in the editor.
                     <hr>
                     <label for="email"><b>Email</b></label>
                     <input type="text" placeholder="Enter Email" name="email" id="email" required>
-                    <p>We send you a email to restart your password. </p>
+                    <p>We send you a email to reset your password. </p>
                     <div class="clearfix">
                         <button type="button" onclick="myFunction()" class="cancelbtn">Cancel</button>
                         <button name="submit" type="submit" class="sendemailbtn">Send Email</button>
